@@ -109,18 +109,22 @@ function getTonightMidnight() {
 }
 
 function useStickyBarVisible() {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
   useEffect(() => {
     const check = () => {
       const el = document.getElementById("pricing");
-      // show bar while pricing is below the viewport
-      setShow(!el || el.getBoundingClientRect().top >= window.innerHeight * 0.95);
+      if (!el) { setShow(true); return; }
+      setShow(el.getBoundingClientRect().top > window.innerHeight * 0.5);
     };
-    check();
     window.addEventListener("scroll", check, { passive: true });
     return () => window.removeEventListener("scroll", check);
   }, []);
   return show;
+}
+
+function scrollToPricing(e: React.MouseEvent) {
+  e.preventDefault();
+  document.getElementById("pricing")?.scrollIntoView({ behavior: "instant" });
 }
 
 export default function Page() {
@@ -137,7 +141,7 @@ export default function Page() {
         <div className="max-w-6xl mx-auto px-5 py-3.5 flex items-center justify-between">
           <Image src="/assets/logo-nexia.svg" alt="nexIA" width={110} height={25} priority />
           <a
-            href="#pricing"
+            href="#pricing" onClick={scrollToPricing}
             className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#C9D400]/40 text-[#C9D400] hover:bg-[#C9D400] hover:text-[#090909] transition-colors text-sm font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9D400]"
           >
             Ver oferta <ArrowRight className="w-4 h-4" aria-hidden="true" />
@@ -200,7 +204,7 @@ export default function Page() {
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.35 }}
             className="flex flex-col items-center gap-4 max-w-md mx-auto">
-            <a href="#pricing"
+            <a href="#pricing" onClick={scrollToPricing}
               className="pulse-cta flex items-center justify-between gap-3 w-full px-5 py-4 rounded-full font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9D400] focus-visible:ring-offset-2 focus-visible:ring-offset-[#090909]"
               style={{ background: "#C9D400", color: "#090909" }}>
               <div className="flex items-center gap-2.5 text-left">
@@ -662,7 +666,7 @@ export default function Page() {
       {stickyBarVisible && (
         <div className="md:hidden fixed bottom-0 inset-x-0 z-50 backdrop-blur-xl px-4 pt-3"
           style={{ background: "rgba(20,20,20,.95)", borderTop: "1px solid rgba(201,212,0,.25)", paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))" }}>
-          <a href="#pricing"
+          <a href="#pricing" onClick={scrollToPricing}
             className="flex items-center justify-between gap-3 px-5 py-3 rounded-full font-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9D400]"
             style={{ background: "#C9D400", color: "#090909" }}>
             <div className="text-left">
