@@ -14,7 +14,6 @@
 }
 
 html {
-  scroll-behavior: smooth;
   overflow-x: hidden;
   color-scheme: dark;
 }
@@ -53,6 +52,19 @@ body {
 }
 .ticker-track { animation: ticker 30s linear infinite; }
 @media (prefers-reduced-motion: reduce) { .ticker-track { animation: none; } }
+
+/* Pulsing CTA ring — yellow button on dark bg */
+@keyframes pulse-ring {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201,212,0,.55), 0 0 40px rgba(201,212,0,.25); }
+  50%       { box-shadow: 0 0 0 9px rgba(201,212,0,0),  0 0 40px rgba(201,212,0,.25); }
+}
+.pulse-cta { animation: pulse-ring 2.2s ease-in-out infinite; }
+
+/* Pulsing CTA ring — dark button on yellow bg */
+@keyframes pulse-ring-dark {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0,0,0,.4); }
+  50%       { box-shadow: 0 0 0 9px rgba(0,0,0,0); }
+}
 
 /* FAQ marker */
 details summary::-webkit-details-marker { display: none; }

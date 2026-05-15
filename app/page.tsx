@@ -83,6 +83,15 @@ const faqs = [
   { q: "Em quanto tempo vejo resultados?", a: "Alunos que seguem os cursos na sequência e praticam relatam os primeiros resultados em 7 a 14 dias. Resultados financeiros mais expressivos costumam aparecer entre o 1º e 3º mês." },
 ];
 
+const videos = [
+  { src: "/assets/videos/video-01.webm", poster: "/assets/video-01.webp" },
+  { src: "/assets/videos/video-02.mp4",  poster: "/assets/video-02.webp" },
+  { src: "/assets/videos/video-03.mp4",  poster: "/assets/video-03.webp" },
+  { src: "/assets/videos/video-04.webm", poster: "/assets/video-04.webp" },
+  { src: "/assets/videos/video-05.webm", poster: "/assets/video-05.webp" },
+  { src: "/assets/videos/video-06.webm", poster: "/assets/video-06.webp" },
+];
+
 const tickerItems = ["Acesso Vitalício", "14 Cursos Completos", "Comunidade de Alunos", "Atualizações Grátis", "Aulas ao Vivo", "Garantia 30 Dias", "Sem Mensalidade", "Suporte Contínuo"];
 
 const valueStack = [
@@ -185,8 +194,8 @@ export default function Page() {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.35 }}
             className="flex flex-col items-center gap-4 max-w-md mx-auto">
             <a href="#pricing"
-              className="flex items-center justify-between gap-3 w-full px-5 py-4 rounded-full font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9D400] focus-visible:ring-offset-2 focus-visible:ring-offset-[#090909]"
-              style={{ background: "#C9D400", color: "#090909", boxShadow: "0 0 40px rgba(201,212,0,.3)" }}>
+              className="pulse-cta flex items-center justify-between gap-3 w-full px-5 py-4 rounded-full font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9D400] focus-visible:ring-offset-2 focus-visible:ring-offset-[#090909]"
+              style={{ background: "#C9D400", color: "#090909" }}>
               <div className="flex items-center gap-2.5 text-left">
                 <span aria-hidden>🔒</span>
                 <div>
@@ -276,6 +285,40 @@ export default function Page() {
                 style={{ background: "#141414", border: "1px solid rgba(255,255,255,.08)" }}>
                 <div className="text-4xl mb-5" aria-hidden>{c.icon}</div>
                 <p className="text-sm leading-relaxed italic" style={{ color: "#a1a1aa" }}>{c.text}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* VÍDEOS */}
+      <section className="py-20 md:py-32" style={{ background: "#090909", borderTop: "1px solid rgba(255,255,255,.05)" }}>
+        <div className="max-w-6xl mx-auto px-5">
+          <motion.div {...fadeUp} className="text-center mb-12">
+            <div className="inline-block text-[11px] font-bold tracking-[.16em] uppercase mb-5 px-3 py-1 rounded"
+              style={{ color: "#C9D400", border: "1px solid rgba(201,212,0,.3)" }}>O QUE VOCÊ VAI CRIAR</div>
+            <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-balance">
+              Trabalhos reais,<br /><span className="text-gradient">feitos com IA.</span>
+            </h2>
+            <p className="mt-4 text-base max-w-xl mx-auto" style={{ color: "#a1a1aa" }}>
+              Esses são exemplos do que você vai dominar — criados pelos métodos ensinados no nexIA.
+            </p>
+          </motion.div>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+            {videos.map((v, i) => (
+              <motion.div key={i} {...useFadeUp((i % 3) * 0.08)}
+                className="rounded-2xl overflow-hidden"
+                style={{ background: "#141414", border: "1px solid rgba(255,255,255,.08)" }}>
+                <video
+                  src={v.src}
+                  poster={v.poster}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="w-full h-full object-cover block"
+                  style={{ aspectRatio: "9/16", display: "block" }}
+                />
               </motion.div>
             ))}
           </div>
@@ -466,8 +509,8 @@ export default function Page() {
               style={{ fontSize: "clamp(4.5rem,13vw,8rem)" }}>R$20,25</div>
             <div className="text-base font-semibold mb-8" style={{ color: "rgba(0,0,0,.6)" }}>ou R$197 à vista no PIX</div>
             <a href={checkoutUrl}
-              className="inline-flex items-center gap-2 self-start px-7 py-4 rounded-full font-black text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#090909]"
-              style={{ background: "#090909", color: "#C9D400" }}>
+              className="inline-flex items-center gap-2 self-start px-7 py-4 rounded-full font-black text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#090909]"
+              style={{ background: "#090909", color: "#C9D400", animation: "pulse-ring-dark 2.2s ease-in-out infinite" }}>
               GARANTIR ACESSO VITALÍCIO <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </a>
             <div className="flex items-start gap-3 rounded-xl p-4 mt-6"
