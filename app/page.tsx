@@ -126,6 +126,16 @@ export default function Page() {
   const countdown = useCountdown(target);
   const fadeUp = useFadeUp();
   const pricingVisible = usePricingVisible();
+  const [bgReady, setBgReady] = useState(false);
+  useEffect(() => {
+    const ric = (window as Window & { requestIdleCallback?: (cb: () => void) => number }).requestIdleCallback;
+    if (ric) {
+      const id = ric(() => setBgReady(true));
+      return () => (window as Window & { cancelIdleCallback?: (id: number) => void }).cancelIdleCallback?.(id);
+    }
+    const id = setTimeout(() => setBgReady(true), 300);
+    return () => clearTimeout(id);
+  }, []);
 
   return (
     <>
@@ -144,19 +154,22 @@ export default function Page() {
 
       {/* HERO */}
       <section className="relative min-h-[100dvh] flex flex-col justify-center pt-20 pb-16 overflow-hidden">
-        {/* Masonry BG */}
+        {/* Masonry BG — deferred until idle to not compete with LCP */}
         <div aria-hidden className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div style={{
-            columns: 5, columnGap: 6, position: "absolute", inset: "-8% -6%",
-            opacity: 0.28, filter: "saturate(0.45) brightness(0.7)",
-            transform: "perspective(900px) rotateX(9deg) rotateY(-5deg) scale(1.05)",
-            transformOrigin: "50% 0%",
-          }}>
-            {Array.from({ length: 28 }).map((_, i) => (
-              <img key={i} src={`/assets/cursos/curso-${String((i % 14) + 1).padStart(2, "0")}.webp`} alt=""
-                style={{ width: "100%", display: "block", borderRadius: 6, marginBottom: 6, breakInside: "avoid" as const }} />
-            ))}
-          </div>
+          {bgReady && (
+            <div style={{
+              columns: 5, columnGap: 6, position: "absolute", inset: "-8% -6%",
+              opacity: 0.28, filter: "saturate(0.45) brightness(0.7)",
+              transform: "perspective(900px) rotateX(9deg) rotateY(-5deg) scale(1.05)",
+              transformOrigin: "50% 0%",
+            }}>
+              {courses.map((c) => (
+                <img key={c.id} src={`/assets/cursos/curso-${String(c.id).padStart(2, "0")}.webp`} alt=""
+                  decoding="async" fetchPriority="low"
+                  style={{ width: "100%", display: "block", borderRadius: 6, marginBottom: 6, breakInside: "avoid" as const }} />
+              ))}
+            </div>
+          )}
           <div style={{
             position: "absolute", inset: 0,
             background: "radial-gradient(ellipse 60% 55% at 50% 44%, rgba(9,9,9,.82) 0%, rgba(9,9,9,.4) 60%, transparent 100%), linear-gradient(to bottom, rgba(9,9,9,.9) 0%, transparent 22%, transparent 65%, rgba(9,9,9,1) 100%), linear-gradient(to right, rgba(9,9,9,.95) 0%, transparent 20%, transparent 80%, rgba(9,9,9,.95) 100%)",
