@@ -162,15 +162,15 @@ export default function Page() {
               position: "absolute", inset: "-10% -8%",
               width: "116%", height: "120%",
               objectFit: "cover",
-              opacity: 0.32,
-              filter: "saturate(0.5) brightness(0.65)",
+              opacity: 0.55,
+              filter: "saturate(0.7) brightness(0.85)",
               transform: "perspective(900px) rotateX(9deg) rotateY(-5deg) scale(1.05)",
               transformOrigin: "50% 0%",
             }}
           />
           <div style={{
             position: "absolute", inset: 0,
-            background: "radial-gradient(ellipse 60% 55% at 50% 44%, rgba(9,9,9,.82) 0%, rgba(9,9,9,.4) 60%, transparent 100%), linear-gradient(to bottom, rgba(9,9,9,.9) 0%, transparent 22%, transparent 65%, rgba(9,9,9,1) 100%), linear-gradient(to right, rgba(9,9,9,.95) 0%, transparent 20%, transparent 80%, rgba(9,9,9,.95) 100%)",
+            background: "radial-gradient(ellipse 55% 50% at 50% 44%, rgba(9,9,9,.75) 0%, rgba(9,9,9,.25) 60%, transparent 100%), linear-gradient(to bottom, rgba(9,9,9,.85) 0%, transparent 25%, transparent 60%, rgba(9,9,9,1) 100%), linear-gradient(to right, rgba(9,9,9,.9) 0%, transparent 22%, transparent 78%, rgba(9,9,9,.9) 100%)",
           }} />
         </div>
 
