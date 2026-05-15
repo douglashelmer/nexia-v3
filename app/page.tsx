@@ -12,7 +12,7 @@ const CHECKOUT = "https://payfast.greenn.com.br/mzn9ucy/offer/EYS2Ud?ch_id=13688
 
 const HERO_PHRASES = [
   "Ganhe dinheiro real.",
-  "Sem precisar de equipamento.",
+  "Sem precisar de equipamento caro.",
   "Produza 10× mais rápido.",
   "Domine o mercado criativo.",
   "Venda mais com IA.",
