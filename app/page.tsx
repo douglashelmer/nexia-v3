@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import {
   ArrowRight, CheckCircle2, XCircle, Shield, Zap,
@@ -9,6 +9,53 @@ import {
 } from "lucide-react";
 
 const CHECKOUT = "https://payfast.greenn.com.br/mzn9ucy/offer/EYS2Ud?ch_id=136886";
+
+const HERO_PHRASES = [
+  "Ganhe dinheiro real.",
+  "Sem precisar de equipamento.",
+  "Produza 10× mais rápido.",
+  "Domine o mercado criativo.",
+  "Venda mais com IA.",
+];
+
+function useTypewriter(phrases: string[]) {
+  const reduce = useReducedMotion();
+  const [text, setText] = useState(phrases[0]);
+  const stateRef = useRef({ phrase: 0, char: phrases[0].length, deleting: false });
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    if (reduce) return;
+    const tick = () => {
+      const s = stateRef.current;
+      const current = phrases[s.phrase];
+      if (!s.deleting) {
+        if (s.char < current.length) {
+          s.char++;
+          setText(current.slice(0, s.char));
+          timerRef.current = setTimeout(tick, 55 + Math.random() * 35);
+        } else {
+          s.deleting = true;
+          timerRef.current = setTimeout(tick, 2400);
+        }
+      } else {
+        if (s.char > 0) {
+          s.char--;
+          setText(current.slice(0, s.char));
+          timerRef.current = setTimeout(tick, 28 + Math.random() * 18);
+        } else {
+          s.deleting = false;
+          s.phrase = (s.phrase + 1) % phrases.length;
+          timerRef.current = setTimeout(tick, 350);
+        }
+      }
+    };
+    timerRef.current = setTimeout(tick, 2600);
+    return () => { if (timerRef.current) clearTimeout(timerRef.current); };
+  }, [phrases, reduce]);
+
+  return text;
+}
 
 function useCheckout() {
   const [url, setUrl] = useState(CHECKOUT);
@@ -136,6 +183,7 @@ export default function Page() {
   const countdown = useCountdown(target);
   const fadeUp = useFadeUp();
   const stickyBarVisible = useStickyBarVisible();
+  const typedText = useTypewriter(HERO_PHRASES);
 
   return (
     <>
@@ -193,10 +241,11 @@ export default function Page() {
           </motion.div>
 
           <motion.h1 initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, delay: 0.1 }}
-            className="font-black tracking-tighter leading-[0.92] mb-6 text-balance"
+            className="font-black tracking-tighter leading-[0.92] mb-6"
             style={{ fontSize: "clamp(3rem, 11vw, 8rem)" }}>
             Domine IA.<br />
-            <span className="text-gradient">Ganhe dinheiro real.</span>
+            <span className="text-gradient">{typedText}</span>
+            <span className="typing-cursor" aria-hidden="true" />
           </motion.h1>
 
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.25 }}
