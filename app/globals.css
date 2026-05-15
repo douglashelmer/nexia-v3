@@ -62,8 +62,26 @@ body {
 
 /* Pulsing CTA ring — dark button on yellow bg */
 @keyframes pulse-ring-dark {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(0,0,0,.4); }
-  50%       { box-shadow: 0 0 0 9px rgba(0,0,0,0); }
+  0%, 100% { box-shadow: 0 6px 0 rgba(0,0,0,.55), 0 0 0 0 rgba(0,0,0,.35); }
+  50%       { box-shadow: 0 6px 0 rgba(0,0,0,.55), 0 0 0 10px rgba(0,0,0,0); }
+}
+
+/* 3D button */
+.btn-3d {
+  box-shadow: 0 6px 0 rgba(0,0,0,.55);
+  transform: translateY(0);
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+.btn-3d:hover {
+  box-shadow: 0 8px 0 rgba(0,0,0,.55);
+  transform: translateY(-2px);
+}
+.btn-3d:active {
+  box-shadow: 0 2px 0 rgba(0,0,0,.55);
+  transform: translateY(4px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn-3d, .btn-3d:hover, .btn-3d:active { transform: none; transition: none; }
 }
 
 /* FAQ marker */

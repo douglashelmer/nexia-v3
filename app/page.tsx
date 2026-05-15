@@ -510,9 +510,10 @@ export default function Page() {
             <div className="text-base font-semibold mb-8" style={{ color: "rgba(0,0,0,.6)" }}>ou R$197 à vista no PIX</div>
             <a href={checkoutUrl}
               id="cta-pricing"
-              className="cta-checkout inline-flex items-center gap-2 self-start px-7 py-4 rounded-full font-black text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#090909]"
+              className="cta-checkout btn-3d w-full flex items-center justify-center gap-3 px-8 py-5 rounded-2xl font-black text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#090909]"
               style={{ background: "#090909", color: "#C9D400", animation: "pulse-ring-dark 2.2s ease-in-out infinite" }}>
-              GARANTIR ACESSO VITALÍCIO <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              <span>GARANTIR ACESSO VITALÍCIO</span>
+              <ArrowRight className="w-5 h-5 shrink-0" aria-hidden="true" />
             </a>
             <a href={checkoutUrl}
               id="cta-guarantee"
