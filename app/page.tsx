@@ -50,7 +50,7 @@ function useTypewriter(phrases: string[]) {
         }
       }
     };
-    timerRef.current = setTimeout(tick, 2600);
+    timerRef.current = setTimeout(tick, 1200);
     return () => { if (timerRef.current) clearTimeout(timerRef.current); };
   }, [phrases, reduce]);
 
