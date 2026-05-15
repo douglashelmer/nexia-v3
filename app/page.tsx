@@ -109,13 +109,16 @@ function getTonightMidnight() {
 }
 
 function useStickyBarVisible() {
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
   useEffect(() => {
     const check = () => {
-      const el = document.getElementById("pricing");
-      if (!el) { setShow(true); return; }
-      setShow(el.getBoundingClientRect().top > window.innerHeight * 0.5);
+      const hero = document.querySelector<HTMLElement>("section");
+      const pricing = document.getElementById("pricing");
+      const pastHero = hero ? hero.getBoundingClientRect().bottom < 0 : false;
+      const atPricing = pricing ? pricing.getBoundingClientRect().top < window.innerHeight * 0.6 : false;
+      setShow(pastHero && !atPricing);
     };
+    check();
     window.addEventListener("scroll", check, { passive: true });
     return () => window.removeEventListener("scroll", check);
   }, []);
