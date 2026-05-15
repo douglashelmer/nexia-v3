@@ -99,11 +99,24 @@ function getTonightMidnight() {
   return d;
 }
 
+function usePricingVisible() {
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const el = document.getElementById("pricing");
+    if (!el) return;
+    const obs = new IntersectionObserver(([e]) => setVisible(e.isIntersecting), { threshold: 0.05 });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+  return visible;
+}
+
 export default function Page() {
   const checkoutUrl = useCheckout();
   const [target] = useState(getTonightMidnight);
   const countdown = useCountdown(target);
   const fadeUp = useFadeUp();
+  const pricingVisible = usePricingVisible();
 
   return (
     <>
@@ -446,12 +459,12 @@ export default function Page() {
       <section id="pricing" style={{ background: "#C9D400" }}>
         <div className="grid md:grid-cols-2">
           <motion.div {...useFadeUp()} className="p-10 md:p-16 flex flex-col justify-center" style={{ borderBottom: "1px solid rgba(0,0,0,.12)" }}>
-            <div className="text-[11px] font-bold tracking-[.18em] uppercase mb-6" style={{ opacity: 0.5 }}>OFERTA ESPECIAL — HOJE SOMENTE</div>
-            <div className="text-sm mb-0.5" style={{ opacity: 0.55 }}>DE <span className="line-through">R$2.573</span> POR</div>
-            <div className="text-sm font-bold tracking-tight" style={{ opacity: 0.6 }}>12×</div>
+            <div className="text-[11px] font-bold tracking-[.18em] uppercase mb-6" style={{ color: "rgba(0,0,0,.5)" }}>OFERTA ESPECIAL — HOJE SOMENTE</div>
+            <div className="text-sm mb-0.5" style={{ color: "rgba(0,0,0,.55)" }}>DE <span className="line-through">R$2.573</span> POR</div>
+            <div className="text-sm font-bold tracking-tight" style={{ color: "rgba(0,0,0,.6)" }}>12×</div>
             <div className="font-black tracking-tighter leading-[0.85] text-[#090909] mb-3"
               style={{ fontSize: "clamp(4.5rem,13vw,8rem)" }}>R$20,25</div>
-            <div className="text-base font-semibold mb-8" style={{ opacity: 0.6 }}>ou R$197 à vista no PIX</div>
+            <div className="text-base font-semibold mb-8" style={{ color: "rgba(0,0,0,.6)" }}>ou R$197 à vista no PIX</div>
             <a href={checkoutUrl}
               className="inline-flex items-center gap-2 self-start px-7 py-4 rounded-full font-black text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#090909]"
               style={{ background: "#090909", color: "#C9D400" }}>
@@ -459,10 +472,10 @@ export default function Page() {
             </a>
             <div className="flex items-start gap-3 rounded-xl p-4 mt-6"
               style={{ background: "rgba(0,0,0,.12)", border: "1px solid rgba(0,0,0,.18)" }}>
-              <Shield className="w-7 h-7 shrink-0 text-[#090909]" aria-hidden="true" />
+              <Shield className="w-7 h-7 shrink-0" style={{ color: "rgba(0,0,0,.7)" }} aria-hidden="true" />
               <div>
-                <div className="font-black text-sm text-[#090909] mb-0.5">Garantia 30 Dias — Devolvemos em Dobro</div>
-                <div className="text-xs leading-relaxed" style={{ color: "rgba(0,0,0,.6)" }}>Assista tudo, pratique, não criou nada? Devolvemos o dobro. Sem perguntas.</div>
+                <div className="font-black text-sm mb-0.5" style={{ color: "rgba(0,0,0,.8)" }}>Garantia 30 Dias — Devolvemos em Dobro</div>
+                <div className="text-xs leading-relaxed" style={{ color: "rgba(0,0,0,.55)" }}>Assista tudo, pratique, não criou nada? Devolvemos o dobro. Sem perguntas.</div>
               </div>
             </div>
           </motion.div>
@@ -591,18 +604,20 @@ export default function Page() {
       </footer>
 
       {/* STICKY MOBILE CTA */}
-      <div className="md:hidden fixed bottom-0 inset-x-0 z-50 backdrop-blur-xl px-4 pt-3"
-        style={{ background: "rgba(20,20,20,.95)", borderTop: "1px solid rgba(201,212,0,.25)", paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))" }}>
-        <a href="#pricing"
-          className="flex items-center justify-between gap-3 px-5 py-3 rounded-full font-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9D400]"
-          style={{ background: "#C9D400", color: "#090909" }}>
-          <div className="text-left">
-            <div className="text-[10px] leading-none" style={{ opacity: 0.6 }}>Combo nexIA® · 14 cursos</div>
-            <div className="text-sm leading-snug mt-0.5">Garantir por R$197</div>
-          </div>
-          <ArrowRight className="w-5 h-5 shrink-0" aria-hidden="true" />
-        </a>
-      </div>
+      {!pricingVisible && (
+        <div className="md:hidden fixed bottom-0 inset-x-0 z-50 backdrop-blur-xl px-4 pt-3"
+          style={{ background: "rgba(20,20,20,.95)", borderTop: "1px solid rgba(201,212,0,.25)", paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))" }}>
+          <a href="#pricing"
+            className="flex items-center justify-between gap-3 px-5 py-3 rounded-full font-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9D400]"
+            style={{ background: "#C9D400", color: "#090909" }}>
+            <div className="text-left">
+              <div className="text-[10px] leading-none" style={{ color: "rgba(0,0,0,.55)" }}>Combo nexIA® · 14 cursos</div>
+              <div className="text-sm leading-snug mt-0.5">12× R$20,25 · ou R$197 PIX</div>
+            </div>
+            <ArrowRight className="w-5 h-5 shrink-0" aria-hidden="true" />
+          </a>
+        </div>
+      )}
     </>
   );
 }
