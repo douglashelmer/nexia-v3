@@ -191,7 +191,7 @@ export default function Page() {
 
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.25 }}
             className="text-base md:text-lg max-w-[44ch] mx-auto mb-10 leading-relaxed"
-            style={{ color: "#a1a1aa" }}>
+            style={{ color: "#d4d4d8" }}>
             A IA já está substituindo quem não sabe usá-la. Aprenda, aplique e seja o profissional que o mercado não dispensa.
           </motion.p>
 
@@ -219,7 +219,7 @@ export default function Page() {
                 { icon: "♾️", text: "Vitalício" },
                 { icon: "🔓", text: "Sem mensalidade" },
               ].map(b => (
-                <div key={b.text} className="flex items-center gap-1.5 text-xs font-medium" style={{ color: "#52525b" }}>
+                <div key={b.text} className="flex items-center gap-1.5 text-xs font-medium" style={{ color: "#a1a1aa" }}>
                   <span aria-hidden>{b.icon}</span>{b.text}
                 </div>
               ))}
@@ -230,7 +230,7 @@ export default function Page() {
               <Shield className="w-5 h-5 text-[#C9D400] shrink-0" aria-hidden="true" />
               <div>
                 <div className="text-xs font-black text-[#C9D400]">Garantia de 30 dias — devolvemos em dobro</div>
-                <div className="text-[11px] mt-0.5" style={{ color: "#52525b" }}>
+                <div className="text-[11px] mt-0.5" style={{ color: "#a1a1aa" }}>
                   Assista, pratique e não criou nada? Você recebe o dobro de volta.
                 </div>
               </div>
@@ -244,7 +244,7 @@ export default function Page() {
               <div key={s.label} className="flex items-center flex-1">
                 <div className="flex-1 text-center py-4">
                   <div className="text-2xl font-black tracking-tight tabular-nums" style={{ color: "#C9D400" }}>{s.num}</div>
-                  <div className="text-[10px] uppercase tracking-widest mt-0.5" style={{ color: "#52525b" }}>{s.label}</div>
+                  <div className="text-[10px] uppercase tracking-widest mt-0.5" style={{ color: "#71717a" }}>{s.label}</div>
                 </div>
                 {i < 2 && <div className="w-px self-stretch" style={{ background: "rgba(255,255,255,.07)" }} />}
               </div>
