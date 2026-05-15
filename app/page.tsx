@@ -108,16 +108,19 @@ function getTonightMidnight() {
   return d;
 }
 
-function usePricingVisible() {
-  const [visible, setVisible] = useState(false);
+function useStickyBarVisible() {
+  const [show, setShow] = useState(false);
   useEffect(() => {
-    const el = document.getElementById("pricing");
-    if (!el) return;
-    const obs = new IntersectionObserver(([e]) => setVisible(e.isIntersecting), { threshold: 0.05 });
-    obs.observe(el);
-    return () => obs.disconnect();
+    const check = () => {
+      const el = document.getElementById("pricing");
+      // show bar while pricing is below the viewport
+      setShow(!el || el.getBoundingClientRect().top >= window.innerHeight * 0.95);
+    };
+    check();
+    window.addEventListener("scroll", check, { passive: true });
+    return () => window.removeEventListener("scroll", check);
   }, []);
-  return visible;
+  return show;
 }
 
 export default function Page() {
@@ -125,7 +128,7 @@ export default function Page() {
   const [target] = useState(getTonightMidnight);
   const countdown = useCountdown(target);
   const fadeUp = useFadeUp();
-  const pricingVisible = usePricingVisible();
+  const stickyBarVisible = useStickyBarVisible();
 
   return (
     <>
@@ -656,7 +659,7 @@ export default function Page() {
       </footer>
 
       {/* STICKY MOBILE CTA */}
-      {!pricingVisible && (
+      {stickyBarVisible && (
         <div className="md:hidden fixed bottom-0 inset-x-0 z-50 backdrop-blur-xl px-4 pt-3"
           style={{ background: "rgba(20,20,20,.95)", borderTop: "1px solid rgba(201,212,0,.25)", paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))" }}>
           <a href="#pricing"
