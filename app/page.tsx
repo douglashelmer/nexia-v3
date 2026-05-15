@@ -509,12 +509,16 @@ export default function Page() {
               style={{ fontSize: "clamp(4.5rem,13vw,8rem)" }}>R$20,25</div>
             <div className="text-base font-semibold mb-8" style={{ color: "rgba(0,0,0,.6)" }}>ou R$197 à vista no PIX</div>
             <a href={checkoutUrl}
-              className="inline-flex items-center gap-2 self-start px-7 py-4 rounded-full font-black text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#090909]"
+              id="cta-pricing"
+              className="cta-checkout inline-flex items-center gap-2 self-start px-7 py-4 rounded-full font-black text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#090909]"
+              target="_blank" rel="noopener noreferrer"
               style={{ background: "#090909", color: "#C9D400", animation: "pulse-ring-dark 2.2s ease-in-out infinite" }}>
               GARANTIR ACESSO VITALÍCIO <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </a>
             <a href={checkoutUrl}
-              className="flex items-start gap-3 rounded-xl p-4 mt-6 transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#090909]"
+              id="cta-guarantee"
+              className="cta-checkout flex items-start gap-3 rounded-xl p-4 mt-6 transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#090909]"
+              target="_blank" rel="noopener noreferrer"
               style={{ background: "rgba(0,0,0,.12)", border: "1px solid rgba(0,0,0,.18)" }}>
               <Shield className="w-7 h-7 shrink-0" style={{ color: "rgba(0,0,0,.7)" }} aria-hidden="true" />
               <div>
@@ -621,7 +625,9 @@ export default function Page() {
               Enquanto você pensa, outro criativo aprende, aplica e fecha o cliente que seria seu.
             </p>
             <a href={checkoutUrl}
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-black transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9D400] focus-visible:ring-offset-2 focus-visible:ring-offset-[#090909]"
+              id="cta-final"
+              className="cta-checkout inline-flex items-center gap-2 px-8 py-4 rounded-full font-black transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9D400] focus-visible:ring-offset-2 focus-visible:ring-offset-[#090909]"
+              target="_blank" rel="noopener noreferrer"
               style={{ background: "#C9D400", color: "#090909", boxShadow: "0 0 40px rgba(201,212,0,.25)" }}>
               QUERO MINHA VANTAGEM COMPETITIVA <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </a>
