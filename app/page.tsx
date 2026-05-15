@@ -513,14 +513,15 @@ export default function Page() {
               style={{ background: "#090909", color: "#C9D400", animation: "pulse-ring-dark 2.2s ease-in-out infinite" }}>
               GARANTIR ACESSO VITALÍCIO <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </a>
-            <div className="flex items-start gap-3 rounded-xl p-4 mt-6"
+            <a href={checkoutUrl}
+              className="flex items-start gap-3 rounded-xl p-4 mt-6 transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#090909]"
               style={{ background: "rgba(0,0,0,.12)", border: "1px solid rgba(0,0,0,.18)" }}>
               <Shield className="w-7 h-7 shrink-0" style={{ color: "rgba(0,0,0,.7)" }} aria-hidden="true" />
               <div>
                 <div className="font-black text-sm mb-0.5" style={{ color: "rgba(0,0,0,.8)" }}>Garantia 30 Dias — Devolvemos em Dobro</div>
                 <div className="text-xs leading-relaxed" style={{ color: "rgba(0,0,0,.55)" }}>Assista tudo, pratique, não criou nada? Devolvemos o dobro. Sem perguntas.</div>
               </div>
-            </div>
+            </a>
           </motion.div>
           <motion.div {...useFadeUp(0.1)} className="p-10 md:p-16 flex flex-col justify-center" style={{ background: "#090909", color: "#f5f5f5" }}>
             <div className="text-[11px] font-bold tracking-[.14em] uppercase mb-5" style={{ color: "#C9D400" }}>ESSA CONDIÇÃO EXPIRA EM:</div>
