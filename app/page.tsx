@@ -109,8 +109,53 @@ export default function Page() {
         </div>
       </section>
 
-      {/* DEPOIMENTOS */}
+      {/* ANTES / DEPOIS */}
       <section className="py-20 md:py-32" style={{ background: "#0e0e0e", borderTop: "1px solid rgba(255,255,255,.05)" }}>
+        <div className="max-w-6xl mx-auto px-5">
+          <Reveal className="text-center mb-12">
+            <div className="inline-block text-[11px] font-bold tracking-[.16em] uppercase mb-5 px-3 py-1 rounded"
+              style={{ color: "#C9D400", border: "1px solid rgba(201,212,0,.3)" }}>TRANSFORMAÇÃO COM IA</div>
+            <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-balance">
+              Da foto comum ao<br /><span className="text-gradient">anúncio profissional.</span>
+            </h2>
+            <p className="mt-4 text-base max-w-[42ch] mx-auto" style={{ color: "#a1a1aa" }}>
+              Imagens reais criadas com as técnicas ensinadas no nexIA. Produto real. IA do lado. Nenhuma agência envolvida.
+            </p>
+          </Reveal>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+            {[
+              { src: "/assets/antes-depois/01.webp", alt: "Perfume Asad Bourbon transformado em cena desértica cinematográfica com IA" },
+              { src: "/assets/antes-depois/02.webp", alt: "Perfume VF Wepink transformado em cena tropical sobre barco com IA" },
+              { src: "/assets/antes-depois/03.webp", alt: "Dove Clinical transformado em explosão de gelo ártico com IA" },
+              { src: "/assets/antes-depois/04.webp", alt: "Old Spice VIP com modelo gerado por IA em ambiente de banheiro premium" },
+              { src: "/assets/antes-depois/05.webp", alt: "Ban antiperspirante em cânion de gelo ártico criado com IA" },
+              { src: "/assets/antes-depois/06.webp", alt: "Óleo essencial de Lavanda em jardim zen com IA" },
+              { src: "/assets/antes-depois/07.webp", alt: "Nivea Milk em cena floral azul escuro criada com IA" },
+              { src: "/assets/antes-depois/08.webp", alt: "Máscara Brilho Ybera com modelo feminino gerado por IA" },
+            ].map((item, i) => (
+              <Reveal key={item.src} delay={i * 0.04}
+                className="rounded-xl overflow-hidden group"
+                style={{ border: "1px solid rgba(255,255,255,.07)" } as React.CSSProperties}>
+                <img
+                  src={item.src}
+                  alt={item.alt}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-auto block transition-transform duration-500 group-hover:scale-[1.03]"
+                />
+              </Reveal>
+            ))}
+          </div>
+          <Reveal className="mt-8 text-center">
+            <p className="text-xs" style={{ color: "#52525b" }}>
+              Criações de alunos nexIA® — usando apenas ferramentas de IA ensinadas nos cursos.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* DEPOIMENTOS */}
+      <section className="py-20 md:py-32" style={{ background: "#090909", borderTop: "1px solid rgba(255,255,255,.05)" }}>
         <div className="max-w-6xl mx-auto px-5">
           <Reveal className="text-center mb-12">
             <div className="inline-block text-[11px] font-bold tracking-[.16em] uppercase mb-5 px-3 py-1 rounded"
