@@ -125,16 +125,16 @@ details summary::-webkit-details-marker { display: none; }
 }
 
 /* ── Hero entry animations ───────────────────────────────── */
-@keyframes fade-up {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: none; }
+@keyframes slide-up {
+  from { transform: translateY(18px); }
+  to   { transform: none; }
 }
-.h-anim { opacity: 0; animation: fade-up 0.6s ease forwards; }
+.h-anim { animation: slide-up 0.55s ease forwards; }
 .h-anim-0 { animation-delay: 0s; }
-.h-anim-1 { animation-delay: 0.1s; }
-.h-anim-2 { animation-delay: 0.25s; }
-.h-anim-3 { animation-delay: 0.35s; }
-.h-anim-4 { animation-delay: 0.5s; }
+.h-anim-1 { animation-delay: 0.08s; }
+.h-anim-2 { animation-delay: 0.18s; }
+.h-anim-3 { animation-delay: 0.28s; }
+.h-anim-4 { animation-delay: 0.4s; }
 @media (prefers-reduced-motion: reduce) {
-  .h-anim { opacity: 1; animation: none; }
+  .h-anim { animation: none; }
 }
