@@ -76,7 +76,6 @@ const benefits = [
   "Vitalício — sem mensalidade",
 ]
 
-const paymentMethods = ["greenn", "PayPal", "Hipercard", "Amex", "Mastercard", "Pix", "Visa"]
 
 export default function CountdownSection() {
   const countdown   = useCountdown()
@@ -173,7 +172,8 @@ export default function CountdownSection() {
             {/* ── CTA ── */}
             <a
               href={checkoutUrl}
-              className="cta-checkout btn-3d w-full flex items-center justify-center gap-2.5 px-6 py-4 rounded-2xl font-black text-base mb-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9D400]"
+              id="cta-pricing-card"
+              className="cta-checkout btn-3d w-full flex items-center justify-center gap-2.5 px-6 py-4 rounded-2xl font-black text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9D400]"
               style={{
                 background: "linear-gradient(135deg, #6036C8, #3B6BF5)",
                 color: "#fff",
@@ -183,18 +183,15 @@ export default function CountdownSection() {
               <ArrowRight className="w-5 h-5 shrink-0" aria-hidden="true" />
             </a>
 
-            {/* ── Payment methods ── */}
-            <div className="flex flex-wrap justify-center gap-1.5 mb-6">
-              {paymentMethods.map((m) => (
-                <span key={m} className="text-[10px] font-bold px-2 py-0.5 rounded-md"
-                  style={{
-                    background: "rgba(255,255,255,.05)",
-                    color: "rgba(255,255,255,.4)",
-                    border: "1px solid rgba(255,255,255,.08)",
-                  }}>
-                  {m}
-                </span>
-              ))}
+            {/* ── Payment methods badge ── */}
+            <div className="flex justify-center mt-3 mb-5">
+              <img
+                src="/assets/green.svg"
+                alt="Formas de pagamento aceitas: PayPal, Hipercard, Amex, Mastercard, PIX, Visa"
+                width={220}
+                height={17}
+                style={{ opacity: 0.55 }}
+              />
             </div>
 
             {/* ── Benefits ── */}

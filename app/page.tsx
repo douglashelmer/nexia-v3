@@ -511,12 +511,23 @@ export default function Page() {
                 <div className="text-sm mt-1" style={{ color: "#a1a1aa" }}>à vista no PIX · acesso imediato</div>
               </div>
             </div>
-            <a href={CHECKOUT}
+            <a
+              href={CHECKOUT}
+              id="cta-final-section"
               className="cta-checkout inline-flex items-center gap-2 px-8 py-4 rounded-full font-black transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9D400] focus-visible:ring-offset-2 focus-visible:ring-offset-[#090909]"
               style={{ background: "#C9D400", color: "#090909", boxShadow: "0 0 40px rgba(201,212,0,.25)" }}>
               QUERO MINHA VANTAGEM COMPETITIVA <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </a>
-            <div className="flex items-center justify-center gap-5 mt-6 flex-wrap">
+            <div className="flex justify-center mt-4">
+              <img
+                src="/assets/green.svg"
+                alt="Formas de pagamento aceitas: PayPal, Hipercard, Amex, Mastercard, PIX, Visa"
+                width={220}
+                height={17}
+                style={{ opacity: 0.45 }}
+              />
+            </div>
+            <div className="flex items-center justify-center gap-5 mt-4 flex-wrap">
               {[{ icon: "🛡️", text: "Garantia 30 dias" }, { icon: "⚡", text: "Acesso imediato" }, { icon: "♾️", text: "Vitalício" }].map(b => (
                 <div key={b.text} className="flex items-center gap-1.5 text-xs" style={{ color: "#52525b" }}>
                   <span aria-hidden>{b.icon}</span>{b.text}
