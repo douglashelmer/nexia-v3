@@ -1,58 +1,10 @@
 "use client"
 
 import Image from "next/image"
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import { ArrowRight, Shield, Sparkles } from "lucide-react"
 
 const CHECKOUT = "https://payfast.greenn.com.br/mzn9ucy/offer/EYS2Ud?ch_id=136886"
-
-const HERO_PHRASES = [
-  "Ganhe dinheiro real.",
-  "Sem precisar de equipamento caro.",
-  "Produza 10× mais rápido.",
-  "Domine o mercado criativo.",
-  "Venda mais com IA.",
-]
-
-function useTypewriter(phrases: string[]) {
-  const [text, setText] = useState(phrases[0])
-  const [reduced, setReduced] = useState(false)
-  const stateRef = useRef({ phrase: 0, char: phrases[0].length, deleting: false })
-  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
-
-  useEffect(() => {
-    setReduced(window.matchMedia("(prefers-reduced-motion: reduce)").matches)
-  }, [])
-
-  useEffect(() => {
-    if (reduced) return
-    const tick = () => {
-      const s = stateRef.current
-      const current = phrases[s.phrase]
-      if (!s.deleting) {
-        if (s.char < current.length) {
-          s.char++; setText(current.slice(0, s.char))
-          timerRef.current = setTimeout(tick, 55 + Math.random() * 35)
-        } else {
-          s.deleting = true; timerRef.current = setTimeout(tick, 3600)
-        }
-      } else {
-        if (s.char > 0) {
-          s.char--; setText(current.slice(0, s.char))
-          timerRef.current = setTimeout(tick, 28 + Math.random() * 18)
-        } else {
-          s.deleting = false
-          s.phrase = (s.phrase + 1) % phrases.length
-          timerRef.current = setTimeout(tick, 350)
-        }
-      }
-    }
-    timerRef.current = setTimeout(tick, 1200)
-    return () => { if (timerRef.current) clearTimeout(timerRef.current) }
-  }, [phrases, reduced])
-
-  return text
-}
 
 function useCheckoutUrl() {
   const [url, setUrl] = useState(CHECKOUT)
@@ -89,7 +41,6 @@ function scrollToPricing(e: React.MouseEvent) {
 }
 
 export default function HeroSection() {
-  const typedText = useTypewriter(HERO_PHRASES)
   const checkoutUrl = useCheckoutUrl()
   const stickyVisible = useStickyBarVisible()
 
@@ -147,13 +98,12 @@ export default function HeroSection() {
           <h1 className="h-anim h-anim-1 font-black tracking-tighter leading-[0.92] mb-6"
             style={{ fontSize: "clamp(3rem, 11vw, 8rem)" }}>
             Domine IA.<br />
-            <span className="text-gradient">{typedText}</span>
-            <span className="typing-cursor" aria-hidden="true" />
+            <span className="text-gradient">Ganhe dinheiro real.</span>
           </h1>
 
           <p className="h-anim h-anim-2 text-base md:text-lg max-w-[44ch] mx-auto mb-10 leading-relaxed"
             style={{ color: "#d4d4d8" }}>
-            A IA já está substituindo quem não sabe usá-la. Aprenda, aplique e seja o profissional que o mercado não dispensa.
+            14 cursos práticos para criar imagens e vídeos com IA — e cobrar por isso. Sem câmera, sem equipe, sem experiência prévia.
           </p>
 
           <div className="h-anim h-anim-3 flex flex-col items-center gap-4 max-w-md mx-auto">
