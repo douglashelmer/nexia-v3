@@ -4,7 +4,7 @@ import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
 import { ArrowRight, CheckCircle2, Shield } from "lucide-react"
 
-const CHECKOUT = "https://payfast.greenn.com.br/ebnwgbt/offer/TFlokq?cupom=MAIO200&ch_id=138823&b_id_1=qt73vwh&b_offer_1=HtJr1o&b_id_2=67eh8rf&b_offer_2=V0iuEs&b_id_3=mzn9ucy&b_offer_3=9WkNK6"
+const CHECKOUT = "https://payfast.greenn.com.br/mzn9ucy/offer/pAjTDd?ch_id=136886&b_id_1=qt73vwh&b_offer_1=HtJr1o&b_id_2=67eh8rf&b_offer_2=zJN4gt"
 
 const DAYS_PT   = ["domingo","segunda-feira","terça-feira","quarta-feira","quinta-feira","sexta-feira","sábado"]
 const MONTHS_PT = ["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"]
@@ -67,6 +67,7 @@ function useCheckoutUrl() {
 }
 
 const checklistItems = [
+  { label: "Acesso Vitalício", detail: "pague uma vez, acesse para sempre — sem mensalidade", value: null },
   { label: "14 Habilidades com IA", detail: "acesso vitalício a todos os módulos", value: "R$297" },
   { label: "Sua Primeira Venda com IA em 7 Dias", detail: "feche o primeiro cliente em 7 dias", value: "R$97" },
   { label: "Templates Automáticos", detail: "templates prontos para acelerar sua produção", value: "R$197" },
