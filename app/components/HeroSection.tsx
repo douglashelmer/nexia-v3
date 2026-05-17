@@ -46,25 +46,9 @@ export default function HeroSection() {
 
   return (
     <>
-      {/* NAV */}
-      <nav className="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b"
-        style={{ background: "rgba(255,255,255,.92)", borderColor: "rgba(0,0,0,.08)" }}>
-        <div className="max-w-6xl mx-auto px-5 py-3.5 flex items-center justify-between">
-          <Image src="/assets/logo-nexia-new.svg" alt="nexIA" width={120} height={36} priority />
-          <a
-            href="#pricing" onClick={scrollToPricing}
-            className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full border text-sm font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6d28d9]"
-            style={{ borderColor: "rgba(109,40,217,.35)", color: "#6d28d9" }}
-            onMouseEnter={e => { const a = e.currentTarget as HTMLAnchorElement; a.style.background = "#6d28d9"; a.style.color = "#fff"; a.style.borderColor = "#6d28d9" }}
-            onMouseLeave={e => { const a = e.currentTarget as HTMLAnchorElement; a.style.background = ""; a.style.color = "#6d28d9"; a.style.borderColor = "rgba(109,40,217,.35)" }}
-          >
-            Ver oferta <ArrowRight className="w-4 h-4" aria-hidden="true" />
-          </a>
-        </div>
-      </nav>
 
       {/* HERO */}
-      <section className="relative min-h-[100dvh] flex flex-col justify-center pt-20 pb-16 overflow-hidden"
+      <section className="relative min-h-[100dvh] flex flex-col justify-center pt-16 pb-16 overflow-hidden"
         style={{ background: "#ffffff" }}>
 
         {/* Decorations */}
