@@ -2,32 +2,31 @@
 
 import { useEffect, useRef } from "react"
 
-const MONTHS_PT = [
-  "Janeiro","Fevereiro","Março","Abril","Maio","Junho",
-  "Julho","Agosto","Setembro","Outubro","Novembro","Dezembro",
-]
-
 export default function AnnouncementBar() {
-  const datesRef = useRef<HTMLSpanElement>(null)
+  const ref = useRef<HTMLSpanElement>(null)
 
   useEffect(() => {
-    if (!datesRef.current) return
-    const d    = new Date()
-    const day  = d.getDate()
-    const mon  = MONTHS_PT[d.getMonth()]
-    datesRef.current.textContent = `${day - 2}, ${day - 1} e ${day} de ${mon}`
+    if (!ref.current) return
+    const d = new Date()
+    const end = d.getDate()
+    ref.current.textContent = `${end - 2}, ${end - 1} e ${end}`
   }, [])
 
   return (
     <div
-      className="z-40 w-full py-2.5 px-4 text-center text-sm md:text-base font-semibold text-white leading-snug"
-      style={{ position: "sticky", top: "54px", background: "#C8180F" }}
+      className="z-50 w-full py-2.5 px-4 text-center leading-snug"
+      style={{
+        position: "fixed",
+        top: 0, left: 0, right: 0,
+        background: "var(--color-lime)",
+        color: "#000",
+      }}
     >
-      Somente nos dias:{" "}
-      <strong>
-        <span ref={datesRef} suppressHydrationWarning>&#8203;</span>
-      </strong>
-      {" "}você terá um desconto diferenciado de 80%
+      <span style={{ fontFamily: "var(--font-mono), monospace", fontSize: "10px", letterSpacing: "0.14em", textTransform: "uppercase", fontWeight: 700 }}>
+        ⚡ Somente nos dias{" "}
+        <strong><span ref={ref} suppressHydrationWarning>&#8203;</span></strong>{" "}
+        — desconto de 80% ativo. Vagas limitadas.
+      </span>
     </div>
   )
 }

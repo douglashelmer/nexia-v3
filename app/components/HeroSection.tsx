@@ -1,20 +1,9 @@
 "use client"
 
+import Image from "next/image"
 import { useEffect, useState } from "react"
-import { ArrowRight, Shield } from "lucide-react"
 
-const CHECKOUT = "https://payfast.greenn.com.br/mzn9ucy/offer/pAjTDd?ch_id=136886&b_id_1=qt73vwh&b_offer_1=HtJr1o&b_id_2=67eh8rf&b_offer_2=zJN4gt"
-
-const HERO_IMAGES = [
-  "/assets/antes-depois/01.webp",
-  "/assets/antes-depois/02.webp",
-  "/assets/antes-depois/03.webp",
-  "/assets/antes-depois/04.webp",
-  "/assets/antes-depois/05.webp",
-  "/assets/antes-depois/06.webp",
-  "/assets/antes-depois/07.webp",
-  "/assets/antes-depois/08.webp",
-]
+const CHECKOUT = "https://pay.onprofit.com.br/H8cdL2ni?off=EHyreQ"
 
 function useCheckoutUrl() {
   const [url, setUrl] = useState(CHECKOUT)
@@ -50,150 +39,222 @@ function scrollToPricing(e: React.MouseEvent) {
   document.getElementById("pricing")?.scrollIntoView({ behavior: "instant" })
 }
 
-function HeroImages() {
-  const [idx, setIdx] = useState(0)
-  const [fading, setFading] = useState(false)
-
-  useEffect(() => {
-    const id = setInterval(() => {
-      setFading(true)
-      setTimeout(() => {
-        setIdx(i => (i + 1) % HERO_IMAGES.length)
-        setFading(false)
-      }, 450)
-    }, 4000)
-    return () => clearInterval(id)
-  }, [])
-
-  return (
-    <div className="relative w-full h-full rounded-none md:rounded-2xl overflow-hidden"
-      style={{ boxShadow: "0 12px 48px rgba(109,40,217,.18)" }}>
-      <img
-        src={HERO_IMAGES[idx]}
-        alt="Antes e depois criado com nexIA"
-        width={960}
-        height={540}
-        fetchPriority={idx === 0 ? "high" : "auto"}
-        className="w-full h-full object-cover md:h-auto md:object-fill block"
-        style={{ opacity: fading ? 0 : 1, transition: "opacity 0.45s ease" }}
-      />
-      <div className="absolute bottom-0 left-0 right-0 flex justify-between p-2.5 md:p-3">
-        <span className="text-[10px] md:text-xs font-bold px-2.5 py-1 rounded-full"
-          style={{ background: "rgba(30,30,30,.75)", color: "#fff", backdropFilter: "blur(6px)" }}>
-          Sem nexIA ❌
-        </span>
-        <span className="text-[10px] md:text-xs font-bold px-2.5 py-1 rounded-full"
-          style={{ background: "rgba(109,40,217,.85)", color: "#fff", backdropFilter: "blur(6px)" }}>
-          Com nexIA ✅
-        </span>
-      </div>
-    </div>
-  )
-}
-
 export default function HeroSection() {
   const checkoutUrl = useCheckoutUrl()
   const stickyVisible = useStickyBarVisible()
 
   return (
     <>
-      {/* HERO — mobile: exactly 100dvh flex-col; desktop: min-h-100dvh flex-row */}
+      {/* ── NAV ──────────────────────────────────────────────── */}
+      <nav
+        className="fixed top-[44px] left-0 right-0 z-40 flex items-center justify-between px-6 md:px-12"
+        style={{
+          height: "60px",
+          background: "rgba(5,5,5,0.85)",
+          backdropFilter: "blur(20px)",
+          borderBottom: "1px solid var(--color-border)",
+        }}
+      >
+        <Image src="/assets/logo-nexia-new.svg" alt="nexIA" width={88} height={26} priority />
+        <a
+          href="#pricing"
+          onClick={scrollToPricing}
+          className="btn-ghost cta-checkout"
+          style={{ padding: "8px 20px", fontSize: "9px" }}
+        >
+          Garantir vaga →
+        </a>
+      </nav>
+
+      {/* ── HERO ─────────────────────────────────────────────── */}
       <section
-        className="relative h-[100dvh] md:h-auto md:min-h-[100dvh] flex flex-col md:flex-row md:items-center md:py-12 overflow-hidden"
-        style={{ background: "#ffffff" }}>
-
-        <div aria-hidden className="absolute inset-0 grid-bg opacity-60 pointer-events-none" />
-        <div aria-hidden className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[380px] rounded-full pointer-events-none"
-          style={{ background: "rgba(109,40,217,.08)", filter: "blur(130px)" }} />
-
-        {/* IMAGES — mobile: fixed 42dvh; desktop: right column 46% */}
-        <div className="relative z-10 w-full h-[42dvh] shrink-0 order-1 md:order-2 md:h-auto md:w-[46%]">
-          <HeroImages />
+        className="relative flex flex-col justify-end overflow-hidden"
+        style={{ minHeight: "100dvh", background: "var(--color-bg)", paddingTop: "104px" }}
+      >
+        {/* ─────────────────────────────────────────────────────
+            VIDEO BACKGROUND
+            Substitua o conteúdo deste div pelo embed do player.
+            O iframe/video deve ter: autoplay, loop, muted, sem controles.
+            Exemplo Panda Video:
+            <iframe src="SEU_URL" allow="autoplay; fullscreen" allowFullScreen
+              style={{ position:"absolute", inset:0, width:"100%", height:"100%", border:"none", objectFit:"cover" }} />
+        ───────────────────────────────────────────────────── */}
+        <div className="video-bg-wrap" aria-hidden="true">
+          {/* PLACEHOLDER — cole aqui o seu embed de vídeo */}
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, #060606 0%, #0e0520 55%, #050505 100%)" }} />
         </div>
 
-        {/* TEXT — mobile: fills remaining space; desktop: left column */}
-        <div className="relative z-10 flex-1 flex flex-col justify-center px-5 py-4 md:py-0 text-center md:text-left order-2 md:order-1 md:pr-8">
+        {/* Gradiente sobre o vídeo */}
+        <div aria-hidden className="absolute inset-0 pointer-events-none" style={{ zIndex: 1,
+          background: "linear-gradient(to top, #050505 0%, rgba(5,5,5,0.80) 35%, rgba(5,5,5,0.40) 70%, rgba(5,5,5,0.20) 100%)" }} />
 
-          <h1 className="h-anim h-anim-1 font-black tracking-tighter leading-[1.05] mb-3 md:mb-5"
-            style={{ fontSize: "clamp(1.75rem, 5vw, 3.25rem)", color: "#111111" }}>
-            Crie Imagens, Vídeos e Anúncios Incríveis{" "}
-            <span className="text-gradient">em Menos de 5 Minutos</span>{" "}
-            Usando Inteligência Artificial
-          </h1>
+        {/* Grid decorativo */}
+        <div aria-hidden className="grid-bg" style={{ zIndex: 1 }} />
 
-          <p className="h-anim h-anim-2 text-base md:text-lg max-w-[50ch] mx-auto md:mx-0 mb-4 md:mb-7 leading-snug"
-            style={{ color: "#555555" }}>
-            Sem designer, estúdio, modelos, equipamentos, fotógrafos, maquiadores ou experiência!
-          </p>
+        {/* Glow orbs */}
+        <div aria-hidden style={{
+          position: "absolute", zIndex: 2, pointerEvents: "none",
+          top: "15%", left: "50%", transform: "translateX(-50%)",
+          width: "900px", height: "500px",
+          background: "radial-gradient(ellipse, rgba(204,255,0,0.06) 0%, transparent 70%)",
+          filter: "blur(60px)",
+        }} />
+        <div aria-hidden style={{
+          position: "absolute", zIndex: 2, pointerEvents: "none",
+          top: "5%", right: "5%",
+          width: "600px", height: "400px",
+          background: "radial-gradient(ellipse, rgba(168,85,247,0.12) 0%, transparent 70%)",
+          filter: "blur(80px)",
+        }} />
 
-          <div className="h-anim h-anim-3 flex flex-col items-center md:items-start gap-3 md:gap-4 max-w-md mx-auto md:mx-0 w-full">
-            <a href="#pricing" onClick={scrollToPricing}
-              className="pulse-cta btn-3d flex items-center justify-center gap-3 w-full px-6 py-3.5 md:py-4 rounded-full font-black text-sm tracking-wide uppercase focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6d28d9] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
-              style={{ background: "linear-gradient(135deg, #6d28d9, #4f46e5)", color: "#fff" }}>
-              GARANTIR MINHA VAGA COM R$200 OFF
-              <ArrowRight className="w-4 h-4 shrink-0" aria-hidden="true" />
-            </a>
+        {/* ─ CONTEÚDO ─────────────────────────────────────── */}
+        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-10 pb-0" style={{ zIndex: 10 }}>
 
-            {/* Trust badges — desktop only */}
-            <div className="hidden md:flex items-center gap-4 flex-wrap justify-start">
-              {[{ icon: "⚡", text: "Acesso imediato" }, { icon: "♾️", text: "Vitalício" }, { icon: "🔓", text: "Sem mensalidade" }].map(b => (
-                <div key={b.text} className="flex items-center gap-1.5 text-xs font-medium" style={{ color: "#888888" }}>
-                  <span aria-hidden>{b.icon}</span>{b.text}
-                </div>
-              ))}
-            </div>
-
-            {/* Guarantee — visible on all screens */}
-            <div className="flex items-center gap-3 w-full rounded-xl px-4 py-3 text-left"
-              style={{ background: "rgba(109,40,217,.06)", border: "1px solid rgba(109,40,217,.2)" }}>
-              <Shield className="w-5 h-5 text-[#6d28d9] shrink-0" aria-hidden="true" />
-              <div>
-                <div className="text-xs font-black text-[#6d28d9]">Garantia de 30 dias — devolvemos em dobro</div>
-                <div className="text-[11px] mt-0.5" style={{ color: "#888888" }}>
-                  Assista, pratique e não criou nada? Você recebe o dobro de volta.
-                </div>
-              </div>
+          {/* Badge */}
+          <div className="anim-rise delay-100 mb-8">
+            <div className="badge" style={{ width: "fit-content" }}>
+              <span className="live-dot" aria-hidden />
+              Acesso Imediato · Vitalício · Sem Mensalidade
             </div>
           </div>
 
-          {/* Stats — hidden on mobile */}
-          <div className="hidden md:flex h-anim h-anim-4 items-stretch max-w-xs md:mx-0 mt-7"
-            style={{ borderTop: "1px solid rgba(0,0,0,.1)", borderBottom: "1px solid rgba(0,0,0,.1)" }}>
-            {[{ num: "+1.500", label: "Alunos" }, { num: "14", label: "Habilidades" }, { num: "6", label: "Bônus" }].map((s, i) => (
-              <div key={s.label} className="flex items-center flex-1">
-                <div className="flex-1 text-center py-3.5">
-                  <div className="text-2xl font-black tracking-tight tabular-nums" style={{ color: "#6d28d9" }}>{s.num}</div>
-                  <div className="text-[10px] uppercase tracking-widest mt-0.5" style={{ color: "#999999" }}>{s.label}</div>
+          {/* Headline */}
+          <h1
+            className="anim-rise delay-200 font-black leading-[0.92] mb-6"
+            style={{
+              fontFamily: "var(--font-syne), var(--font-inter), sans-serif",
+              fontSize: "clamp(2.4rem, 6.5vw, 5.5rem)",
+              letterSpacing: "-0.03em",
+              color: "#ffffff",
+              maxWidth: "16ch",
+              textWrap: "balance",
+            }}
+          >
+            Crie Imagens, Vídeos e Anúncios Incríveis{" "}
+            <span className="text-gradient-wl">
+              com IA em Menos de 5 Minutos
+            </span>
+          </h1>
+
+          {/* Subheadline */}
+          <p
+            className="anim-rise delay-300 text-base md:text-lg leading-relaxed mb-8"
+            style={{ color: "var(--color-muted)", maxWidth: "54ch" }}
+          >
+            Sem designer, estúdio, modelos ou experiência.{" "}
+            <strong style={{ color: "var(--color-subdued)", fontWeight: 500 }}>
+              Alunos fechando projetos de R$1.950, R$4.000 e R$15.000 usando IA.
+            </strong>
+          </p>
+
+          {/* Tools chips */}
+          <div className="anim-rise delay-400 flex flex-wrap gap-2 mb-10" aria-hidden="true">
+            {["⚡ CapCut AI", "🎬 RunwayML", "🤖 ComfyUI", "✨ ChatGPT", "🎵 ElevenLabs", "🖼️ Flux"].map(c => (
+              <span key={c} className="chip">{c}</span>
+            ))}
+          </div>
+
+          {/* CTA + urgency */}
+          <div className="anim-rise delay-500 flex flex-col items-start gap-4 mb-12" style={{ maxWidth: "360px" }}>
+
+            {/* Primary CTA */}
+            <a href="#pricing" onClick={scrollToPricing} className="btn-cta cta-checkout" style={{ width: "100%" }}
+              aria-label="Garantir vaga no nexIA">
+              <span className="btn-cta-spin" aria-hidden />
+              <span className="btn-cta-body">
+                <span className="btn-cta-shimmer" aria-hidden />
+                <span className="btn-cta-label">Garantir Minha Vaga — R$197 →</span>
+              </span>
+            </a>
+
+            {/* Progress bar */}
+            <div style={{ width: "100%" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "6px" }}>
+                <span style={{ fontFamily: "var(--font-mono),monospace", fontSize: "9px", letterSpacing: "0.16em", textTransform: "uppercase", color: "var(--color-muted)" }}>
+                  Vagas preenchidas
+                </span>
+                <span style={{ fontFamily: "var(--font-mono),monospace", fontSize: "10px", color: "var(--color-lime)", fontWeight: 700, letterSpacing: "0.08em" }}>
+                  89%
+                </span>
+              </div>
+              <div className="progress-track">
+                <div className="progress-fill anim-fill-bar" />
+              </div>
+            </div>
+
+            {/* Guarantee */}
+            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+              <span aria-hidden style={{ fontSize: "1rem" }}>🛡️</span>
+              <span style={{ fontFamily: "var(--font-mono),monospace", fontSize: "9px", letterSpacing: "0.10em", textTransform: "uppercase", color: "var(--color-muted)" }}>
+                Garantia 30 dias · Devolvemos em dobro
+              </span>
+            </div>
+          </div>
+
+          {/* ─ STATS BAR ───────────────────────────────────── */}
+          <div style={{ borderTop: "1px solid var(--color-border)", display: "flex" }}>
+            {[
+              { num: "+1.500", label: "Alunos Ativos" },
+              { num: "14",     label: "Habilidades com IA" },
+              { num: "R$197",  label: "Acesso vitalício" },
+              { num: "30 dias", label: "Garantia em dobro" },
+            ].map((s, i, arr) => (
+              <div key={s.label} style={{
+                flex: 1, padding: "20px 0", textAlign: "center",
+                borderRight: i < arr.length - 1 ? "1px solid var(--color-border)" : "none",
+              }}>
+                <div style={{
+                  fontFamily: "var(--font-syne), sans-serif",
+                  fontSize: "clamp(1rem, 2vw, 1.3rem)",
+                  fontWeight: 700, color: "var(--color-lime)", lineHeight: 1,
+                }}>
+                  {s.num}
                 </div>
-                {i < 2 && <div className="w-px self-stretch" style={{ background: "rgba(0,0,0,.1)" }} />}
+                <div style={{
+                  fontFamily: "var(--font-mono),monospace",
+                  fontSize: "7px", letterSpacing: "0.15em",
+                  textTransform: "uppercase", color: "#525252", marginTop: "6px",
+                }}>
+                  {s.label}
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* STICKY MOBILE CTA */}
+      {/* ── STICKY MOBILE CTA ────────────────────────────────── */}
       {stickyVisible && (
-        <div className="md:hidden fixed bottom-0 inset-x-0 z-50 backdrop-blur-xl px-4 pt-3"
-          style={{ background: "rgba(255,255,255,.97)", borderTop: "1px solid rgba(0,0,0,.1)", paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))" }}>
-          <a href="#pricing" onClick={scrollToPricing}
-            className="btn-3d flex items-center justify-between gap-3 px-5 py-3 rounded-full font-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6d28d9]"
-            style={{ background: "linear-gradient(135deg, #6d28d9, #4f46e5)", color: "#fff" }}>
-            <div className="text-left">
-              <div className="text-[10px] leading-none" style={{ color: "rgba(255,255,255,.6)" }}>Combo nexIA® · acesso vitalício</div>
-              <div className="text-sm leading-snug mt-0.5">R$97 no PIX · acesso imediato</div>
-            </div>
-            <ArrowRight className="w-5 h-5 shrink-0" aria-hidden="true" />
+        <div
+          className="md:hidden fixed bottom-0 inset-x-0 z-50 px-4 pt-3"
+          style={{
+            background: "rgba(5,5,5,0.97)",
+            backdropFilter: "blur(20px)",
+            borderTop: "1px solid var(--color-border)",
+            paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))",
+          }}
+        >
+          <a href="#pricing" onClick={scrollToPricing} className="btn-cta cta-checkout" style={{ width: "100%" }}>
+            <span className="btn-cta-spin" aria-hidden />
+            <span className="btn-cta-body" style={{ padding: "14px 24px", justifyContent: "space-between" }}>
+              <span className="btn-cta-shimmer" aria-hidden />
+              <div style={{ textAlign: "left" }}>
+                <div style={{ fontFamily: "var(--font-mono),monospace", fontSize: "8px", letterSpacing: "0.10em", textTransform: "uppercase", color: "rgba(0,0,0,0.55)", lineHeight: 1 }}>
+                  Combo nexIA® · acesso vitalício
+                </div>
+                <div style={{ fontFamily: "var(--font-mono),monospace", fontSize: "11px", letterSpacing: "0.08em", fontWeight: 900, color: "#000", marginTop: "2px" }}>
+                  R$197 no PIX · acesso imediato →
+                </div>
+              </div>
+            </span>
           </a>
         </div>
       )}
 
-      {/* CHECKOUT LINK injector */}
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `(function(){var u=${JSON.stringify(checkoutUrl)};document.querySelectorAll('.cta-checkout').forEach(function(a){a.href=u;});})();`,
-        }}
-      />
+      {/* Checkout URL injector */}
+      <script dangerouslySetInnerHTML={{
+        __html: `(function(){var u=${JSON.stringify(checkoutUrl)};document.querySelectorAll('.cta-checkout').forEach(function(a){a.href=u;});})();`
+      }} />
     </>
   )
 }

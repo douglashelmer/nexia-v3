@@ -1,11 +1,26 @@
 import type { Metadata } from "next";
-import { Outfit } from "next/font/google";
+import { Inter, Syne, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const outfit = Outfit({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-outfit",
+  variable: "--font-inter",
   display: "swap",
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+});
+
+const syne = Syne({
+  subsets: ["latin"],
+  variable: "--font-syne",
+  display: "swap",
+  weight: ["600", "700", "800"],
+});
+
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+  weight: ["500", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -21,18 +36,23 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR" className={outfit.variable}>
+    <html lang="pt-BR" className={`${inter.variable} ${syne.variable} ${mono.variable}`}>
       <head>
-        {/* Preload LCP hero image — browser starts fetching before JS runs */}
-        {/* eslint-disable-next-line @next/next/no-head-element */}
-        <link rel="preload" as="image" href="/assets/antes-depois/01.webp" fetchPriority="high" />
-        {/* Clarity + GTM — both deferred to window.load to avoid blocking LCP/TBT */}
+        {/* UTMify — pixel */}
         <script dangerouslySetInnerHTML={{
-          __html: `window.addEventListener('load',function(){
-            (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wr0bsewjai");
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.src="https://api.douglashelmer.com.br/etwmdnsbp.js?"+i;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','6=GQZOKTAgWiAoLkZdKVpFUgZfQUBVSxMaTQYcGwMBFgcYBx8DAR9ZFx8PXQwW');
-          });`
+          __html: `window.pixelId="69c6e9e04d7d4f8e24385f46";var a=document.createElement("script");a.setAttribute("async","");a.setAttribute("defer","");a.setAttribute("src","https://cdn.utmify.com.br/scripts/pixel/pixel.js");document.head.appendChild(a);`
         }} />
+        {/* UTMify — UTM tracking */}
+        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+        <script
+          src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+          data-utmify-prevent-xcod-sck=""
+          data-utmify-prevent-subids=""
+          data-utmify-ignore-iframe=""
+          data-utmify-ignore-retry=""
+          async
+          defer
+        />
       </head>
       <body className="antialiased">
         {children}
