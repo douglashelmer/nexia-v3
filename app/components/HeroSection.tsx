@@ -141,7 +141,7 @@ export default function HeroSection() {
           <div className="anim-rise delay-500 flex flex-col items-start gap-4 mb-12" style={{ maxWidth: "360px" }}>
 
             {/* Primary CTA */}
-            <a href="#conteudo" onClick={scrollToConteudo} className="btn-cta cta-checkout" style={{ width: "100%" }}
+            <a href="#conteudo" onClick={scrollToConteudo} className="btn-cta" style={{ width: "100%" }}
               aria-label="Ver conteúdo do nexIA">
               <span className="btn-cta-spin" aria-hidden />
               <span className="btn-cta-body">
