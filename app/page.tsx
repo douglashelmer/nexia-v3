@@ -1,5 +1,6 @@
 import { ArrowRight, BookOpen, CheckCircle2, ChevronDown, DollarSign, Shield, XCircle, Zap } from "lucide-react"
 import Image from "next/image"
+import AnnouncementBar from "./components/AnnouncementBar"
 import CountdownSection from "./components/CountdownSection"
 import HeroSection from "./components/HeroSection"
 import Reveal from "./components/Reveal"
@@ -32,7 +33,7 @@ const bonuses = [
 const faqs = [
   { q: "O acesso é realmente vitalício ou tem mensalidade?", a: "Sim, o acesso é 100% vitalício. Você paga uma vez e tem acesso para sempre, incluindo todas as atualizações futuras sem custo adicional." },
   { q: "Como funciona a garantia de 30 dias?", a: "Se você assistir todo o conteúdo, colocar em prática e não conseguir criar nada com o que é ensinado, devolvemos o que investiu em dobro. Basta enviar um e-mail com o comprovante de acesso dentro de 30 dias. Devolvemos pelo mesmo meio de pagamento, em até 5 dias úteis. O risco é 100% nosso." },
-  { q: "Posso parcelar no cartão de crédito?", a: "Sim! Você parcela em até 12× de R$9,97 no cartão — sem custo adicional na plataforma. Prefere pagar à vista? No PIX o valor é R$97." },
+  { q: "Como é feito o pagamento?", a: "O pagamento é feito à vista via PIX pelo valor de R$97. O acesso é liberado imediatamente após a confirmação." },
   { q: "Preciso ter a versão paga do ChatGPT?", a: "Não é obrigatório. Os cursos ensinam a usar diversas ferramentas de IA, muitas delas gratuitas. Você pode começar sem nenhum custo adicional." },
   { q: "Funciona para o meu nicho de mercado?", a: "Sim! Os métodos ensinados se aplicam a qualquer nicho criativo — design, marketing, fotografia, vídeo, moda, esportes, produtos e muito mais." },
   { q: "Preciso de conhecimento técnico em marketing ou design?", a: "Não. Os cursos são desenhados para todos os níveis, do completo iniciante ao profissional que quer acelerar sua produção com IA." },
@@ -89,6 +90,9 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      {/* ANNOUNCEMENT BAR — sticky below nav after problem section */}
+      <AnnouncementBar />
 
       {/* VÍDEOS — CLIENT: lazy loading */}
       <section className="py-20 md:py-32" style={{ background: "#090909", borderTop: "1px solid rgba(255,255,255,.05)" }}>
@@ -504,7 +508,7 @@ export default function Page() {
               <div>
                 <div className="text-[11px] font-bold tracking-[.14em] uppercase mb-1" style={{ color: "rgba(201,212,0,.6)" }}>De <span className="line-through">R$297</span> por</div>
                 <div className="font-black tracking-tighter leading-none" style={{ fontSize: "clamp(2.25rem,8vw,3.5rem)", color: "#C9D400" }}>R$97</div>
-                <div className="text-sm mt-1" style={{ color: "#a1a1aa" }}>à vista no PIX · ou 12× R$9,97</div>
+                <div className="text-sm mt-1" style={{ color: "#a1a1aa" }}>à vista no PIX · acesso imediato</div>
               </div>
             </div>
             <a href={CHECKOUT}

@@ -159,7 +159,7 @@ export default function HeroSection() {
             style={{ background: "#C9D400", color: "#090909" }}>
             <div className="text-left">
               <div className="text-[10px] leading-none" style={{ color: "rgba(0,0,0,.55)" }}>Combo nexIA® · acesso vitalício</div>
-              <div className="text-sm leading-snug mt-0.5">12× R$9,97 · ou R$97 PIX</div>
+              <div className="text-sm leading-snug mt-0.5">R$97 no PIX · acesso imediato</div>
             </div>
             <ArrowRight className="w-5 h-5 shrink-0" aria-hidden="true" />
           </a>

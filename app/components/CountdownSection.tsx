@@ -68,7 +68,7 @@ function useCheckoutUrl() {
 }
 
 const benefits = [
-  "Acesso imediato",
+  "Acesso imediato após o pagamento",
   "Atualizações gratuitas",
   "Suporte com Professor",
   "Comunidade de Alunos",
@@ -111,17 +111,16 @@ export default function CountdownSection() {
               <div className="text-sm mb-2" style={{ color: "rgba(255,255,255,.4)" }}>
                 DE <span className="line-through">R$297</span> POR
               </div>
-              <div className="flex items-baseline justify-center gap-2 mb-1">
-                <span className="text-2xl font-black" style={{ color: "rgba(255,255,255,.45)" }}>12×</span>
-                <span className="font-black tracking-tighter leading-none"
-                  style={{ fontSize: "clamp(3rem, 14vw, 4.5rem)", color: "#C9D400" }}>
-                  R$9,97
-                </span>
+              <div className="font-black tracking-tighter leading-none mb-1"
+                style={{ fontSize: "clamp(3.5rem, 16vw, 5.5rem)", color: "#C9D400" }}>
+                R$97
               </div>
-              <div className="text-sm" style={{ color: "rgba(255,255,255,.5)" }}>
-                ou{" "}
-                <span className="font-black" style={{ color: "#C9D400" }}>R$97</span>
-                {" "}à vista
+              <div className="flex items-center justify-center gap-2 mt-1">
+                <span className="text-sm font-black px-2.5 py-0.5 rounded-full"
+                  style={{ background: "rgba(201,212,0,.15)", color: "#C9D400", border: "1px solid rgba(201,212,0,.3)" }}>
+                  PIX
+                </span>
+                <span className="text-sm" style={{ color: "rgba(255,255,255,.5)" }}>à vista — acesso em segundos</span>
               </div>
             </div>
 
