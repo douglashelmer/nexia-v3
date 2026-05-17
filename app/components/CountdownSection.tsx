@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
-import { ArrowRight, CheckCircle2 } from "lucide-react"
+import { ArrowRight, CheckCircle2, Shield } from "lucide-react"
 
 const CHECKOUT = "https://payfast.greenn.com.br/ebnwgbt/offer/TFlokq?cupom=MAIO200&ch_id=138823&b_id_1=qt73vwh&b_offer_1=HtJr1o&b_id_2=67eh8rf&b_offer_2=V0iuEs&b_id_3=mzn9ucy&b_offer_3=9WkNK6"
 
@@ -35,7 +35,6 @@ function useCountdown() {
     const tick = () => {
       let diff = targetRef.current.getTime() - Date.now()
       if (diff <= 0) {
-        // new day — reset to tonight's midnight and refresh label
         targetRef.current = getMidnightTonight()
         setDateLabel(todayLabel())
         diff = Math.max(0, targetRef.current.getTime() - Date.now())
@@ -67,15 +66,16 @@ function useCheckoutUrl() {
   return url
 }
 
-const benefits = [
-  "Acesso imediato após o pagamento",
-  "Atualizações gratuitas",
-  "Suporte com Professor",
-  "Comunidade de Alunos",
-  "14 Habilidades com IA",
-  "Vitalício — sem mensalidade",
+const checklistItems = [
+  { label: "14 Habilidades com IA", detail: "acesso vitalício a todos os módulos", value: "R$297" },
+  { label: "Lives Periódicas com o Professor", detail: "sessões ao vivo para tirar dúvidas", value: "R$597" },
+  { label: "Comunidade de Alunos", detail: "+1.500 criativos, suporte direto", value: "R$397" },
+  { label: "Sua Primeira Venda com IA em 7 Dias", detail: "método prático para fechar o primeiro cliente", value: "R$297" },
+  { label: "Atualizações Gratuitas", detail: "novos conteúdos sem custo adicional", value: null },
+  { label: "Suporte com Professor", detail: "tire dúvidas diretamente com Douglas", value: null },
 ]
 
+const TOTAL_VALUE = "R$1.588"
 
 export default function CountdownSection() {
   const countdown   = useCountdown()
@@ -83,137 +83,197 @@ export default function CountdownSection() {
 
   return (
     <section id="pricing" className="py-16 md:py-24"
-      style={{ background: "#090909", borderTop: "1px solid rgba(255,255,255,.05)" }}>
-      <div className="max-w-md mx-auto px-5">
-        <div className="rounded-3xl overflow-hidden" style={{
-          background: "linear-gradient(160deg, #0c0c1e 0%, #0e0e18 100%)",
-          border: "1px solid rgba(201,212,0,.18)",
-          boxShadow: "0 0 80px rgba(201,212,0,.06), 0 24px 64px rgba(0,0,0,.55)",
-        }}>
+      style={{ background: "#f7f7f7", borderTop: "1px solid rgba(0,0,0,.07)" }}>
+      <div className="max-w-6xl mx-auto px-5">
 
-          {/* ── Header ── */}
-          <div className="flex flex-col items-center pt-8 pb-6 px-8"
-            style={{ borderBottom: "1px solid rgba(255,255,255,.06)" }}>
-            <Image src="/assets/logo-nexia.svg" alt="nexIA" width={130} height={29} className="mb-4" />
-            <div className="text-base font-black text-center" style={{ color: "#C9D400" }}>
-              Plano de Acesso Vitalício
-            </div>
-            <div className="text-xs text-center mt-1" style={{ color: "rgba(255,255,255,.35)" }}>
-              (pagamento único, sem mensalidades)
-            </div>
-          </div>
+        {/* ── Header ── */}
+        <div className="text-center mb-12">
+          <p className="text-sm font-bold uppercase tracking-widest mb-3" style={{ color: "#999999" }}>
+            Faça as contas:
+          </p>
+          <h2 className="font-black tracking-tighter leading-tight mb-4"
+            style={{ fontSize: "clamp(1.75rem, 5vw, 3rem)", color: "#111111" }}>
+            Você está levando tudo isso{" "}
+            <span className="text-gradient">por menos que uma pizza.</span>
+          </h2>
+          <p className="text-base" style={{ color: "#666666" }}>
+            Veja tudo o que irá receber:
+          </p>
+        </div>
 
-          <div className="px-8 py-7">
+        {/* ── Two columns ── */}
+        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto items-start">
 
-            {/* ── Price ── */}
-            <div className="text-center mb-6">
-              <div className="text-sm mb-2" style={{ color: "rgba(255,255,255,.4)" }}>
-                DE <span className="line-through">R$297</span> POR
-              </div>
-              <div className="font-black tracking-tighter leading-none mb-1"
-                style={{ fontSize: "clamp(3.5rem, 16vw, 5.5rem)", color: "#C9D400" }}>
-                R$97
-              </div>
-              <div className="flex items-center justify-center gap-2 mt-1">
-                <span className="text-sm font-black px-2.5 py-0.5 rounded-full"
-                  style={{ background: "rgba(201,212,0,.15)", color: "#C9D400", border: "1px solid rgba(201,212,0,.3)" }}>
-                  PIX
-                </span>
-                <span className="text-sm" style={{ color: "rgba(255,255,255,.5)" }}>à vista — acesso em segundos</span>
-              </div>
-            </div>
-
-            <div className="h-px mb-6" style={{ background: "rgba(255,255,255,.06)" }} />
-
-            {/* ── Countdown label ── */}
-            <div className="text-center mb-4">
-              <p className="text-sm" style={{ color: "rgba(255,255,255,.6)" }}>
-                Essa condição especial expira hoje,
-              </p>
-              <p className="text-sm font-black mt-0.5" suppressHydrationWarning>
-                {countdown.dateLabel
-                  ? <><span style={{ color: "#C9D400" }}>{countdown.dateLabel}</span>, às 23h59!</>
-                  : <span className="opacity-0">—</span>}
-              </p>
-            </div>
-
-            {/* ── Countdown blocks ── */}
-            <div
-              className={`flex justify-center gap-3 mb-3${countdown.mounted ? "" : " opacity-0"}`}
-              suppressHydrationWarning
-              aria-live="polite"
-            >
-              {[
-                { ref: countdown.hoursRef,   label: "Horas" },
-                { ref: countdown.minutesRef, label: "Minutos" },
-                { ref: countdown.secondsRef, label: "Segundos" },
-              ].map((b) => (
-                <div key={b.label} className="flex flex-col items-center gap-1.5">
-                  <div className="w-[72px] h-[72px] rounded-2xl flex items-center justify-center font-black tabular-nums"
-                    style={{
-                      fontSize: "2rem",
-                      background: "linear-gradient(145deg, #5B3FC5, #3A6CF4)",
-                      color: "#fff",
-                      boxShadow: "0 4px 16px rgba(90,63,197,.45)",
-                    }}>
-                    <span ref={b.ref}>00</span>
+          {/* ── LEFT: Checklist ── */}
+          <div className="rounded-2xl p-7 md:p-8"
+            style={{ background: "#ffffff", border: "1px solid rgba(0,0,0,.1)", boxShadow: "0 2px 20px rgba(0,0,0,.05)" }}>
+            <ul className="space-y-4 mb-8">
+              {checklistItems.map((item) => (
+                <li key={item.label} className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 shrink-0 mt-0.5" style={{ color: "#C9D400" }} aria-hidden="true" />
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-baseline justify-between gap-2 flex-wrap">
+                      <span className="font-black text-sm" style={{ color: "#111111" }}>{item.label}</span>
+                      {item.value && (
+                        <span className="text-xs font-bold shrink-0" style={{ color: "#999999" }}>{item.value}</span>
+                      )}
+                    </div>
+                    <p className="text-xs mt-0.5" style={{ color: "#888888" }}>{item.detail}</p>
                   </div>
-                  <span className="text-[11px] font-semibold" style={{ color: "rgba(255,255,255,.4)" }}>
-                    {b.label}
-                  </span>
-                </div>
-              ))}
-            </div>
-
-            <p className="text-xs text-center mb-6" style={{ color: "rgba(255,255,255,.35)" }}>
-              Depois disso, o acesso volta ao preço normal: R$297.
-            </p>
-
-            {/* ── CTA ── */}
-            <a
-              href={checkoutUrl}
-              id="cta-pricing-card"
-              className="cta-checkout btn-3d w-full flex items-center justify-center gap-2.5 px-6 py-4 rounded-2xl font-black text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9D400]"
-              style={{
-                background: "linear-gradient(135deg, #6036C8, #3B6BF5)",
-                color: "#fff",
-                boxShadow: "0 6px 0 rgba(0,0,0,.5), 0 0 30px rgba(96,54,200,.35)",
-              }}>
-              Garantir minha vaga agora
-              <ArrowRight className="w-5 h-5 shrink-0" aria-hidden="true" />
-            </a>
-
-            {/* ── Payment methods badge ── */}
-            <div className="flex justify-center mt-3 mb-5">
-              <img
-                src="/assets/green.svg"
-                alt="Formas de pagamento aceitas: PayPal, Hipercard, Amex, Mastercard, PIX, Visa"
-                width={220}
-                height={17}
-                style={{ opacity: 0.55 }}
-              />
-            </div>
-
-            {/* ── Benefits ── */}
-            <ul className="space-y-2.5 mb-6">
-              {benefits.map((b) => (
-                <li key={b} className="flex items-center gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 shrink-0" style={{ color: "#C9D400" }} aria-hidden="true" />
-                  <span className="text-sm" style={{ color: "rgba(255,255,255,.75)" }}>{b}</span>
                 </li>
               ))}
+
+              {/* Guarantee row */}
+              <li className="flex items-start gap-3 pt-2" style={{ borderTop: "1px solid rgba(0,0,0,.07)" }}>
+                <Shield className="w-5 h-5 shrink-0 mt-0.5 text-[#7c3aed]" aria-hidden="true" />
+                <div>
+                  <span className="font-black text-sm text-[#7c3aed]">Garantia 30 dias — dinheiro de volta em dobro</span>
+                  <p className="text-xs mt-0.5" style={{ color: "#888888" }}>Se não criar nada, devolvemos o que pagou × 2</p>
+                </div>
+              </li>
             </ul>
 
-            {/* ── Guarantee ── */}
-            <div className="text-center py-4 rounded-2xl"
-              style={{ background: "rgba(201,212,0,.06)", border: "1px solid rgba(201,212,0,.15)" }}>
-              <div className="text-sm font-black" style={{ color: "#C9D400" }}>*Garantia de 30 DIAS</div>
-              <div className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,.45)" }}>
-                ou seu dinheiro de volta em dobro!
+            {/* Total value */}
+            <div className="rounded-xl px-5 py-4"
+              style={{ background: "#f5f5f5", border: "1px solid rgba(0,0,0,.08)" }}>
+              <p className="text-sm" style={{ color: "#666666" }}>
+                Quanto você pagaria em tudo:{" "}
+                <span className="font-black line-through" style={{ color: "#aaaaaa" }}>{TOTAL_VALUE}</span>
+              </p>
+              <p className="text-lg font-black mt-1" style={{ color: "#111111" }}>
+                Hoje por apenas{" "}
+                <span className="text-gradient">R$97 no PIX</span>
+              </p>
+            </div>
+          </div>
+
+          {/* ── RIGHT: Pricing card ── */}
+          <div className="rounded-2xl overflow-hidden"
+            style={{ background: "#ffffff", border: "1px solid rgba(0,0,0,.1)", boxShadow: "0 2px 20px rgba(0,0,0,.06)" }}>
+
+            {/* Header */}
+            <div className="flex flex-col items-center pt-7 pb-5 px-7"
+              style={{ borderBottom: "1px solid rgba(0,0,0,.07)" }}>
+              <Image src="/assets/logo-nexia-dark.svg" alt="nexIA" width={120} height={27} className="mb-3" />
+              <div className="text-sm font-black text-center" style={{ color: "#111111" }}>
+                Plano de Acesso Vitalício
+              </div>
+              <div className="text-xs text-center mt-0.5" style={{ color: "#999999" }}>
+                (pagamento único, sem mensalidades)
               </div>
             </div>
 
+            <div className="px-7 py-6">
+
+              {/* Price */}
+              <div className="text-center mb-5">
+                <div className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: "#999999" }}>
+                  Nesta oferta por apenas:
+                </div>
+                <div className="font-black tracking-tighter leading-none"
+                  style={{ fontSize: "clamp(3.5rem, 14vw, 5rem)", color: "#111111" }}>
+                  R$<span className="text-gradient">97</span>
+                </div>
+                <div className="flex items-center justify-center gap-2 mt-2">
+                  <span className="text-xs font-black px-2.5 py-0.5 rounded-full"
+                    style={{ background: "rgba(201,212,0,.15)", color: "#7a8200", border: "1px solid rgba(201,212,0,.4)" }}>
+                    PIX
+                  </span>
+                  <span className="text-sm" style={{ color: "#666666" }}>à vista — acesso em segundos</span>
+                </div>
+              </div>
+
+              <div className="h-px mb-5" style={{ background: "rgba(0,0,0,.07)" }} />
+
+              {/* Countdown label */}
+              <div className="text-center mb-4">
+                <p className="text-sm" style={{ color: "#555555" }}>
+                  ⏳ Essa condição especial expira hoje,
+                </p>
+                <p className="text-sm font-black mt-0.5" suppressHydrationWarning>
+                  {countdown.dateLabel
+                    ? <><span className="text-gradient">{countdown.dateLabel}</span><span style={{ color: "#111111" }}>, às 23h59!</span></>
+                    : <span className="opacity-0">—</span>}
+                </p>
+              </div>
+
+              {/* Countdown blocks */}
+              <div
+                className={`flex justify-center gap-3 mb-3${countdown.mounted ? "" : " opacity-0"}`}
+                suppressHydrationWarning
+                aria-live="polite"
+              >
+                {[
+                  { ref: countdown.hoursRef,   label: "Horas" },
+                  { ref: countdown.minutesRef, label: "Minutos" },
+                  { ref: countdown.secondsRef, label: "Segundos" },
+                ].map((b) => (
+                  <div key={b.label} className="flex flex-col items-center gap-1.5">
+                    <div className="w-[68px] h-[68px] rounded-2xl flex items-center justify-center font-black tabular-nums"
+                      style={{
+                        fontSize: "1.9rem",
+                        background: "linear-gradient(145deg, #6d28d9, #4f46e5)",
+                        color: "#fff",
+                        boxShadow: "0 4px 14px rgba(109,40,217,.3)",
+                      }}>
+                      <span ref={b.ref}>00</span>
+                    </div>
+                    <span className="text-[11px] font-semibold" style={{ color: "#999999" }}>
+                      {b.label}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              <p className="text-xs text-center mb-5" style={{ color: "#aaaaaa" }}>
+                Depois disso, o acesso volta ao preço normal: R$297.
+              </p>
+
+              {/* CTA */}
+              <a
+                href={checkoutUrl}
+                id="cta-pricing-card"
+                className="cta-checkout btn-3d w-full flex items-center justify-center gap-2.5 px-6 py-4 rounded-2xl font-black text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7c3aed]"
+                style={{
+                  background: "linear-gradient(135deg, #6d28d9, #4f46e5)",
+                  color: "#fff",
+                  boxShadow: "0 6px 0 rgba(0,0,0,.25), 0 0 30px rgba(109,40,217,.2)",
+                }}>
+                Garantir minha vaga agora
+                <ArrowRight className="w-5 h-5 shrink-0" aria-hidden="true" />
+              </a>
+
+              {/* Payment badge */}
+              <div className="flex justify-center mt-3 mb-5">
+                <img
+                  src="/assets/green.svg"
+                  alt="Formas de pagamento: PayPal, Hipercard, Amex, Mastercard, PIX, Visa"
+                  width={220}
+                  height={17}
+                  style={{ opacity: 0.4, filter: "invert(1)" }}
+                />
+              </div>
+
+              {/* Benefits */}
+              <ul className="space-y-2">
+                {[
+                  "Acesso imediato após o pagamento",
+                  "Atualizações gratuitas",
+                  "Suporte com Professor",
+                  "Comunidade de Alunos",
+                  "14 Habilidades com IA",
+                  "Vitalício — sem mensalidade",
+                ].map((b) => (
+                  <li key={b} className="flex items-center gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 shrink-0" style={{ color: "#C9D400" }} aria-hidden="true" />
+                    <span className="text-sm" style={{ color: "#444444" }}>{b}</span>
+                  </li>
+                ))}
+              </ul>
+
+            </div>
           </div>
+
         </div>
       </div>
     </section>

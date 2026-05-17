@@ -28,6 +28,7 @@ const courses = [
 const bonuses = [
   { id: 3, title: "Lives Periódicas", price: "R$597", desc: "Sessões ao vivo para tirar dúvidas, aprender as novidades de IA e aplicar em tempo real com o professor Douglas." },
   { id: 4, title: "Comunidade de Alunos", price: "R$397", desc: "Suporte direto com o professor. Troque experiências com +1.500 criativos que caminham junto com você." },
+  { id: 5, title: "Sua Primeira Venda com IA em 7 Dias", price: "R$297", desc: "Método prático para sair do zero, montar seu portfólio em tempo real e fechar o primeiro cliente em menos de uma semana." },
 ]
 
 const faqs = [
@@ -50,27 +51,27 @@ export default function Page() {
       <HeroSection />
 
       {/* TICKER — pure CSS, no JS */}
-      <div className="overflow-hidden py-3" style={{ background: "#0e0e0e", borderTop: "1px solid rgba(255,255,255,.06)", borderBottom: "1px solid rgba(255,255,255,.06)" }}>
+      <div className="overflow-hidden py-3" style={{ background: "#f5f5f5", borderTop: "1px solid rgba(0,0,0,.07)", borderBottom: "1px solid rgba(0,0,0,.07)" }}>
         <div className="flex items-center gap-8 w-max ticker-track" aria-hidden="true">
           {[...tickerItems, ...tickerItems, ...tickerItems, ...tickerItems].map((item, i) => (
             <div key={i} className="flex items-center gap-8 shrink-0">
-              <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "#C9D400", opacity: 0.7 }} />
-              <span className="text-[11px] font-bold tracking-[.12em] uppercase whitespace-nowrap" style={{ color: "#a1a1aa" }}>{item}</span>
+              <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "#C9D400" }} />
+              <span className="text-[11px] font-bold tracking-[.12em] uppercase whitespace-nowrap" style={{ color: "#777777" }}>{item}</span>
             </div>
           ))}
         </div>
       </div>
 
       {/* PROBLEM */}
-      <section className="py-20 md:py-32" style={{ background: "#0e0e0e", borderTop: "1px solid rgba(255,255,255,.05)" }}>
+      <section className="py-20 md:py-32" style={{ background: "#ffffff", borderTop: "1px solid rgba(0,0,0,.06)" }}>
         <div className="max-w-5xl mx-auto px-5">
           <Reveal className="text-center mb-14">
             <div className="inline-block text-[11px] font-bold tracking-[.16em] uppercase mb-5 px-3 py-1 rounded"
-              style={{ color: "#C9D400", border: "1px solid rgba(201,212,0,.3)" }}>A REALIDADE</div>
-            <h2 className="text-3xl md:text-5xl font-black tracking-tighter leading-tight text-balance">
+              style={{ color: "#7c3aed", border: "1px solid rgba(124,58,237,.3)" }}>A REALIDADE</div>
+            <h2 className="text-3xl md:text-5xl font-black tracking-tighter leading-tight text-balance" style={{ color: "#111111" }}>
               Enquanto você lê isso, seus<br className="hidden md:block" /> concorrentes já estão usando IA
             </h2>
-            <p className="mt-4 text-base max-w-xl mx-auto" style={{ color: "#a1a1aa" }}>
+            <p className="mt-4 text-base max-w-xl mx-auto" style={{ color: "#555555" }}>
               Cada dia sem dominar IA é dinheiro que vai direto para o bolso de quem chegou antes.
             </p>
           </Reveal>
@@ -82,9 +83,9 @@ export default function Page() {
             ].map((c, i) => (
               <Reveal key={i} delay={i * 0.08}
                 className="rounded-2xl p-8 text-center transition-colors"
-                style={{ background: "#141414", border: "1px solid rgba(255,255,255,.08)" } as React.CSSProperties}>
+                style={{ background: "#f9f9f9", border: "1px solid rgba(0,0,0,.08)" } as React.CSSProperties}>
                 <div className="text-4xl mb-5" aria-hidden>{c.icon}</div>
-                <p className="text-sm leading-relaxed italic" style={{ color: "#a1a1aa" }}>{c.text}</p>
+                <p className="text-sm leading-relaxed italic" style={{ color: "#555555" }}>{c.text}</p>
               </Reveal>
             ))}
           </div>
@@ -95,15 +96,15 @@ export default function Page() {
       <AnnouncementBar />
 
       {/* VÍDEOS — CLIENT: lazy loading */}
-      <section className="py-20 md:py-32" style={{ background: "#090909", borderTop: "1px solid rgba(255,255,255,.05)" }}>
+      <section className="py-20 md:py-32" style={{ background: "#f7f7f7", borderTop: "1px solid rgba(0,0,0,.06)" }}>
         <div className="max-w-6xl mx-auto px-5">
           <Reveal className="text-center mb-12">
             <div className="inline-block text-[11px] font-bold tracking-[.16em] uppercase mb-5 px-3 py-1 rounded"
-              style={{ color: "#C9D400", border: "1px solid rgba(201,212,0,.3)" }}>O QUE VOCÊ VAI CRIAR</div>
-            <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-balance">
+              style={{ color: "#7c3aed", border: "1px solid rgba(124,58,237,.3)" }}>O QUE VOCÊ VAI CRIAR</div>
+            <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-balance" style={{ color: "#111111" }}>
               Trabalhos reais,<br /><span className="text-gradient">feitos com IA.</span>
             </h2>
-            <p className="mt-4 text-base max-w-xl mx-auto" style={{ color: "#a1a1aa" }}>
+            <p className="mt-4 text-base max-w-xl mx-auto" style={{ color: "#555555" }}>
               Esses são exemplos do que você vai dominar — criados pelos métodos ensinados no nexIA.
             </p>
           </Reveal>
@@ -118,12 +119,12 @@ export default function Page() {
         const imgClass = "h-44 md:h-56 w-auto rounded-xl shrink-0 object-cover block"
         const rowStyle = { gap: "12px" }
         return (
-          <section className="py-20 md:py-32 overflow-hidden" style={{ background: "#090909", borderTop: "1px solid rgba(255,255,255,.05)" }}>
+          <section className="py-20 md:py-32 overflow-hidden" style={{ background: "#ffffff", borderTop: "1px solid rgba(0,0,0,.06)" }}>
             <div className="max-w-6xl mx-auto px-5 mb-12">
               <Reveal className="text-center">
                 <div className="inline-block text-[11px] font-bold tracking-[.16em] uppercase mb-5 px-3 py-1 rounded"
-                  style={{ color: "#C9D400", border: "1px solid rgba(201,212,0,.3)" }}>PORTFÓLIO</div>
-                <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-balance">
+                  style={{ color: "#7c3aed", border: "1px solid rgba(124,58,237,.3)" }}>PORTFÓLIO</div>
+                <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-balance" style={{ color: "#111111" }}>
                   O que os alunos<br /><span className="text-gradient">já estão entregando.</span>
                 </h2>
               </Reveal>
@@ -133,7 +134,7 @@ export default function Page() {
               <div className="flex marquee-track" style={rowStyle}>
                 {[...row1, ...row1].map((f, i) => (
                   <img key={i} src={`/assets/galeria/${f}.webp`} alt="" loading="lazy" decoding="async"
-                    className={imgClass} style={{ border: "1px solid rgba(255,255,255,.07)" }} />
+                    className={imgClass} style={{ border: "1px solid rgba(0,0,0,.08)" }} />
                 ))}
               </div>
             </div>
@@ -142,7 +143,7 @@ export default function Page() {
               <div className="flex marquee-track-rev" style={rowStyle}>
                 {[...row2, ...row2].map((f, i) => (
                   <img key={i} src={`/assets/galeria/${f}.webp`} alt="" loading="lazy" decoding="async"
-                    className={imgClass} style={{ border: "1px solid rgba(255,255,255,.07)" }} />
+                    className={imgClass} style={{ border: "1px solid rgba(0,0,0,.08)" }} />
                 ))}
               </div>
             </div>
@@ -151,15 +152,15 @@ export default function Page() {
       })()}
 
       {/* ANTES / DEPOIS */}
-      <section className="py-20 md:py-32" style={{ background: "#0e0e0e", borderTop: "1px solid rgba(255,255,255,.05)" }}>
+      <section className="py-20 md:py-32" style={{ background: "#f7f7f7", borderTop: "1px solid rgba(0,0,0,.06)" }}>
         <div className="max-w-6xl mx-auto px-5">
           <Reveal className="text-center mb-12">
             <div className="inline-block text-[11px] font-bold tracking-[.16em] uppercase mb-5 px-3 py-1 rounded"
-              style={{ color: "#C9D400", border: "1px solid rgba(201,212,0,.3)" }}>TRANSFORMAÇÃO COM IA</div>
-            <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-balance">
+              style={{ color: "#7c3aed", border: "1px solid rgba(124,58,237,.3)" }}>TRANSFORMAÇÃO COM IA</div>
+            <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-balance" style={{ color: "#111111" }}>
               Da foto comum ao<br /><span className="text-gradient">anúncio profissional.</span>
             </h2>
-            <p className="mt-4 text-base max-w-[42ch] mx-auto" style={{ color: "#a1a1aa" }}>
+            <p className="mt-4 text-base max-w-[42ch] mx-auto" style={{ color: "#555555" }}>
               Imagens reais criadas com as técnicas ensinadas no nexIA. Produto real. IA do lado. Nenhuma agência envolvida.
             </p>
           </Reveal>
@@ -176,7 +177,7 @@ export default function Page() {
             ].map((item, i) => (
               <Reveal key={item.src} delay={i * 0.04}
                 className="rounded-xl overflow-hidden group"
-                style={{ border: "1px solid rgba(255,255,255,.07)" } as React.CSSProperties}>
+                style={{ border: "1px solid rgba(0,0,0,.08)" } as React.CSSProperties}>
                 <img
                   src={item.src}
                   alt={item.alt}
@@ -188,7 +189,7 @@ export default function Page() {
             ))}
           </div>
           <Reveal className="mt-8 text-center">
-            <p className="text-xs" style={{ color: "#52525b" }}>
+            <p className="text-xs" style={{ color: "#aaaaaa" }}>
               Criações de alunos nexIA® — usando apenas ferramentas de IA ensinadas nos cursos.
             </p>
           </Reveal>
@@ -196,15 +197,15 @@ export default function Page() {
       </section>
 
       {/* DEPOIMENTOS */}
-      <section className="py-20 md:py-32" style={{ background: "#090909", borderTop: "1px solid rgba(255,255,255,.05)" }}>
+      <section className="py-20 md:py-32" style={{ background: "#ffffff", borderTop: "1px solid rgba(0,0,0,.06)" }}>
         <div className="max-w-6xl mx-auto px-5">
           <Reveal className="text-center mb-12">
             <div className="inline-block text-[11px] font-bold tracking-[.16em] uppercase mb-5 px-3 py-1 rounded"
-              style={{ color: "#C9D400", border: "1px solid rgba(201,212,0,.3)" }}>ALUNOS REAIS</div>
-            <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-balance">
+              style={{ color: "#7c3aed", border: "1px solid rgba(124,58,237,.3)" }}>ALUNOS REAIS</div>
+            <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-balance" style={{ color: "#111111" }}>
               Sem filtro. Sem roteiro.<br /><span className="text-gradient">Só resultado.</span>
             </h2>
-            <p className="mt-4 text-base max-w-xl mx-auto" style={{ color: "#a1a1aa" }}>
+            <p className="mt-4 text-base max-w-xl mx-auto" style={{ color: "#555555" }}>
               Prints diretos da comunidade — do aluno que fechou R$15k ao que a cliente achou que era ridículo de fácil.
             </p>
           </Reveal>
@@ -228,7 +229,7 @@ export default function Page() {
                   loading="lazy"
                   decoding="async"
                   className="w-full rounded-xl block"
-                  style={{ border: "1px solid rgba(255,255,255,.06)" }}
+                  style={{ border: "1px solid rgba(0,0,0,.07)" }}
                 />
               </div>
             ))}
@@ -237,14 +238,14 @@ export default function Page() {
       </section>
 
       {/* AGITATE */}
-      <section className="py-20 md:py-28" style={{ background: "#090909", borderTop: "1px solid rgba(255,255,255,.05)" }}>
+      <section className="py-20 md:py-28" style={{ background: "#f7f7f7", borderTop: "1px solid rgba(0,0,0,.06)" }}>
         <div className="max-w-3xl mx-auto px-5 text-center">
           <Reveal>
-            <h2 className="text-3xl md:text-5xl font-black tracking-tighter leading-tight mb-6 text-balance">
+            <h2 className="text-3xl md:text-5xl font-black tracking-tighter leading-tight mb-6 text-balance" style={{ color: "#111111" }}>
               Não é falta de talento.<br />
               <span className="text-gradient">É falta do sistema certo.</span>
             </h2>
-            <p className="text-base md:text-lg leading-relaxed max-w-2xl mx-auto" style={{ color: "#a1a1aa" }}>
+            <p className="text-base md:text-lg leading-relaxed max-w-2xl mx-auto" style={{ color: "#555555" }}>
               Outros criativos não são mais inteligentes que você. Eles só descobriram as ferramentas certas antes. Cada semana que passa, a distância aumenta — e recuperar esse terreno vai custar mais tempo e mais dinheiro.
             </p>
           </Reveal>
@@ -252,12 +253,12 @@ export default function Page() {
       </section>
 
       {/* COMO FUNCIONA */}
-      <section className="py-20 md:py-32" style={{ background: "#0e0e0e", borderTop: "1px solid rgba(255,255,255,.05)" }}>
+      <section className="py-20 md:py-32" style={{ background: "#ffffff", borderTop: "1px solid rgba(0,0,0,.06)" }}>
         <div className="max-w-5xl mx-auto px-5">
           <Reveal className="text-center mb-14">
             <div className="inline-block text-[11px] font-bold tracking-[.16em] uppercase mb-5 px-3 py-1 rounded"
-              style={{ color: "#C9D400", border: "1px solid rgba(201,212,0,.3)" }}>COMO FUNCIONA</div>
-            <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-balance">Simples. Prático. Direto ao resultado.</h2>
+              style={{ color: "#7c3aed", border: "1px solid rgba(124,58,237,.3)" }}>COMO FUNCIONA</div>
+            <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-balance" style={{ color: "#111111" }}>Simples. Prático. Direto ao resultado.</h2>
           </Reveal>
           <div className="grid md:grid-cols-3 gap-6">
             {[
@@ -267,16 +268,16 @@ export default function Page() {
             ].map((step, i) => (
               <Reveal key={step.num} delay={i * 0.1}
                 className="rounded-2xl p-8 transition-colors"
-                style={{ background: "#141414", border: "1px solid rgba(255,255,255,.08)" } as React.CSSProperties}>
+                style={{ background: "#f9f9f9", border: "1px solid rgba(0,0,0,.08)" } as React.CSSProperties}>
                 <div className="flex items-start justify-between mb-6">
                   <div className="w-11 h-11 rounded-xl flex items-center justify-center"
-                    style={{ background: "rgba(201,212,0,.1)", color: "#C9D400" }}>
+                    style={{ background: "rgba(124,58,237,.1)", color: "#7c3aed" }}>
                     <step.Icon className="w-5 h-5" aria-hidden="true" />
                   </div>
-                  <span className="text-4xl font-black tabular-nums" style={{ color: "rgba(255,255,255,.08)" }}>{step.num}</span>
+                  <span className="text-4xl font-black tabular-nums" style={{ color: "rgba(0,0,0,.07)" }}>{step.num}</span>
                 </div>
-                <h3 className="text-xl font-black mb-2">{step.title}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: "#a1a1aa" }}>{step.desc}</p>
+                <h3 className="text-xl font-black mb-2" style={{ color: "#111111" }}>{step.title}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: "#555555" }}>{step.desc}</p>
               </Reveal>
             ))}
           </div>
@@ -284,28 +285,28 @@ export default function Page() {
       </section>
 
       {/* CURSOS */}
-      <section className="py-20 md:py-32" style={{ background: "#090909", borderTop: "1px solid rgba(255,255,255,.05)" }}>
+      <section className="py-20 md:py-32" style={{ background: "#f7f7f7", borderTop: "1px solid rgba(0,0,0,.06)" }}>
         <div className="max-w-6xl mx-auto px-5">
           <Reveal className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
             <div>
               <div className="inline-block text-[11px] font-bold tracking-[.16em] uppercase mb-4 px-3 py-1 rounded"
-                style={{ color: "#C9D400", border: "1px solid rgba(201,212,0,.3)" }}>O ARSENAL COMPLETO</div>
-              <h2 className="text-3xl md:text-5xl font-black tracking-tighter leading-tight">
+                style={{ color: "#7c3aed", border: "1px solid rgba(124,58,237,.3)" }}>O ARSENAL COMPLETO</div>
+              <h2 className="text-3xl md:text-5xl font-black tracking-tighter leading-tight" style={{ color: "#111111" }}>
                 Aprenda. Aplique.<br />
                 <span className="text-gradient">Comece a cobrar.</span>
               </h2>
             </div>
-            <p className="text-sm max-w-[32ch] leading-relaxed" style={{ color: "#a1a1aa" }}>
+            <p className="text-sm max-w-[32ch] leading-relaxed" style={{ color: "#555555" }}>
               Cada curso entrega uma habilidade que você pode monetizar imediatamente.
             </p>
           </Reveal>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
             {courses.map((c) => (
               <div key={c.id} className="rounded-xl overflow-hidden transition-colors group relative"
-                style={{ background: "#141414", border: c.id === 1 ? "1px solid rgba(201,212,0,.4)" : "1px solid rgba(255,255,255,.08)" }}>
+                style={{ background: "#ffffff", border: c.id === 1 ? "1px solid rgba(124,58,237,.4)" : "1px solid rgba(0,0,0,.1)" }}>
                 {c.id === 1 && (
                   <div className="absolute top-2 left-2 z-10 text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full"
-                    style={{ background: "#C9D400", color: "#090909" }}>
+                    style={{ background: "#7c3aed", color: "#fff" }}>
                     Comece aqui →
                   </div>
                 )}
@@ -314,12 +315,12 @@ export default function Page() {
                     loading="lazy" decoding="async" width={400} height={400}
                     className="w-full h-auto block transition-transform duration-500 group-hover:scale-[1.03]" />
                 </div>
-                <div className="p-3.5" style={{ background: "rgba(255,255,255,.02)", borderTop: "1px solid rgba(255,255,255,.06)" }}>
+                <div className="p-3.5" style={{ background: "rgba(0,0,0,.02)", borderTop: "1px solid rgba(0,0,0,.06)" }}>
                   <div className="inline-flex text-[10px] font-bold tracking-wide rounded-full px-2.5 py-0.5 mb-2"
-                    style={{ color: "rgba(255,255,255,.7)", background: "rgba(255,255,255,.1)", border: "1px solid rgba(255,255,255,.12)" }}>
+                    style={{ color: "#7c3aed", background: "rgba(124,58,237,.08)", border: "1px solid rgba(124,58,237,.15)" }}>
                     Curso {String(c.id).padStart(2, "0")}
                   </div>
-                  <h3 className="text-sm font-bold leading-snug">{c.title}</h3>
+                  <h3 className="text-sm font-bold leading-snug" style={{ color: "#111111" }}>{c.title}</h3>
                 </div>
               </div>
             ))}
@@ -328,36 +329,36 @@ export default function Page() {
       </section>
 
       {/* PARA QUEM */}
-      <section style={{ borderTop: "1px solid rgba(255,255,255,.05)" }}>
+      <section style={{ borderTop: "1px solid rgba(0,0,0,.06)" }}>
         <div className="grid md:grid-cols-2">
-          <Reveal className="p-10 md:p-16" style={{ background: "#090909", borderBottom: "1px solid rgba(255,255,255,.05)" } as React.CSSProperties}>
+          <Reveal className="p-10 md:p-16" style={{ background: "#ffffff", borderBottom: "1px solid rgba(0,0,0,.06)" } as React.CSSProperties}>
             <div className="flex items-center gap-2.5 mb-8">
               <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style={{ background: "#C9D400" }}>
-                <CheckCircle2 className="w-4 h-4 text-[#090909]" aria-hidden="true" />
+                <CheckCircle2 className="w-4 h-4 text-[#111111]" aria-hidden="true" />
               </div>
-              <span className="text-lg font-black">É para você</span>
+              <span className="text-lg font-black" style={{ color: "#111111" }}>É para você</span>
             </div>
             <ul className="space-y-5">
               {["Designer, criador de conteúdo, videomaker ou freelancer criativo", "Você sente que a IA está dominando o mercado e não quer ficar para trás", "Quer entregar projetos mais rápido e cobrar mais por isso", "Quer ter algo que seus concorrentes ainda não têm", "Cansado de trocar horas por dinheiro sem escalar"].map((item, i) => (
-                <li key={i} className="flex items-start gap-3 text-sm leading-relaxed" style={{ color: "#a1a1aa" }}>
-                  <ArrowRight className="w-4 h-4 shrink-0 mt-0.5" style={{ color: "#C9D400" }} aria-hidden="true" />
+                <li key={i} className="flex items-start gap-3 text-sm leading-relaxed" style={{ color: "#444444" }}>
+                  <ArrowRight className="w-4 h-4 shrink-0 mt-0.5" style={{ color: "#7c3aed" }} aria-hidden="true" />
                   {item}
                 </li>
               ))}
             </ul>
           </Reveal>
-          <Reveal delay={0.1} className="p-10 md:p-16" style={{ background: "#0e0e0e" } as React.CSSProperties}>
+          <Reveal delay={0.1} className="p-10 md:p-16" style={{ background: "#f9f9f9" } as React.CSSProperties}>
             <div className="flex items-center gap-2.5 mb-8">
               <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
-                style={{ background: "rgba(255,255,255,.08)", border: "1px solid rgba(255,255,255,.12)" }}>
-                <XCircle className="w-4 h-4" style={{ color: "rgba(255,255,255,.4)" }} aria-hidden="true" />
+                style={{ background: "rgba(0,0,0,.07)", border: "1px solid rgba(0,0,0,.1)" }}>
+                <XCircle className="w-4 h-4" style={{ color: "#999999" }} aria-hidden="true" />
               </div>
-              <span className="text-lg font-black" style={{ color: "#a1a1aa" }}>NÃO é para você se…</span>
+              <span className="text-lg font-black" style={{ color: "#888888" }}>NÃO é para você se…</span>
             </div>
             <ul className="space-y-5">
               {["Você quer resultados sem aplicar nada", "Acha que IA vai te substituir (ela vai substituir quem não a usa)", "Prefere ficar na zona de conforto enquanto o mercado muda"].map((item, i) => (
-                <li key={i} className="flex items-start gap-3 text-sm leading-relaxed" style={{ color: "#52525b" }}>
-                  <XCircle className="w-4 h-4 shrink-0 mt-0.5" style={{ color: "rgba(255,255,255,.2)" }} aria-hidden="true" />
+                <li key={i} className="flex items-start gap-3 text-sm leading-relaxed" style={{ color: "#aaaaaa" }}>
+                  <XCircle className="w-4 h-4 shrink-0 mt-0.5" style={{ color: "#cccccc" }} aria-hidden="true" />
                   {item}
                 </li>
               ))}
@@ -367,12 +368,12 @@ export default function Page() {
       </section>
 
       {/* OBJEÇÕES */}
-      <section className="py-20 md:py-28" style={{ background: "#090909", borderTop: "1px solid rgba(255,255,255,.05)" }}>
+      <section className="py-20 md:py-28" style={{ background: "#f7f7f7", borderTop: "1px solid rgba(0,0,0,.06)" }}>
         <div className="max-w-3xl mx-auto px-5">
           <Reveal className="text-center mb-10">
             <div className="inline-block text-[11px] font-bold tracking-[.16em] uppercase mb-5 px-3 py-1 rounded"
-              style={{ color: "#C9D400", border: "1px solid rgba(201,212,0,.3)" }}>SUAS DÚVIDAS</div>
-            <h2 className="text-3xl md:text-4xl font-black tracking-tighter text-balance">
+              style={{ color: "#7c3aed", border: "1px solid rgba(124,58,237,.3)" }}>SUAS DÚVIDAS</div>
+            <h2 className="text-3xl md:text-4xl font-black tracking-tighter text-balance" style={{ color: "#111111" }}>
               O que você pode estar pensando agora.
             </h2>
           </Reveal>
@@ -393,9 +394,9 @@ export default function Page() {
             ].map((obj, i) => (
               <Reveal key={i} delay={i * 0.08}
                 className="rounded-2xl p-8"
-                style={{ background: "#141414", border: "1px solid rgba(255,255,255,.08)" } as React.CSSProperties}>
-                <h3 className="text-base md:text-lg font-black mb-3 italic">{obj.q}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: "#a1a1aa" }}>{obj.a}</p>
+                style={{ background: "#ffffff", border: "1px solid rgba(0,0,0,.08)" } as React.CSSProperties}>
+                <h3 className="text-base md:text-lg font-black mb-3 italic" style={{ color: "#111111" }}>{obj.q}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: "#555555" }}>{obj.a}</p>
               </Reveal>
             ))}
           </div>
@@ -403,35 +404,35 @@ export default function Page() {
       </section>
 
       {/* BÔNUS */}
-      <section className="py-20 md:py-32" style={{ background: "#0e0e0e", borderTop: "1px solid rgba(255,255,255,.05)" }}>
+      <section className="py-20 md:py-32" style={{ background: "#ffffff", borderTop: "1px solid rgba(0,0,0,.06)" }}>
         <div className="max-w-5xl mx-auto px-5">
           <Reveal className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
             <div>
               <div className="inline-block text-[11px] font-bold tracking-[.16em] uppercase mb-4 px-3 py-1 rounded"
-                style={{ color: "#C9D400", border: "1px solid rgba(201,212,0,.3)" }}>BÔNUS EXCLUSIVOS</div>
-              <h2 className="text-3xl md:text-5xl font-black tracking-tighter leading-tight">
-                2 bônus que você<br /><span className="text-gradient">leva hoje.</span>
+                style={{ color: "#7c3aed", border: "1px solid rgba(124,58,237,.3)" }}>BÔNUS EXCLUSIVOS</div>
+              <h2 className="text-3xl md:text-5xl font-black tracking-tighter leading-tight" style={{ color: "#111111" }}>
+                3 bônus que você<br /><span className="text-gradient">leva hoje.</span>
               </h2>
             </div>
-            <p className="text-sm max-w-[36ch] leading-relaxed" style={{ color: "#a1a1aa" }}>
-              Não estão à venda separadamente. Apenas quem entrar hoje nessa oferta recebe todos os 4.
+            <p className="text-sm max-w-[36ch] leading-relaxed" style={{ color: "#555555" }}>
+              Não estão à venda separadamente. Apenas quem entrar hoje nessa oferta recebe todos os 3.
             </p>
           </Reveal>
-          <div className="flex flex-col rounded-2xl overflow-hidden" style={{ border: "1px solid rgba(255,255,255,.08)" }}>
+          <div className="flex flex-col rounded-2xl overflow-hidden" style={{ border: "1px solid rgba(0,0,0,.1)" }}>
             {bonuses.map((b, i) => (
               <Reveal key={b.id} delay={i * 0.08}
                 className="grid"
-                style={{ gridTemplateColumns: "160px 1fr", background: i % 2 === 0 ? "#141414" : "#111", borderTop: i > 0 ? "1px solid rgba(255,255,255,.06)" : undefined } as React.CSSProperties}>
+                style={{ gridTemplateColumns: "160px 1fr", background: i % 2 === 0 ? "#ffffff" : "#fafafa", borderTop: i > 0 ? "1px solid rgba(0,0,0,.07)" : undefined } as React.CSSProperties}>
                 <img src={`/assets/bonus/bonus-0${b.id}.webp`} alt={b.title} loading="lazy" decoding="async"
                   width={160} height={160}
                   className="w-full h-full object-cover block" style={{ minHeight: 120 }} />
                 <div className="p-6 md:p-8 flex flex-col justify-center">
                   <div className="flex items-center gap-3 mb-2">
-                    <span className="text-[10px] font-bold uppercase tracking-widest" style={{ color: "#52525b" }}>Bônus {i + 1}</span>
-                    <span className="text-xs font-bold line-through" style={{ color: "rgba(255,255,255,.25)" }}>{b.price}</span>
+                    <span className="text-[10px] font-bold uppercase tracking-widest" style={{ color: "#aaaaaa" }}>Bônus {i + 1}</span>
+                    <span className="text-xs font-bold line-through" style={{ color: "#cccccc" }}>{b.price}</span>
                   </div>
-                  <h3 className="font-black text-base md:text-lg mb-1.5">{b.title}</h3>
-                  <p className="text-sm leading-relaxed" style={{ color: "#a1a1aa" }}>{b.desc}</p>
+                  <h3 className="font-black text-base md:text-lg mb-1.5" style={{ color: "#111111" }}>{b.title}</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: "#555555" }}>{b.desc}</p>
                 </div>
               </Reveal>
             ))}
@@ -443,21 +444,21 @@ export default function Page() {
       <CountdownSection />
 
       {/* GARANTIA */}
-      <section className="py-20 md:py-32" style={{ background: "#090909", borderTop: "1px solid rgba(255,255,255,.05)" }}>
+      <section className="py-20 md:py-32" style={{ background: "#ffffff", borderTop: "1px solid rgba(0,0,0,.06)" }}>
         <div className="max-w-4xl mx-auto px-5">
           <Reveal className="grid md:grid-cols-[140px,1fr] gap-8 md:gap-12 items-center rounded-2xl p-8 md:p-12"
-            style={{ background: "#141414", border: "1px solid rgba(201,212,0,.22)" } as React.CSSProperties}>
+            style={{ background: "#f9f9f9", border: "1px solid rgba(124,58,237,.2)" } as React.CSSProperties}>
             <div className="w-[120px] h-[120px] md:w-[140px] md:h-[140px] rounded-full flex flex-col items-center justify-center text-center mx-auto md:mx-0 shrink-0"
               style={{ background: "#C9D400", boxShadow: "0 0 48px rgba(201,212,0,.35)" }}>
-              <div className="text-4xl font-black text-[#090909] leading-none">30</div>
-              <div className="text-[10px] font-black text-[#090909] uppercase tracking-wide leading-tight mt-1">dias de<br />garantia</div>
+              <div className="text-4xl font-black text-[#111111] leading-none">30</div>
+              <div className="text-[10px] font-black text-[#111111] uppercase tracking-wide leading-tight mt-1">dias de<br />garantia</div>
             </div>
             <div>
-              <h2 className="text-2xl md:text-4xl font-black tracking-tighter mb-4 leading-tight">
+              <h2 className="text-2xl md:text-4xl font-black tracking-tighter mb-4 leading-tight" style={{ color: "#111111" }}>
                 Garantia de 30 Dias<br /><span className="text-gradient">ou devolvemos em dobro.</span>
               </h2>
-              <p className="text-base leading-relaxed" style={{ color: "#a1a1aa" }}>
-                Se você assistir todo o conteúdo, colocar em prática e não conseguir criar nada com o que é ensinado, devolvemos o que investiu <strong style={{ color: "#f5f5f5" }}>em dobro</strong>. Basta enviar um e-mail com o comprovante de acesso — devolvemos pelo mesmo meio de pagamento em até 5 dias úteis. Sem burocracia, sem perguntas.
+              <p className="text-base leading-relaxed" style={{ color: "#555555" }}>
+                Se você assistir todo o conteúdo, colocar em prática e não conseguir criar nada com o que é ensinado, devolvemos o que investiu <strong style={{ color: "#111111" }}>em dobro</strong>. Basta enviar um e-mail com o comprovante de acesso — devolvemos pelo mesmo meio de pagamento em até 5 dias úteis. Sem burocracia, sem perguntas.
               </p>
             </div>
           </Reveal>
@@ -465,25 +466,25 @@ export default function Page() {
       </section>
 
       {/* FAQ — native <details>, no JS needed */}
-      <section className="py-20 md:py-32" style={{ background: "#0e0e0e", borderTop: "1px solid rgba(255,255,255,.05)" }}>
+      <section className="py-20 md:py-32" style={{ background: "#f7f7f7", borderTop: "1px solid rgba(0,0,0,.06)" }}>
         <div className="max-w-5xl mx-auto px-5">
           <div className="grid md:grid-cols-[1fr,2fr] gap-10 md:gap-16 items-start">
             <Reveal className="md:sticky md:top-24">
               <div className="inline-block text-[11px] font-bold tracking-[.16em] uppercase mb-5 px-3 py-1 rounded"
-                style={{ color: "#C9D400", border: "1px solid rgba(201,212,0,.3)" }}>TIRE SUA DÚVIDA</div>
-              <h2 className="text-3xl md:text-4xl font-black tracking-tighter leading-tight">
+                style={{ color: "#7c3aed", border: "1px solid rgba(124,58,237,.3)" }}>TIRE SUA DÚVIDA</div>
+              <h2 className="text-3xl md:text-4xl font-black tracking-tighter leading-tight" style={{ color: "#111111" }}>
                 Perguntas<br /><span className="text-gradient">frequentes.</span>
               </h2>
             </Reveal>
             <div className="space-y-2.5">
               {faqs.map((faq, i) => (
                 <details key={i} className="group rounded-xl overflow-hidden transition-colors"
-                  style={{ background: "#141414", border: "1px solid rgba(255,255,255,.08)" }}>
-                  <summary className="cursor-pointer px-6 py-5 flex items-center justify-between gap-4 list-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9D400] focus-visible:ring-inset">
-                    <span className="font-semibold text-sm text-left">{faq.q}</span>
-                    <ChevronDown className="w-4 h-4 shrink-0 transition-transform group-open:rotate-180" style={{ color: "#C9D400" }} aria-hidden="true" />
+                  style={{ background: "#ffffff", border: "1px solid rgba(0,0,0,.1)" }}>
+                  <summary className="cursor-pointer px-6 py-5 flex items-center justify-between gap-4 list-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7c3aed] focus-visible:ring-inset">
+                    <span className="font-semibold text-sm text-left" style={{ color: "#111111" }}>{faq.q}</span>
+                    <ChevronDown className="w-4 h-4 shrink-0 transition-transform group-open:rotate-180 text-[#7c3aed]" aria-hidden="true" />
                   </summary>
-                  <div className="px-6 pb-5 text-sm leading-relaxed" style={{ color: "#a1a1aa" }}>{faq.a}</div>
+                  <div className="px-6 pb-5 text-sm leading-relaxed" style={{ color: "#555555" }}>{faq.a}</div>
                 </details>
               ))}
             </div>
@@ -492,30 +493,30 @@ export default function Page() {
       </section>
 
       {/* FINAL CTA */}
-      <section className="py-20 md:py-32" style={{ background: "#090909", borderTop: "1px solid rgba(255,255,255,.05)" }}>
+      <section className="py-20 md:py-32" style={{ background: "#ffffff", borderTop: "1px solid rgba(0,0,0,.06)" }}>
         <div className="max-w-2xl mx-auto px-5 text-center">
           <Reveal>
             <div className="inline-block text-[11px] font-bold tracking-[.16em] uppercase mb-8 px-3 py-1 rounded"
-              style={{ color: "rgba(201,212,0,.7)", border: "1px solid rgba(201,212,0,.2)" }}>A DECISÃO É AGORA</div>
+              style={{ color: "#7c3aed", border: "1px solid rgba(124,58,237,.2)" }}>A DECISÃO É AGORA</div>
             <h2 className="font-black tracking-tighter leading-[.95] mb-6 text-balance"
-              style={{ fontSize: "clamp(2.5rem,7vw,5rem)" }}>
+              style={{ fontSize: "clamp(2.5rem,7vw,5rem)", color: "#111111" }}>
               Quem cresce com IA<br /><span className="text-gradient">começa hoje.</span>
             </h2>
-            <p className="text-base leading-relaxed mb-8 max-w-[44ch] mx-auto" style={{ color: "#a1a1aa" }}>
+            <p className="text-base leading-relaxed mb-8 max-w-[44ch] mx-auto" style={{ color: "#555555" }}>
               Enquanto você pensa, outro criativo aprende, aplica e fecha o cliente que seria seu.
             </p>
             <div className="flex items-center justify-center gap-3 mb-8">
               <div>
-                <div className="text-[11px] font-bold tracking-[.14em] uppercase mb-1" style={{ color: "rgba(201,212,0,.6)" }}>De <span className="line-through">R$297</span> por</div>
-                <div className="font-black tracking-tighter leading-none" style={{ fontSize: "clamp(2.25rem,8vw,3.5rem)", color: "#C9D400" }}>R$97</div>
-                <div className="text-sm mt-1" style={{ color: "#a1a1aa" }}>à vista no PIX · acesso imediato</div>
+                <div className="text-[11px] font-bold tracking-[.14em] uppercase mb-1" style={{ color: "#aaaaaa" }}>De <span className="line-through">R$297</span> por</div>
+                <div className="font-black tracking-tighter leading-none" style={{ fontSize: "clamp(2.25rem,8vw,3.5rem)", color: "#111111" }}>R$<span className="text-gradient">97</span></div>
+                <div className="text-sm mt-1" style={{ color: "#666666" }}>à vista no PIX · acesso imediato</div>
               </div>
             </div>
             <a
               href={CHECKOUT}
               id="cta-final-section"
-              className="cta-checkout inline-flex items-center gap-2 px-8 py-4 rounded-full font-black transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9D400] focus-visible:ring-offset-2 focus-visible:ring-offset-[#090909]"
-              style={{ background: "#C9D400", color: "#090909", boxShadow: "0 0 40px rgba(201,212,0,.25)" }}>
+              className="cta-checkout inline-flex items-center gap-2 px-8 py-4 rounded-full font-black transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7c3aed] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+              style={{ background: "linear-gradient(135deg, #6d28d9, #4f46e5)", color: "#fff", boxShadow: "0 4px 24px rgba(109,40,217,.3)" }}>
               QUERO MINHA VANTAGEM COMPETITIVA <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </a>
             <div className="flex justify-center mt-4">
@@ -524,17 +525,17 @@ export default function Page() {
                 alt="Formas de pagamento aceitas: PayPal, Hipercard, Amex, Mastercard, PIX, Visa"
                 width={220}
                 height={17}
-                style={{ opacity: 0.45 }}
+                style={{ opacity: 0.35, filter: "invert(1)" }}
               />
             </div>
             <div className="flex items-center justify-center gap-5 mt-4 flex-wrap">
               {[{ icon: "🛡️", text: "Garantia 30 dias" }, { icon: "⚡", text: "Acesso imediato" }, { icon: "♾️", text: "Vitalício" }].map(b => (
-                <div key={b.text} className="flex items-center gap-1.5 text-xs" style={{ color: "#52525b" }}>
+                <div key={b.text} className="flex items-center gap-1.5 text-xs" style={{ color: "#aaaaaa" }}>
                   <span aria-hidden>{b.icon}</span>{b.text}
                 </div>
               ))}
             </div>
-            <p className="text-sm mt-8 italic" style={{ color: "#52525b" }}>
+            <p className="text-sm mt-8 italic" style={{ color: "#aaaaaa" }}>
               P.S. A IA não vai esperar. A pergunta é só quando você decide entrar.
             </p>
           </Reveal>
@@ -542,10 +543,10 @@ export default function Page() {
       </section>
 
       {/* FOOTER */}
-      <footer className="py-8" style={{ background: "#0e0e0e", borderTop: "1px solid rgba(255,255,255,.05)" }}>
+      <footer className="py-8" style={{ background: "#f5f5f5", borderTop: "1px solid rgba(0,0,0,.07)" }}>
         <div className="max-w-6xl mx-auto px-5 flex flex-col md:flex-row items-center justify-between gap-4">
-          <Image src="/assets/logo-nexia.svg" alt="nexIA" width={90} height={20} />
-          <p className="text-xs" style={{ color: "#52525b" }}>© 2025 nexIA®. Todos os direitos reservados.</p>
+          <Image src="/assets/logo-nexia-dark.svg" alt="nexIA" width={90} height={20} />
+          <p className="text-xs" style={{ color: "#aaaaaa" }}>© 2025 nexIA®. Todos os direitos reservados.</p>
         </div>
       </footer>
     </>

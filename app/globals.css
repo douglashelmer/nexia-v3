@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-bg:         #090909;
-  --color-bg-soft:    #0e0e0e;
-  --color-bg-card:    #141414;
-  --color-ink:        #f5f5f5;
-  --color-ink-dim:    #a1a1aa;
-  --color-ink-dimmer: #52525b;
+  --color-bg:         #ffffff;
+  --color-bg-soft:    #f5f5f5;
+  --color-bg-card:    #ffffff;
+  --color-ink:        #111111;
+  --color-ink-dim:    #555555;
+  --color-ink-dimmer: #999999;
   --color-accent:     #C9D400;
   --color-accent-dk:  #a8b000;
   --font-sans: var(--font-outfit);
@@ -15,12 +15,12 @@
 
 html {
   overflow-x: hidden;
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 body {
-  background-color: #090909;
-  color: #f5f5f5;
+  background-color: #ffffff;
+  color: #111111;
   font-family: var(--font-outfit), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
@@ -28,7 +28,7 @@ body {
 
 /* Utility classes */
 .text-gradient {
-  background: linear-gradient(135deg, #C9D400, color-mix(in srgb, #C9D400 55%, white));
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -40,8 +40,8 @@ body {
 }
 .grid-bg {
   background-image:
-    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+    linear-gradient(rgba(0,0,0,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,.05) 1px, transparent 1px);
   background-size: 44px 44px;
 }
 
@@ -68,31 +68,25 @@ body {
   .marquee-track, .marquee-track-rev { animation: none; }
 }
 
-/* Pulsing CTA ring — yellow button on dark bg */
+/* Pulsing CTA ring */
 @keyframes pulse-ring {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(201,212,0,.55), 0 0 40px rgba(201,212,0,.25); }
-  50%       { box-shadow: 0 0 0 9px rgba(201,212,0,0),  0 0 40px rgba(201,212,0,.25); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201,212,0,.6), 0 0 40px rgba(201,212,0,.2); }
+  50%       { box-shadow: 0 0 0 9px rgba(201,212,0,0),  0 0 40px rgba(201,212,0,.2); }
 }
 .pulse-cta { animation: pulse-ring 2.2s ease-in-out infinite; }
 
-/* Pulsing CTA ring — dark button on yellow bg */
-@keyframes pulse-ring-dark {
-  0%, 100% { box-shadow: 0 6px 0 rgba(0,0,0,.55), 0 0 0 0 rgba(0,0,0,.35); }
-  50%       { box-shadow: 0 6px 0 rgba(0,0,0,.55), 0 0 0 10px rgba(0,0,0,0); }
-}
-
 /* 3D button */
 .btn-3d {
-  box-shadow: 0 6px 0 rgba(0,0,0,.55);
+  box-shadow: 0 6px 0 rgba(0,0,0,.35);
   transform: translateY(0);
   transition: transform 0.08s ease, box-shadow 0.08s ease;
 }
 .btn-3d:hover {
-  box-shadow: 0 8px 0 rgba(0,0,0,.55);
+  box-shadow: 0 8px 0 rgba(0,0,0,.35);
   transform: translateY(-2px);
 }
 .btn-3d:active {
-  box-shadow: 0 2px 0 rgba(0,0,0,.55);
+  box-shadow: 0 2px 0 rgba(0,0,0,.35);
   transform: translateY(4px);
 }
 @media (prefers-reduced-motion: reduce) {
@@ -110,7 +104,7 @@ body {
   height: 0.85em;
   margin-left: 3px;
   vertical-align: middle;
-  background: #C9D400;
+  background: #7c3aed;
   border-radius: 1px;
   animation: cursor-blink 0.75s step-end infinite;
 }

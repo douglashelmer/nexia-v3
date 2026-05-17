@@ -47,12 +47,16 @@ export default function HeroSection() {
   return (
     <>
       {/* NAV */}
-      <nav className="fixed top-0 inset-x-0 z-50 backdrop-blur-xl bg-[#090909]/80 border-b border-white/5">
+      <nav className="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b"
+        style={{ background: "rgba(255,255,255,.92)", borderColor: "rgba(0,0,0,.08)" }}>
         <div className="max-w-6xl mx-auto px-5 py-3.5 flex items-center justify-between">
-          <Image src="/assets/logo-nexia.svg" alt="nexIA" width={110} height={25} priority />
+          <Image src="/assets/logo-nexia-dark.svg" alt="nexIA" width={110} height={25} priority />
           <a
             href="#pricing" onClick={scrollToPricing}
-            className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#C9D400]/40 text-[#C9D400] hover:bg-[#C9D400] hover:text-[#090909] transition-colors text-sm font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9D400]"
+            className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full border text-sm font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7c3aed]"
+            style={{ borderColor: "rgba(124,58,237,.35)", color: "#7c3aed" }}
+            onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#7c3aed"; (e.currentTarget as HTMLAnchorElement).style.color = "#fff" }}
+            onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = ""; (e.currentTarget as HTMLAnchorElement).style.color = "#7c3aed" }}
           >
             Ver oferta <ArrowRight className="w-4 h-4" aria-hidden="true" />
           </a>
@@ -60,75 +64,59 @@ export default function HeroSection() {
       </nav>
 
       {/* HERO */}
-      <section className="relative min-h-[100dvh] flex flex-col justify-center pt-20 pb-16 overflow-hidden">
-        <div aria-hidden className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img
-            src="/assets/hero-bg.webp"
-            alt=""
-            fetchPriority="high"
-            decoding="async"
-            style={{
-              position: "absolute", inset: "-10% -8%",
-              width: "116%", height: "120%",
-              objectFit: "cover",
-              opacity: 0.55,
-              filter: "saturate(0.7) brightness(0.85)",
-              transform: "perspective(900px) rotateX(9deg) rotateY(-5deg) scale(1.05)",
-              transformOrigin: "50% 0%",
-            }}
-          />
-          <div style={{
-            position: "absolute", inset: 0,
-            background: "radial-gradient(ellipse 55% 50% at 50% 44%, rgba(9,9,9,.75) 0%, rgba(9,9,9,.25) 60%, transparent 100%), linear-gradient(to bottom, rgba(9,9,9,.85) 0%, transparent 25%, transparent 60%, rgba(9,9,9,1) 100%), linear-gradient(to right, rgba(9,9,9,.9) 0%, transparent 22%, transparent 78%, rgba(9,9,9,.9) 100%)",
-          }} />
-        </div>
-        <div aria-hidden className="absolute inset-0 grid-bg opacity-25 pointer-events-none" />
-        <div aria-hidden className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] rounded-full pointer-events-none"
-          style={{ background: "rgba(201,212,0,.09)", filter: "blur(100px)" }} />
+      <section className="relative min-h-[100dvh] flex flex-col justify-center pt-20 pb-16 overflow-hidden"
+        style={{ background: "#ffffff" }}>
+
+        {/* Decorations */}
+        <div aria-hidden className="absolute inset-0 grid-bg opacity-60 pointer-events-none" />
+        <div aria-hidden className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[380px] rounded-full pointer-events-none"
+          style={{ background: "rgba(201,212,0,.18)", filter: "blur(120px)" }} />
+        <div aria-hidden className="absolute top-1/3 right-0 w-[500px] h-[500px] rounded-full pointer-events-none"
+          style={{ background: "rgba(124,58,237,.06)", filter: "blur(120px)" }} />
 
         <div className="relative max-w-4xl mx-auto px-5 text-center z-10">
           <div className="h-anim h-anim-0 inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-8"
-            style={{ background: "rgba(201,212,0,.1)", border: "1px solid rgba(201,212,0,.28)" }}>
-            <Sparkles className="w-3 h-3 text-[#C9D400]" aria-hidden="true" />
-            <span className="text-[11px] font-bold text-[#C9D400] tracking-widest uppercase">
+            style={{ background: "rgba(124,58,237,.07)", border: "1px solid rgba(124,58,237,.22)" }}>
+            <Sparkles className="w-3 h-3 text-[#7c3aed]" aria-hidden="true" />
+            <span className="text-[11px] font-bold text-[#7c3aed] tracking-widest uppercase">
               Acesso Vitalício · Garantia 30 Dias · Sem Mensalidade
             </span>
           </div>
 
           <h1 className="h-anim h-anim-1 font-black tracking-tighter leading-[1.0] mb-6"
-            style={{ fontSize: "clamp(2rem, 6vw, 4rem)" }}>
+            style={{ fontSize: "clamp(2rem, 6vw, 4rem)", color: "#111111" }}>
             Crie Imagens, Vídeos e Anúncios Incríveis<br />
             <span className="text-gradient">em Menos de 5 Minutos</span><br />
             Usando Inteligência Artificial
           </h1>
 
           <p className="h-anim h-anim-2 text-base md:text-lg max-w-[52ch] mx-auto mb-10 leading-relaxed"
-            style={{ color: "#d4d4d8" }}>
+            style={{ color: "#555555" }}>
             Sem designer, estúdio, modelos, equipamentos, fotógrafos, maquiadores ou experiência!
           </p>
 
           <div className="h-anim h-anim-3 flex flex-col items-center gap-4 max-w-md mx-auto">
             <a href="#pricing" onClick={scrollToPricing}
-              className="pulse-cta flex items-center justify-center gap-3 w-full px-6 py-4 rounded-full font-black text-sm tracking-wide uppercase transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9D400] focus-visible:ring-offset-2 focus-visible:ring-offset-[#090909]"
-              style={{ background: "#C9D400", color: "#090909" }}>
+              className="pulse-cta flex items-center justify-center gap-3 w-full px-6 py-4 rounded-full font-black text-sm tracking-wide uppercase transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9D400] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+              style={{ background: "#C9D400", color: "#111111" }}>
               GARANTIR MINHA VAGA COM R$200 OFF
               <ArrowRight className="w-4 h-4 shrink-0" aria-hidden="true" />
             </a>
 
             <div className="flex items-center gap-5 flex-wrap justify-center">
               {[{ icon: "⚡", text: "Acesso imediato" }, { icon: "♾️", text: "Vitalício" }, { icon: "🔓", text: "Sem mensalidade" }].map(b => (
-                <div key={b.text} className="flex items-center gap-1.5 text-xs font-medium" style={{ color: "#a1a1aa" }}>
+                <div key={b.text} className="flex items-center gap-1.5 text-xs font-medium" style={{ color: "#888888" }}>
                   <span aria-hidden>{b.icon}</span>{b.text}
                 </div>
               ))}
             </div>
 
             <div className="flex items-center gap-3 w-full rounded-xl px-4 py-3 text-left"
-              style={{ background: "rgba(201,212,0,.07)", border: "1px solid rgba(201,212,0,.18)" }}>
-              <Shield className="w-5 h-5 text-[#C9D400] shrink-0" aria-hidden="true" />
+              style={{ background: "rgba(124,58,237,.06)", border: "1px solid rgba(124,58,237,.2)" }}>
+              <Shield className="w-5 h-5 text-[#7c3aed] shrink-0" aria-hidden="true" />
               <div>
-                <div className="text-xs font-black text-[#C9D400]">Garantia de 30 dias — devolvemos em dobro</div>
-                <div className="text-[11px] mt-0.5" style={{ color: "#a1a1aa" }}>
+                <div className="text-xs font-black text-[#7c3aed]">Garantia de 30 dias — devolvemos em dobro</div>
+                <div className="text-[11px] mt-0.5" style={{ color: "#888888" }}>
                   Assista, pratique e não criou nada? Você recebe o dobro de volta.
                 </div>
               </div>
@@ -136,14 +124,14 @@ export default function HeroSection() {
           </div>
 
           <div className="h-anim h-anim-4 flex items-stretch max-w-xs mx-auto mt-10"
-            style={{ borderTop: "1px solid rgba(255,255,255,.07)", borderBottom: "1px solid rgba(255,255,255,.07)" }}>
-            {[{ num: "+1.500", label: "Alunos" }, { num: "14", label: "Habilidades" }, { num: "2", label: "Bônus" }].map((s, i) => (
+            style={{ borderTop: "1px solid rgba(0,0,0,.1)", borderBottom: "1px solid rgba(0,0,0,.1)" }}>
+            {[{ num: "+1.500", label: "Alunos" }, { num: "14", label: "Habilidades" }, { num: "3", label: "Bônus" }].map((s, i) => (
               <div key={s.label} className="flex items-center flex-1">
                 <div className="flex-1 text-center py-4">
-                  <div className="text-2xl font-black tracking-tight tabular-nums" style={{ color: "#C9D400" }}>{s.num}</div>
-                  <div className="text-[10px] uppercase tracking-widest mt-0.5" style={{ color: "#71717a" }}>{s.label}</div>
+                  <div className="text-2xl font-black tracking-tight tabular-nums" style={{ color: "#7c3aed" }}>{s.num}</div>
+                  <div className="text-[10px] uppercase tracking-widest mt-0.5" style={{ color: "#999999" }}>{s.label}</div>
                 </div>
-                {i < 2 && <div className="w-px self-stretch" style={{ background: "rgba(255,255,255,.07)" }} />}
+                {i < 2 && <div className="w-px self-stretch" style={{ background: "rgba(0,0,0,.1)" }} />}
               </div>
             ))}
           </div>
@@ -153,12 +141,12 @@ export default function HeroSection() {
       {/* STICKY MOBILE CTA */}
       {stickyVisible && (
         <div className="md:hidden fixed bottom-0 inset-x-0 z-50 backdrop-blur-xl px-4 pt-3"
-          style={{ background: "rgba(20,20,20,.95)", borderTop: "1px solid rgba(201,212,0,.25)", paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))" }}>
+          style={{ background: "rgba(255,255,255,.97)", borderTop: "1px solid rgba(0,0,0,.1)", paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))" }}>
           <a href="#pricing" onClick={scrollToPricing}
             className="flex items-center justify-between gap-3 px-5 py-3 rounded-full font-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9D400]"
-            style={{ background: "#C9D400", color: "#090909" }}>
+            style={{ background: "#C9D400", color: "#111111" }}>
             <div className="text-left">
-              <div className="text-[10px] leading-none" style={{ color: "rgba(0,0,0,.55)" }}>Combo nexIA® · acesso vitalício</div>
+              <div className="text-[10px] leading-none" style={{ color: "rgba(0,0,0,.5)" }}>Combo nexIA® · acesso vitalício</div>
               <div className="text-sm leading-snug mt-0.5">R$97 no PIX · acesso imediato</div>
             </div>
             <ArrowRight className="w-5 h-5 shrink-0" aria-hidden="true" />
