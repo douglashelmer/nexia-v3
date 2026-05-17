@@ -104,7 +104,7 @@ export default function Page() {
               </Reveal>
             </div>
             <div className="overflow-hidden mb-3" aria-hidden="true">
-              <div className="flex marquee-track" style={{ gap: "12px" }}>
+              <div className="flex marquee-track" style={{ gap: "12px", animationDuration: "18s" }}>
                 {[...row1, ...row1].map((f, i) => (
                   <img key={i} src={`/assets/hero/${f}.webp`} alt="" loading="lazy" decoding="async"
                     className={imgClass} style={{ border: "1px solid rgba(0,0,0,.07)", aspectRatio: "1/1" }} />
@@ -112,7 +112,7 @@ export default function Page() {
               </div>
             </div>
             <div className="overflow-hidden" aria-hidden="true">
-              <div className="flex marquee-track-rev" style={{ gap: "12px" }}>
+              <div className="flex marquee-track-rev" style={{ gap: "12px", animationDuration: "22s" }}>
                 {[...row2, ...row2].map((f, i) => (
                   <img key={i} src={`/assets/hero/${f}.webp`} alt="" loading="lazy" decoding="async"
                     className={imgClass} style={{ border: "1px solid rgba(0,0,0,.07)", aspectRatio: "1/1" }} />
