@@ -81,10 +81,17 @@ function HeroImages() {
       style={{ boxShadow: "0 12px 48px rgba(109,40,217,.18)", border: "1px solid rgba(0,0,0,.08)" }}>
       <img
         src={HERO_IMAGES[idx]}
-        alt="Resultado antes e depois criado com nexIA"
+        alt="Trabalho criado por aluno nexIA"
         className="w-full h-auto block"
         style={{ opacity: fading ? 0 : 1, transition: "opacity 0.45s ease" }}
       />
+      {/* Label */}
+      <div className="absolute bottom-3 left-3">
+        <span className="text-[11px] font-bold px-3 py-1.5 rounded-full"
+          style={{ background: "rgba(109,40,217,.85)", color: "#fff", backdropFilter: "blur(6px)" }}>
+          Trabalhos dos Alunos ✦
+        </span>
+      </div>
     </div>
   )
 }
