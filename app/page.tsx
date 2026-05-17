@@ -109,6 +109,47 @@ export default function Page() {
         </div>
       </section>
 
+      {/* DEPOIMENTOS */}
+      <section className="py-20 md:py-32" style={{ background: "#0e0e0e", borderTop: "1px solid rgba(255,255,255,.05)" }}>
+        <div className="max-w-6xl mx-auto px-5">
+          <Reveal className="text-center mb-12">
+            <div className="inline-block text-[11px] font-bold tracking-[.16em] uppercase mb-5 px-3 py-1 rounded"
+              style={{ color: "#C9D400", border: "1px solid rgba(201,212,0,.3)" }}>ALUNOS REAIS</div>
+            <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-balance">
+              Sem filtro. Sem roteiro.<br /><span className="text-gradient">Só resultado.</span>
+            </h2>
+            <p className="mt-4 text-base max-w-xl mx-auto" style={{ color: "#a1a1aa" }}>
+              Prints diretos da comunidade — do aluno que fechou R$15k ao que a cliente achou que era ridículo de fácil.
+            </p>
+          </Reveal>
+          {/* masonry grid — CSS columns */}
+          <div style={{ columnCount: 3, columnGap: "12px" }} className="[column-count:2] md:[column-count:3]">
+            {[
+              { src: "/assets/depoimentos/IMG_3126.webp",  alt: "Aluno fechou cliente de R$15k usando o nexIA" },
+              { src: "/assets/depoimentos/rafa.webp",       alt: "Aluno Rafa conseguiu projeto de R$4.000 em packshots 3D" },
+              { src: "/assets/depoimentos/whatsapp-04.webp",alt: "Aluno montou catálogo em 6h (vs 17h) e cobrou R$1.950" },
+              { src: "/assets/depoimentos/whatsapp-02.webp",alt: "Cliente da aluna ficou impressionada com a qualidade" },
+              { src: "/assets/depoimentos/IMG_3367.webp",   alt: "André publicou primeiro trabalho — vídeo para marca Vestem" },
+              { src: "/assets/depoimentos/IMG_2803.webp",   alt: "Joelles lançou site usando imagens feitas no nexIA" },
+              { src: "/assets/depoimentos/FazlrdtvwA.webp", alt: "Múltiplos alunos elogiando o curso e resultados" },
+              { src: "/assets/depoimentos/whatsapp-01.webp",alt: "Aluno elogia didática e suporte do grupo" },
+              { src: "/assets/depoimentos/whatsapp-03.webp",alt: "João Pestana conseguiu bons resultados rápido" },
+            ].map((t) => (
+              <div key={t.src} style={{ breakInside: "avoid", marginBottom: "12px" }}>
+                <img
+                  src={t.src}
+                  alt={t.alt}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full rounded-xl block"
+                  style={{ border: "1px solid rgba(255,255,255,.06)" }}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* AGITATE */}
       <section className="py-20 md:py-28" style={{ background: "#090909", borderTop: "1px solid rgba(255,255,255,.05)" }}>
         <div className="max-w-3xl mx-auto px-5 text-center">
