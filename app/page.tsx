@@ -1,6 +1,5 @@
 import { ArrowRight, BookOpen, CheckCircle2, ChevronDown, DollarSign, Shield, XCircle, Zap } from "lucide-react"
 import Image from "next/image"
-import AnnouncementBar from "./components/AnnouncementBar"
 import CountdownSection from "./components/CountdownSection"
 import HeroSection from "./components/HeroSection"
 import Reveal from "./components/Reveal"
@@ -91,9 +90,6 @@ export default function Page() {
           </div>
         </div>
       </section>
-
-      {/* ANNOUNCEMENT BAR — sticky below nav after problem section */}
-      <AnnouncementBar />
 
       {/* VÍDEOS — CLIENT: lazy loading */}
       <section className="py-20 md:py-32" style={{ background: "#f7f7f7", borderTop: "1px solid rgba(0,0,0,.06)" }}>
@@ -405,37 +401,61 @@ export default function Page() {
 
       {/* BÔNUS */}
       <section className="py-20 md:py-32" style={{ background: "#ffffff", borderTop: "1px solid rgba(0,0,0,.06)" }}>
-        <div className="max-w-5xl mx-auto px-5">
-          <Reveal className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
-            <div>
-              <div className="inline-block text-[11px] font-bold tracking-[.16em] uppercase mb-4 px-3 py-1 rounded"
-                style={{ color: "#7c3aed", border: "1px solid rgba(124,58,237,.3)" }}>BÔNUS EXCLUSIVOS</div>
-              <h2 className="text-3xl md:text-5xl font-black tracking-tighter leading-tight" style={{ color: "#111111" }}>
-                3 bônus que você<br /><span className="text-gradient">leva hoje.</span>
-              </h2>
-            </div>
-            <p className="text-sm max-w-[36ch] leading-relaxed" style={{ color: "#555555" }}>
-              Não estão à venda separadamente. Apenas quem entrar hoje nessa oferta recebe todos os 3.
+        <div className="max-w-3xl mx-auto px-5">
+          <Reveal className="text-center mb-12">
+            <div className="inline-block text-[11px] font-bold tracking-[.16em] uppercase mb-5 px-3 py-1 rounded"
+              style={{ color: "#6d28d9", border: "1px solid rgba(109,40,217,.3)" }}>BÔNUS EXCLUSIVOS</div>
+            <h2 className="text-3xl md:text-5xl font-black tracking-tighter leading-tight" style={{ color: "#111111" }}>
+              3 bônus que você<br /><span className="text-gradient">leva hoje.</span>
+            </h2>
+            <p className="mt-4 text-base max-w-[38ch] mx-auto" style={{ color: "#555555" }}>
+              Não estão à venda separadamente. Apenas quem entrar nessa oferta recebe todos.
             </p>
           </Reveal>
-          <div className="flex flex-col rounded-2xl overflow-hidden" style={{ border: "1px solid rgba(0,0,0,.1)" }}>
+
+          <div className="rounded-2xl overflow-hidden" style={{ border: "1px solid rgba(0,0,0,.1)" }}>
             {bonuses.map((b, i) => (
-              <Reveal key={b.id} delay={i * 0.08}
-                className="grid"
-                style={{ gridTemplateColumns: "160px 1fr", background: i % 2 === 0 ? "#ffffff" : "#fafafa", borderTop: i > 0 ? "1px solid rgba(0,0,0,.07)" : undefined } as React.CSSProperties}>
-                <img src={`/assets/bonus/bonus-0${b.id}.webp`} alt={b.title} loading="lazy" decoding="async"
-                  width={160} height={160}
-                  className="w-full h-full object-cover block" style={{ minHeight: 120 }} />
-                <div className="p-6 md:p-8 flex flex-col justify-center">
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="text-[10px] font-bold uppercase tracking-widest" style={{ color: "#aaaaaa" }}>Bônus {i + 1}</span>
-                    <span className="text-xs font-bold line-through" style={{ color: "#cccccc" }}>{b.price}</span>
+              <Reveal key={b.id} delay={i * 0.07}>
+                <div className="flex items-start gap-5 px-6 py-7 md:px-8"
+                  style={{
+                    background: i % 2 === 0 ? "#ffffff" : "#fafafa",
+                    borderTop: i > 0 ? "1px solid rgba(0,0,0,.07)" : undefined,
+                  }}>
+                  {/* Number circle */}
+                  <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0 font-black text-sm"
+                    style={{ background: "linear-gradient(135deg, #6d28d9, #4f46e5)", color: "#fff", minWidth: "2.5rem" }}>
+                    {i + 1}
                   </div>
-                  <h3 className="font-black text-base md:text-lg mb-1.5" style={{ color: "#111111" }}>{b.title}</h3>
-                  <p className="text-sm leading-relaxed" style={{ color: "#555555" }}>{b.desc}</p>
+
+                  {/* Text */}
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="flex-1">
+                        <div className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: "#999999" }}>Bônus {i + 1}</div>
+                        <h3 className="font-black text-base md:text-lg leading-snug mb-1.5" style={{ color: "#111111" }}>{b.title}</h3>
+                        <p className="text-sm leading-relaxed" style={{ color: "#555555" }}>{b.desc}</p>
+                      </div>
+                      {/* Price */}
+                      <div className="text-right shrink-0 pt-5">
+                        <div className="text-[10px] font-bold uppercase tracking-wide" style={{ color: "#bbbbbb" }}>valor</div>
+                        <div className="font-black text-base" style={{ color: "#6d28d9" }}>{b.price}</div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </Reveal>
             ))}
+
+            {/* Total */}
+            <div className="flex items-center justify-between px-6 py-5 md:px-8"
+              style={{ background: "rgba(109,40,217,.04)", borderTop: "1px solid rgba(109,40,217,.12)" }}>
+              <span className="font-bold text-sm" style={{ color: "#444444" }}>Valor total dos bônus:</span>
+              <div className="flex items-baseline gap-2">
+                <span className="font-black text-lg line-through" style={{ color: "#bbbbbb" }}>R$1.291</span>
+                <span className="font-black text-sm px-2 py-0.5 rounded-full"
+                  style={{ background: "rgba(109,40,217,.1)", color: "#6d28d9" }}>GRÁTIS</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -516,7 +536,7 @@ export default function Page() {
               href={CHECKOUT}
               id="cta-final-section"
               className="cta-checkout inline-flex items-center gap-2 px-8 py-4 rounded-full font-black transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7c3aed] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
-              style={{ background: "linear-gradient(135deg, #6d28d9, #4f46e5)", color: "#fff", boxShadow: "0 4px 24px rgba(109,40,217,.3)" }}>
+              style={{ background: "linear-gradient(135deg, #6d28d9, #4f46e5)", color: "#fff", boxShadow: "0 6px 0 rgba(0,0,0,.25), 0 0 30px rgba(109,40,217,.25)" }}>
               QUERO MINHA VANTAGEM COMPETITIVA <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </a>
             <div className="flex justify-center mt-4">
@@ -545,7 +565,7 @@ export default function Page() {
       {/* FOOTER */}
       <footer className="py-8" style={{ background: "#f5f5f5", borderTop: "1px solid rgba(0,0,0,.07)" }}>
         <div className="max-w-6xl mx-auto px-5 flex flex-col md:flex-row items-center justify-between gap-4">
-          <Image src="/assets/logo-nexia-dark.svg" alt="nexIA" width={90} height={20} />
+          <Image src="/assets/logo-nexia-new.svg" alt="nexIA" width={100} height={30} />
           <p className="text-xs" style={{ color: "#aaaaaa" }}>© 2025 nexIA®. Todos os direitos reservados.</p>
         </div>
       </footer>

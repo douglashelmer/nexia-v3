@@ -50,13 +50,13 @@ export default function HeroSection() {
       <nav className="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b"
         style={{ background: "rgba(255,255,255,.92)", borderColor: "rgba(0,0,0,.08)" }}>
         <div className="max-w-6xl mx-auto px-5 py-3.5 flex items-center justify-between">
-          <Image src="/assets/logo-nexia-dark.svg" alt="nexIA" width={110} height={25} priority />
+          <Image src="/assets/logo-nexia-new.svg" alt="nexIA" width={120} height={36} priority />
           <a
             href="#pricing" onClick={scrollToPricing}
-            className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full border text-sm font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7c3aed]"
-            style={{ borderColor: "rgba(124,58,237,.35)", color: "#7c3aed" }}
-            onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#7c3aed"; (e.currentTarget as HTMLAnchorElement).style.color = "#fff" }}
-            onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = ""; (e.currentTarget as HTMLAnchorElement).style.color = "#7c3aed" }}
+            className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full border text-sm font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6d28d9]"
+            style={{ borderColor: "rgba(109,40,217,.35)", color: "#6d28d9" }}
+            onMouseEnter={e => { const a = e.currentTarget as HTMLAnchorElement; a.style.background = "#6d28d9"; a.style.color = "#fff"; a.style.borderColor = "#6d28d9" }}
+            onMouseLeave={e => { const a = e.currentTarget as HTMLAnchorElement; a.style.background = ""; a.style.color = "#6d28d9"; a.style.borderColor = "rgba(109,40,217,.35)" }}
           >
             Ver oferta <ArrowRight className="w-4 h-4" aria-hidden="true" />
           </a>
@@ -70,15 +70,15 @@ export default function HeroSection() {
         {/* Decorations */}
         <div aria-hidden className="absolute inset-0 grid-bg opacity-60 pointer-events-none" />
         <div aria-hidden className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[380px] rounded-full pointer-events-none"
-          style={{ background: "rgba(201,212,0,.18)", filter: "blur(120px)" }} />
+          style={{ background: "rgba(109,40,217,.1)", filter: "blur(120px)" }} />
         <div aria-hidden className="absolute top-1/3 right-0 w-[500px] h-[500px] rounded-full pointer-events-none"
-          style={{ background: "rgba(124,58,237,.06)", filter: "blur(120px)" }} />
+          style={{ background: "rgba(109,40,217,.05)", filter: "blur(120px)" }} />
 
         <div className="relative max-w-4xl mx-auto px-5 text-center z-10">
           <div className="h-anim h-anim-0 inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-8"
-            style={{ background: "rgba(124,58,237,.07)", border: "1px solid rgba(124,58,237,.22)" }}>
-            <Sparkles className="w-3 h-3 text-[#7c3aed]" aria-hidden="true" />
-            <span className="text-[11px] font-bold text-[#7c3aed] tracking-widest uppercase">
+            style={{ background: "rgba(109,40,217,.07)", border: "1px solid rgba(109,40,217,.22)" }}>
+            <Sparkles className="w-3 h-3 text-[#6d28d9]" aria-hidden="true" />
+            <span className="text-[11px] font-bold text-[#6d28d9] tracking-widest uppercase">
               Acesso Vitalício · Garantia 30 Dias · Sem Mensalidade
             </span>
           </div>
@@ -97,8 +97,8 @@ export default function HeroSection() {
 
           <div className="h-anim h-anim-3 flex flex-col items-center gap-4 max-w-md mx-auto">
             <a href="#pricing" onClick={scrollToPricing}
-              className="pulse-cta flex items-center justify-center gap-3 w-full px-6 py-4 rounded-full font-black text-sm tracking-wide uppercase transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9D400] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
-              style={{ background: "#C9D400", color: "#111111" }}>
+              className="pulse-cta btn-3d flex items-center justify-center gap-3 w-full px-6 py-4 rounded-full font-black text-sm tracking-wide uppercase focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6d28d9] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+              style={{ background: "linear-gradient(135deg, #6d28d9, #4f46e5)", color: "#fff" }}>
               GARANTIR MINHA VAGA COM R$200 OFF
               <ArrowRight className="w-4 h-4 shrink-0" aria-hidden="true" />
             </a>
@@ -112,10 +112,10 @@ export default function HeroSection() {
             </div>
 
             <div className="flex items-center gap-3 w-full rounded-xl px-4 py-3 text-left"
-              style={{ background: "rgba(124,58,237,.06)", border: "1px solid rgba(124,58,237,.2)" }}>
-              <Shield className="w-5 h-5 text-[#7c3aed] shrink-0" aria-hidden="true" />
+              style={{ background: "rgba(109,40,217,.06)", border: "1px solid rgba(109,40,217,.2)" }}>
+              <Shield className="w-5 h-5 text-[#6d28d9] shrink-0" aria-hidden="true" />
               <div>
-                <div className="text-xs font-black text-[#7c3aed]">Garantia de 30 dias — devolvemos em dobro</div>
+                <div className="text-xs font-black text-[#6d28d9]">Garantia de 30 dias — devolvemos em dobro</div>
                 <div className="text-[11px] mt-0.5" style={{ color: "#888888" }}>
                   Assista, pratique e não criou nada? Você recebe o dobro de volta.
                 </div>
@@ -128,7 +128,7 @@ export default function HeroSection() {
             {[{ num: "+1.500", label: "Alunos" }, { num: "14", label: "Habilidades" }, { num: "3", label: "Bônus" }].map((s, i) => (
               <div key={s.label} className="flex items-center flex-1">
                 <div className="flex-1 text-center py-4">
-                  <div className="text-2xl font-black tracking-tight tabular-nums" style={{ color: "#7c3aed" }}>{s.num}</div>
+                  <div className="text-2xl font-black tracking-tight tabular-nums" style={{ color: "#6d28d9" }}>{s.num}</div>
                   <div className="text-[10px] uppercase tracking-widest mt-0.5" style={{ color: "#999999" }}>{s.label}</div>
                 </div>
                 {i < 2 && <div className="w-px self-stretch" style={{ background: "rgba(0,0,0,.1)" }} />}
@@ -143,10 +143,10 @@ export default function HeroSection() {
         <div className="md:hidden fixed bottom-0 inset-x-0 z-50 backdrop-blur-xl px-4 pt-3"
           style={{ background: "rgba(255,255,255,.97)", borderTop: "1px solid rgba(0,0,0,.1)", paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))" }}>
           <a href="#pricing" onClick={scrollToPricing}
-            className="flex items-center justify-between gap-3 px-5 py-3 rounded-full font-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9D400]"
-            style={{ background: "#C9D400", color: "#111111" }}>
+            className="btn-3d flex items-center justify-between gap-3 px-5 py-3 rounded-full font-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6d28d9]"
+            style={{ background: "linear-gradient(135deg, #6d28d9, #4f46e5)", color: "#fff" }}>
             <div className="text-left">
-              <div className="text-[10px] leading-none" style={{ color: "rgba(0,0,0,.5)" }}>Combo nexIA® · acesso vitalício</div>
+              <div className="text-[10px] leading-none" style={{ color: "rgba(255,255,255,.6)" }}>Combo nexIA® · acesso vitalício</div>
               <div className="text-sm leading-snug mt-0.5">R$97 no PIX · acesso imediato</div>
             </div>
             <ArrowRight className="w-5 h-5 shrink-0" aria-hidden="true" />

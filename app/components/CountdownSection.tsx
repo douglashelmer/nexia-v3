@@ -154,7 +154,7 @@ export default function CountdownSection() {
             {/* Header */}
             <div className="flex flex-col items-center pt-7 pb-5 px-7"
               style={{ borderBottom: "1px solid rgba(0,0,0,.07)" }}>
-              <Image src="/assets/logo-nexia-dark.svg" alt="nexIA" width={120} height={27} className="mb-3" />
+              <Image src="/assets/logo-nexia-new.svg" alt="nexIA" width={120} height={36} className="mb-3" />
               <div className="text-sm font-black text-center" style={{ color: "#111111" }}>
                 Plano de Acesso Vitalício
               </div>
