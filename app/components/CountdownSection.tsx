@@ -1,36 +1,48 @@
 "use client"
 
+import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
-import { ArrowRight, Clock, Shield } from "lucide-react"
+import { ArrowRight, CheckCircle2 } from "lucide-react"
 
 const CHECKOUT = "https://payfast.greenn.com.br/ebnwgbt/offer/TFlokq?cupom=MAIO200&ch_id=138823&b_id_1=qt73vwh&b_offer_1=HtJr1o&b_id_2=67eh8rf&b_offer_2=V0iuEs&b_id_3=mzn9ucy&b_offer_3=9WkNK6"
 
-const valueStack = [
-  { label: "14 Cursos Completos de IA", val: "R$1.235" },
-  { label: "Bônus 1: Lives Periódicas", val: "R$597" },
-  { label: "Bônus 2: Comunidade de Alunos", val: "R$397" },
-]
+const DAYS_PT   = ["domingo","segunda-feira","terça-feira","quarta-feira","quinta-feira","sexta-feira","sábado"]
+const MONTHS_PT = ["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"]
 
-function getTonightMidnight() {
+function getMidnightTonight() {
   const d = new Date()
   d.setHours(23, 59, 59, 0)
   return d
 }
 
-/** DOM-ref countdown — updates text nodes directly, zero re-renders per tick */
-function useCountdown(target: Date) {
+function todayLabel() {
+  const d = new Date()
+  return `${DAYS_PT[d.getDay()]}, ${d.getDate()} de ${MONTHS_PT[d.getMonth()]} de ${d.getFullYear()}`
+}
+
+function useCountdown() {
   const hoursRef   = useRef<HTMLSpanElement>(null)
   const minutesRef = useRef<HTMLSpanElement>(null)
   const secondsRef = useRef<HTMLSpanElement>(null)
-  const [mounted, setMounted] = useState(false)
+  const targetRef  = useRef(getMidnightTonight())
+  const [mounted, setMounted]     = useState(false)
+  const [dateLabel, setDateLabel] = useState("")
 
   useEffect(() => {
     setMounted(true)
+    setDateLabel(todayLabel())
+
     const tick = () => {
-      const diff = Math.max(0, target.getTime() - Date.now())
-      const h = String(Math.floor((diff / 3600000) % 24)).padStart(2, "0")
-      const m = String(Math.floor((diff / 60000)   % 60)).padStart(2, "0")
-      const s = String(Math.floor((diff / 1000)    % 60)).padStart(2, "0")
+      let diff = targetRef.current.getTime() - Date.now()
+      if (diff <= 0) {
+        // new day — reset to tonight's midnight and refresh label
+        targetRef.current = getMidnightTonight()
+        setDateLabel(todayLabel())
+        diff = Math.max(0, targetRef.current.getTime() - Date.now())
+      }
+      const h = String(Math.floor((diff / 3_600_000) % 24)).padStart(2, "0")
+      const m = String(Math.floor((diff /    60_000) % 60)).padStart(2, "0")
+      const s = String(Math.floor((diff /     1_000) % 60)).padStart(2, "0")
       if (hoursRef.current)   hoursRef.current.textContent   = h
       if (minutesRef.current) minutesRef.current.textContent = m
       if (secondsRef.current) secondsRef.current.textContent = s
@@ -38,9 +50,9 @@ function useCountdown(target: Date) {
     tick()
     const id = setInterval(tick, 1000)
     return () => clearInterval(id)
-  }, [target])
+  }, [])
 
-  return { hoursRef, minutesRef, secondsRef, mounted }
+  return { hoursRef, minutesRef, secondsRef, mounted, dateLabel }
 }
 
 function useCheckoutUrl() {
@@ -55,93 +67,156 @@ function useCheckoutUrl() {
   return url
 }
 
+const benefits = [
+  "Acesso imediato",
+  "Atualizações gratuitas",
+  "Suporte com Professor",
+  "Comunidade de Alunos",
+  "14 Habilidades com IA",
+  "Vitalício — sem mensalidade",
+]
+
+const paymentMethods = ["greenn", "PayPal", "Hipercard", "Amex", "Mastercard", "Pix", "Visa"]
+
 export default function CountdownSection() {
-  const [target] = useState(getTonightMidnight)
-  const countdown = useCountdown(target)
+  const countdown   = useCountdown()
   const checkoutUrl = useCheckoutUrl()
 
   return (
-    <section id="pricing" style={{ background: "#C9D400" }}>
-      <div className="grid md:grid-cols-2">
-        <div className="p-10 md:p-16 flex flex-col justify-center" style={{ borderBottom: "1px solid rgba(0,0,0,.12)" }}>
-          <div className="text-[11px] font-bold tracking-[.18em] uppercase mb-6" style={{ color: "rgba(0,0,0,.5)" }}>OFERTA ESPECIAL — HOJE SOMENTE</div>
-          <div className="text-sm mb-0.5" style={{ color: "rgba(0,0,0,.55)" }}>DE <span className="line-through">R$297</span> POR</div>
+    <section id="pricing" className="py-16 md:py-24"
+      style={{ background: "#090909", borderTop: "1px solid rgba(255,255,255,.05)" }}>
+      <div className="max-w-md mx-auto px-5">
+        <div className="rounded-3xl overflow-hidden" style={{
+          background: "linear-gradient(160deg, #0c0c1e 0%, #0e0e18 100%)",
+          border: "1px solid rgba(201,212,0,.18)",
+          boxShadow: "0 0 80px rgba(201,212,0,.06), 0 24px 64px rgba(0,0,0,.55)",
+        }}>
 
-          {/* PIX price — primary option */}
-          <div className="font-black tracking-tighter leading-[0.85] text-[#090909]"
-            style={{ fontSize: "clamp(4.5rem,13vw,8rem)" }}>R$97</div>
-          <div className="flex items-center gap-2 mt-1 mb-2">
-            <span className="text-sm font-black px-2.5 py-0.5 rounded-full" style={{ background: "rgba(0,0,0,.12)", color: "rgba(0,0,0,.75)" }}>PIX</span>
-            <span className="text-sm font-semibold" style={{ color: "rgba(0,0,0,.55)" }}>à vista — acesso em segundos</span>
-          </div>
-
-          {/* Divider */}
-          <div className="flex items-center gap-3 my-4">
-            <div className="flex-1 h-px" style={{ background: "rgba(0,0,0,.15)" }} />
-            <span className="text-xs font-bold" style={{ color: "rgba(0,0,0,.4)" }}>ou</span>
-            <div className="flex-1 h-px" style={{ background: "rgba(0,0,0,.15)" }} />
-          </div>
-
-          {/* Card installment */}
-          <div className="mb-8">
-            <div className="text-sm font-bold" style={{ color: "rgba(0,0,0,.6)" }}>12× de</div>
-            <div className="font-black tracking-tighter leading-none text-[#090909]"
-              style={{ fontSize: "clamp(2rem,6vw,3rem)" }}>R$9,97</div>
-            <div className="text-xs mt-0.5" style={{ color: "rgba(0,0,0,.45)" }}>no cartão de crédito</div>
-          </div>
-
-          <a href={checkoutUrl}
-            className="cta-checkout btn-3d w-full flex items-center justify-center gap-3 px-8 py-5 rounded-2xl font-black text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#090909]"
-            style={{ background: "#090909", color: "#C9D400", animation: "pulse-ring-dark 2.2s ease-in-out infinite" }}>
-            <span>GARANTIR ACESSO VITALÍCIO</span>
-            <ArrowRight className="w-5 h-5 shrink-0" aria-hidden="true" />
-          </a>
-          <a href={checkoutUrl}
-            className="cta-checkout flex items-start gap-3 rounded-xl p-4 mt-6 transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#090909]"
-            style={{ background: "rgba(0,0,0,.12)", border: "1px solid rgba(0,0,0,.18)" }}>
-            <Shield className="w-7 h-7 shrink-0" style={{ color: "rgba(0,0,0,.7)" }} aria-hidden="true" />
-            <div>
-              <div className="font-black text-sm mb-0.5" style={{ color: "rgba(0,0,0,.8)" }}>Garantia 30 Dias — Devolvemos em Dobro</div>
-              <div className="text-xs leading-relaxed" style={{ color: "rgba(0,0,0,.55)" }}>Assista tudo, pratique, não criou nada? Devolvemos o dobro. Sem burocracia.</div>
+          {/* ── Header ── */}
+          <div className="flex flex-col items-center pt-8 pb-6 px-8"
+            style={{ borderBottom: "1px solid rgba(255,255,255,.06)" }}>
+            <Image src="/assets/logo-nexia.svg" alt="nexIA" width={130} height={29} className="mb-4" />
+            <div className="text-base font-black text-center" style={{ color: "#C9D400" }}>
+              Plano de Acesso Vitalício
             </div>
-          </a>
-        </div>
-
-        <div className="p-10 md:p-16 flex flex-col justify-center" style={{ background: "#090909", color: "#f5f5f5" }}>
-          <div className="text-[11px] font-bold tracking-[.14em] uppercase mb-5" style={{ color: "#C9D400" }}>ESSA CONDIÇÃO EXPIRA EM:</div>
-          <div className="flex items-center gap-3 mb-2" aria-live="polite" suppressHydrationWarning>
-            <Clock className="w-4 h-4 shrink-0" style={{ color: "#C9D400" }} aria-hidden="true" />
-            <div className={`flex gap-3 font-black tabular-nums tracking-tight${countdown.mounted ? "" : " opacity-0"}`}
-              style={{ fontSize: "clamp(1.75rem,5vw,2.5rem)", color: "#C9D400" }}>
-              <span>
-                <span ref={countdown.hoursRef}>00</span>
-                <span className="text-sm ml-0.5" style={{ color: "rgba(255,255,255,.3)" }}>h</span>
-              </span>
-              <span style={{ color: "rgba(255,255,255,.2)" }}>:</span>
-              <span>
-                <span ref={countdown.minutesRef}>00</span>
-                <span className="text-sm ml-0.5" style={{ color: "rgba(255,255,255,.3)" }}>m</span>
-              </span>
-              <span style={{ color: "rgba(255,255,255,.2)" }}>:</span>
-              <span>
-                <span ref={countdown.secondsRef}>00</span>
-                <span className="text-sm ml-0.5" style={{ color: "rgba(255,255,255,.3)" }}>s</span>
-              </span>
+            <div className="text-xs text-center mt-1" style={{ color: "rgba(255,255,255,.35)" }}>
+              (pagamento único, sem mensalidades)
             </div>
           </div>
-          <p className="text-xs mb-8" style={{ color: "rgba(255,255,255,.4)" }}>Depois disso, o valor sobe para R$297</p>
-          <div style={{ borderTop: "1px solid rgba(255,255,255,.08)" }}>
-            {valueStack.map((row) => (
-              <div key={row.label} className="flex justify-between items-center py-3.5 text-sm"
-                style={{ borderBottom: "1px solid rgba(255,255,255,.06)" }}>
-                <span style={{ color: "rgba(255,255,255,.55)" }}>{row.label}</span>
-                <span className="line-through whitespace-nowrap ml-4" style={{ color: "rgba(255,255,255,.25)" }}>{row.val}</span>
+
+          <div className="px-8 py-7">
+
+            {/* ── Price ── */}
+            <div className="text-center mb-6">
+              <div className="text-sm mb-2" style={{ color: "rgba(255,255,255,.4)" }}>
+                DE <span className="line-through">R$297</span> POR
               </div>
-            ))}
-            <div className="flex justify-between items-center pt-4 font-black text-base">
-              <span>Hoje somente</span>
-              <span className="text-xl" style={{ color: "#C9D400" }}>R$97</span>
+              <div className="flex items-baseline justify-center gap-2 mb-1">
+                <span className="text-2xl font-black" style={{ color: "rgba(255,255,255,.45)" }}>12×</span>
+                <span className="font-black tracking-tighter leading-none"
+                  style={{ fontSize: "clamp(3rem, 14vw, 4.5rem)", color: "#C9D400" }}>
+                  R$9,97
+                </span>
+              </div>
+              <div className="text-sm" style={{ color: "rgba(255,255,255,.5)" }}>
+                ou{" "}
+                <span className="font-black" style={{ color: "#C9D400" }}>R$97</span>
+                {" "}à vista
+              </div>
             </div>
+
+            <div className="h-px mb-6" style={{ background: "rgba(255,255,255,.06)" }} />
+
+            {/* ── Countdown label ── */}
+            <div className="text-center mb-4">
+              <p className="text-sm" style={{ color: "rgba(255,255,255,.6)" }}>
+                Essa condição especial expira hoje,
+              </p>
+              <p className="text-sm font-black mt-0.5" suppressHydrationWarning>
+                {countdown.dateLabel
+                  ? <><span style={{ color: "#C9D400" }}>{countdown.dateLabel}</span>, às 23h59!</>
+                  : <span className="opacity-0">—</span>}
+              </p>
+            </div>
+
+            {/* ── Countdown blocks ── */}
+            <div
+              className={`flex justify-center gap-3 mb-3${countdown.mounted ? "" : " opacity-0"}`}
+              suppressHydrationWarning
+              aria-live="polite"
+            >
+              {[
+                { ref: countdown.hoursRef,   label: "Horas" },
+                { ref: countdown.minutesRef, label: "Minutos" },
+                { ref: countdown.secondsRef, label: "Segundos" },
+              ].map((b) => (
+                <div key={b.label} className="flex flex-col items-center gap-1.5">
+                  <div className="w-[72px] h-[72px] rounded-2xl flex items-center justify-center font-black tabular-nums"
+                    style={{
+                      fontSize: "2rem",
+                      background: "linear-gradient(145deg, #5B3FC5, #3A6CF4)",
+                      color: "#fff",
+                      boxShadow: "0 4px 16px rgba(90,63,197,.45)",
+                    }}>
+                    <span ref={b.ref}>00</span>
+                  </div>
+                  <span className="text-[11px] font-semibold" style={{ color: "rgba(255,255,255,.4)" }}>
+                    {b.label}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            <p className="text-xs text-center mb-6" style={{ color: "rgba(255,255,255,.35)" }}>
+              Depois disso, o acesso volta ao preço normal: R$297.
+            </p>
+
+            {/* ── CTA ── */}
+            <a
+              href={checkoutUrl}
+              className="cta-checkout btn-3d w-full flex items-center justify-center gap-2.5 px-6 py-4 rounded-2xl font-black text-base mb-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9D400]"
+              style={{
+                background: "linear-gradient(135deg, #6036C8, #3B6BF5)",
+                color: "#fff",
+                boxShadow: "0 6px 0 rgba(0,0,0,.5), 0 0 30px rgba(96,54,200,.35)",
+              }}>
+              Garantir minha vaga agora
+              <ArrowRight className="w-5 h-5 shrink-0" aria-hidden="true" />
+            </a>
+
+            {/* ── Payment methods ── */}
+            <div className="flex flex-wrap justify-center gap-1.5 mb-6">
+              {paymentMethods.map((m) => (
+                <span key={m} className="text-[10px] font-bold px-2 py-0.5 rounded-md"
+                  style={{
+                    background: "rgba(255,255,255,.05)",
+                    color: "rgba(255,255,255,.4)",
+                    border: "1px solid rgba(255,255,255,.08)",
+                  }}>
+                  {m}
+                </span>
+              ))}
+            </div>
+
+            {/* ── Benefits ── */}
+            <ul className="space-y-2.5 mb-6">
+              {benefits.map((b) => (
+                <li key={b} className="flex items-center gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 shrink-0" style={{ color: "#C9D400" }} aria-hidden="true" />
+                  <span className="text-sm" style={{ color: "rgba(255,255,255,.75)" }}>{b}</span>
+                </li>
+              ))}
+            </ul>
+
+            {/* ── Guarantee ── */}
+            <div className="text-center py-4 rounded-2xl"
+              style={{ background: "rgba(201,212,0,.06)", border: "1px solid rgba(201,212,0,.15)" }}>
+              <div className="text-sm font-black" style={{ color: "#C9D400" }}>*Garantia de 30 DIAS</div>
+              <div className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,.45)" }}>
+                ou seu dinheiro de volta em dobro!
+              </div>
+            </div>
+
           </div>
         </div>
       </div>

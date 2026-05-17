@@ -95,15 +95,16 @@ export default function HeroSection() {
             </span>
           </div>
 
-          <h1 className="h-anim h-anim-1 font-black tracking-tighter leading-[0.92] mb-6"
-            style={{ fontSize: "clamp(3rem, 11vw, 8rem)" }}>
-            Domine IA.<br />
-            <span className="text-gradient">Ganhe dinheiro real.</span>
+          <h1 className="h-anim h-anim-1 font-black tracking-tighter leading-[1.0] mb-6"
+            style={{ fontSize: "clamp(2rem, 6vw, 4rem)" }}>
+            Crie Imagens, Vídeos e Anúncios Incríveis<br />
+            <span className="text-gradient">em Menos de 5 Minutos</span><br />
+            Usando Inteligência Artificial
           </h1>
 
-          <p className="h-anim h-anim-2 text-base md:text-lg max-w-[44ch] mx-auto mb-10 leading-relaxed"
+          <p className="h-anim h-anim-2 text-base md:text-lg max-w-[52ch] mx-auto mb-10 leading-relaxed"
             style={{ color: "#d4d4d8" }}>
-Aprenda a criar imagens e vídeos com IA — e cobrar por isso. Sem câmera, sem equipe, sem experiência prévia.
+            Sem designer, estúdio, modelos, equipamentos, fotógrafos, maquiadores ou experiência!
           </p>
 
           <div className="h-anim h-anim-3 flex flex-col items-center gap-4 max-w-md mx-auto">

@@ -9,11 +9,11 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "nexIA® — Domine IA. Ganhe dinheiro real.",
-  description: "Aprenda a criar imagens e vídeos com IA e comece a cobrar por isso. Sem câmera, sem equipe, sem experiência prévia. Garantia de 30 dias ou devolvemos em dobro.",
+  title: "nexIA® — Crie Imagens, Vídeos e Anúncios Incríveis com IA em Menos de 5 Minutos",
+  description: "Sem designer, estúdio, modelos, equipamentos ou experiência. Aprenda a criar com IA e comece a cobrar por isso. Garantia de 30 dias ou devolvemos em dobro.",
   openGraph: {
-    title: "nexIA® — Domine IA. Ganhe dinheiro real.",
-    description: "Aprenda a criar imagens e vídeos com IA — e cobrar por isso. Alunos fechando projetos de R$1.950, R$4.000 e R$15.000.",
+    title: "nexIA® — Crie Imagens, Vídeos e Anúncios Incríveis com IA em Menos de 5 Minutos",
+    description: "Sem designer, estúdio ou experiência. Alunos fechando projetos de R$1.950, R$4.000 e R$15.000 usando IA.",
     locale: "pt_BR",
     type: "website",
   },
