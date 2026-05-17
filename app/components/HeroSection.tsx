@@ -108,18 +108,10 @@ Aprenda a criar imagens e vídeos com IA — e cobrar por isso. Sem câmera, sem
 
           <div className="h-anim h-anim-3 flex flex-col items-center gap-4 max-w-md mx-auto">
             <a href="#pricing" onClick={scrollToPricing}
-              className="pulse-cta flex items-center justify-between gap-3 w-full px-5 py-4 rounded-full font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9D400] focus-visible:ring-offset-2 focus-visible:ring-offset-[#090909]"
+              className="pulse-cta flex items-center justify-center gap-3 w-full px-6 py-4 rounded-full font-black text-sm tracking-wide uppercase transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9D400] focus-visible:ring-offset-2 focus-visible:ring-offset-[#090909]"
               style={{ background: "#C9D400", color: "#090909" }}>
-              <div className="flex items-center gap-2.5 text-left">
-                <span aria-hidden>🔒</span>
-                <div>
-                  <div className="text-sm font-black leading-tight">Combo nexIA® — oferta especial</div>
-                  <div className="text-xs mt-0.5" style={{ opacity: 0.6 }}>acesso completo com 80% de desconto</div>
-                </div>
-              </div>
-              <div className="w-9 h-9 rounded-full flex items-center justify-center shrink-0" style={{ background: "#090909" }}>
-                <ArrowRight className="w-4 h-4 text-[#C9D400]" aria-hidden="true" />
-              </div>
+              GARANTIR MINHA VAGA COM 80% OFF
+              <ArrowRight className="w-4 h-4 shrink-0" aria-hidden="true" />
             </a>
 
             <div className="flex items-center gap-5 flex-wrap justify-center">
