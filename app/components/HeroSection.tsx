@@ -1,6 +1,5 @@
 "use client"
 
-import Image from "next/image"
 import { useEffect, useState } from "react"
 
 const CHECKOUT = "https://pay.onprofit.com.br/H8cdL2ni?off=EHyreQ"
@@ -45,31 +44,10 @@ export default function HeroSection() {
 
   return (
     <>
-      {/* ── NAV ──────────────────────────────────────────────── */}
-      <nav
-        className="fixed top-[44px] left-0 right-0 z-40 flex items-center justify-between px-6 md:px-12"
-        style={{
-          height: "60px",
-          background: "rgba(5,5,5,0.85)",
-          backdropFilter: "blur(20px)",
-          borderBottom: "1px solid var(--color-border)",
-        }}
-      >
-        <Image src="/assets/logo-nexia-new.svg" alt="nexIA" width={88} height={26} priority />
-        <a
-          href="#pricing"
-          onClick={scrollToPricing}
-          className="btn-ghost cta-checkout"
-          style={{ padding: "8px 20px", fontSize: "9px" }}
-        >
-          Garantir vaga →
-        </a>
-      </nav>
-
       {/* ── HERO ─────────────────────────────────────────────── */}
       <section
         className="relative flex flex-col justify-end overflow-hidden"
-        style={{ minHeight: "100dvh", background: "var(--color-bg)", paddingTop: "104px" }}
+        style={{ minHeight: "100dvh", background: "var(--color-bg)", paddingTop: "60px" }}
       >
         {/* ─────────────────────────────────────────────────────
             VIDEO BACKGROUND
@@ -149,7 +127,7 @@ export default function HeroSection() {
 
           {/* Tools chips */}
           <div className="anim-rise delay-400 flex flex-wrap gap-2 mb-10" aria-hidden="true">
-            {["⚡ CapCut AI", "🎬 RunwayML", "🤖 ComfyUI", "✨ ChatGPT", "🎵 ElevenLabs", "🖼️ Flux"].map(c => (
+            {["🍌 Nano Banana 2", "✨ GPT Image 2", "🎬 Kling 3.0", "🎮 Motion Control", "🌱 Seedance 2.0", "🎭 Heygen"].map(c => (
               <span key={c} className="chip">{c}</span>
             ))}
           </div>

@@ -119,10 +119,10 @@ export default function Page() {
           <section className="overflow-hidden" style={{ padding: sectionPad, background: C.surf, borderTop: "1px solid var(--color-border)" }}>
             <div className="max-w-6xl mx-auto px-5 mb-10">
               <Reveal className="text-center">
-                <div className="section-label" style={{ justifyContent: "center" }}>Trabalhos dos Alunos</div>
+                <div className="section-label" style={{ justifyContent: "center" }}>Portfólio</div>
                 <h2 style={{ fontFamily: "var(--font-syne),sans-serif", fontSize: "clamp(1.75rem,4vw,3rem)", fontWeight: 700, color: C.white, letterSpacing: "-0.03em", lineHeight: 1.1 }}>
-                  O que você vai criar{" "}
-                  <span className="text-gradient">em minutos.</span>
+                  O que os alunos{" "}
+                  <span className="text-gradient">já estão entregando.</span>
                 </h2>
                 <p style={{ marginTop: "12px", fontSize: "1rem", color: C.muted }}>
                   Anúncios, posts e campanhas reais — criados por alunos nexIA em menos de uma semana.
@@ -190,10 +190,10 @@ export default function Page() {
           <section className="overflow-hidden" style={{ padding: sectionPad, background: C.surf, borderTop: "1px solid var(--color-border)" }}>
             <div className="max-w-6xl mx-auto px-5 mb-12">
               <Reveal className="text-center">
-                <div className="section-label" style={{ justifyContent: "center" }}>Portfólio</div>
+                <div className="section-label" style={{ justifyContent: "center" }}>O que você vai criar</div>
                 <h2 style={{ fontFamily: "var(--font-syne),sans-serif", fontSize: "clamp(1.75rem,4vw,3rem)", fontWeight: 700, color: C.white, letterSpacing: "-0.03em", lineHeight: 1.1 }}>
-                  O que os alunos{" "}
-                  <span className="text-gradient">já estão entregando.</span>
+                  O que você vai criar{" "}
+                  <span className="text-gradient">em minutos.</span>
                 </h2>
               </Reveal>
             </div>

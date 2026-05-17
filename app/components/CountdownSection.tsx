@@ -79,7 +79,7 @@ export default function CountdownSection() {
       <div className="max-w-6xl mx-auto px-5" style={{ position: "relative", zIndex: 1 }}>
 
         {/* Header */}
-        <div className="text-center mb-12 reveal">
+        <div className="text-center mb-12">
           <div className="section-label" style={{ justifyContent: "center", marginBottom: "16px" }}>O valor real do que você leva</div>
           <h2 style={{ fontFamily: "var(--font-syne),sans-serif", fontSize: "clamp(1.75rem,5vw,3rem)", fontWeight: 700, color: "#fff", letterSpacing: "-0.03em", lineHeight: 1.1, marginBottom: "12px" }}>
             Faça as contas:{" "}
@@ -92,7 +92,7 @@ export default function CountdownSection() {
         <div className="grid md:grid-cols-2 gap-6 items-start max-w-5xl mx-auto">
 
           {/* LEFT — Checklist */}
-          <div className="surface-card reveal" style={{ padding: "clamp(24px,4vw,36px)" }}>
+          <div className="surface-card" style={{ padding: "clamp(24px,4vw,36px)" }}>
             <ul style={{ display: "flex", flexDirection: "column", gap: "16px", marginBottom: "24px" }}>
               {checklistItems.map((item) => (
                 <li key={item.label} style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
@@ -127,7 +127,7 @@ export default function CountdownSection() {
           </div>
 
           {/* RIGHT — Pricing card */}
-          <div className="surface-card reveal" style={{ borderColor: "var(--color-border-lime)", overflow: "hidden" }}>
+          <div className="surface-card" style={{ borderColor: "var(--color-border-lime)", overflow: "hidden" }}>
 
             {/* Card header */}
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", padding: "28px 28px 20px", borderBottom: "1px solid var(--color-border)" }}>
