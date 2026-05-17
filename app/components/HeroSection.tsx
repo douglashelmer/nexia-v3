@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { ArrowRight, Shield, Sparkles } from "lucide-react"
+import { ArrowRight, Shield } from "lucide-react"
 
 const CHECKOUT = "https://payfast.greenn.com.br/mzn9ucy/offer/pAjTDd?ch_id=136886&b_id_1=qt73vwh&b_offer_1=HtJr1o&b_id_2=67eh8rf&b_offer_2=zJN4gt"
 
@@ -110,14 +110,6 @@ export default function HeroSection() {
 
         {/* TEXT — mobile: fills remaining space; desktop: left column */}
         <div className="relative z-10 flex-1 flex flex-col justify-center px-5 py-4 md:py-0 text-center md:text-left order-2 md:order-1 md:pr-8">
-
-          <div className="h-anim h-anim-0 inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-3 md:mb-5 self-center md:self-start"
-            style={{ background: "rgba(109,40,217,.07)", border: "1px solid rgba(109,40,217,.22)" }}>
-            <Sparkles className="w-3 h-3 shrink-0 text-[#6d28d9]" aria-hidden="true" />
-            <span className="text-[10px] md:text-[11px] font-bold text-[#6d28d9] tracking-widest uppercase whitespace-nowrap">
-              Vitalício · Garantia 30 Dias · Sem Mensalidade
-            </span>
-          </div>
 
           <h1 className="h-anim h-anim-1 font-black tracking-tighter leading-[1.05] mb-3 md:mb-5"
             style={{ fontSize: "clamp(1.5rem, 5vw, 3.25rem)", color: "#111111" }}>
