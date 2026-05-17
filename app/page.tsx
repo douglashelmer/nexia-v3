@@ -65,6 +65,23 @@ export default function Page() {
         </div>
       </div>
 
+      {/* VÍDEOS — CLIENT: lazy loading */}
+      <section className="py-20 md:py-32" style={{ background: "#f7f7f7", borderTop: "1px solid rgba(0,0,0,.06)" }}>
+        <div className="max-w-6xl mx-auto px-5">
+          <Reveal className="text-center mb-12">
+            <div className="inline-block text-[11px] font-bold tracking-[.16em] uppercase mb-5 px-3 py-1 rounded"
+              style={{ color: "#7c3aed", border: "1px solid rgba(124,58,237,.3)" }}>O QUE VOCÊ VAI CRIAR</div>
+            <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-balance" style={{ color: "#111111" }}>
+              Trabalhos reais,<br /><span className="text-gradient">feitos com IA.</span>
+            </h2>
+            <p className="mt-4 text-base max-w-xl mx-auto" style={{ color: "#555555" }}>
+              Esses são exemplos do que você vai dominar — criados pelos métodos ensinados no nexIA.
+            </p>
+          </Reveal>
+          <VideoGrid />
+        </div>
+      </section>
+
       {/* PROBLEM */}
       <section className="py-20 md:py-32" style={{ background: "#ffffff", borderTop: "1px solid rgba(0,0,0,.06)" }}>
         <div className="max-w-5xl mx-auto px-5">
@@ -97,23 +114,6 @@ export default function Page() {
 
       {/* ANNOUNCEMENT BAR — sticky below nav */}
       <AnnouncementBar />
-
-      {/* VÍDEOS — CLIENT: lazy loading */}
-      <section className="py-20 md:py-32" style={{ background: "#f7f7f7", borderTop: "1px solid rgba(0,0,0,.06)" }}>
-        <div className="max-w-6xl mx-auto px-5">
-          <Reveal className="text-center mb-12">
-            <div className="inline-block text-[11px] font-bold tracking-[.16em] uppercase mb-5 px-3 py-1 rounded"
-              style={{ color: "#7c3aed", border: "1px solid rgba(124,58,237,.3)" }}>O QUE VOCÊ VAI CRIAR</div>
-            <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-balance" style={{ color: "#111111" }}>
-              Trabalhos reais,<br /><span className="text-gradient">feitos com IA.</span>
-            </h2>
-            <p className="mt-4 text-base max-w-xl mx-auto" style={{ color: "#555555" }}>
-              Esses são exemplos do que você vai dominar — criados pelos métodos ensinados no nexIA.
-            </p>
-          </Reveal>
-          <VideoGrid />
-        </div>
-      </section>
 
       {/* GALERIA — infinite image marquee */}
       {(() => {
