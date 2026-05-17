@@ -112,13 +112,13 @@ export default function HeroSection() {
         <div className="relative z-10 flex-1 flex flex-col justify-center px-5 py-4 md:py-0 text-center md:text-left order-2 md:order-1 md:pr-8">
 
           <h1 className="h-anim h-anim-1 font-black tracking-tighter leading-[1.05] mb-3 md:mb-5"
-            style={{ fontSize: "clamp(1.5rem, 5vw, 3.25rem)", color: "#111111" }}>
+            style={{ fontSize: "clamp(1.75rem, 5vw, 3.25rem)", color: "#111111" }}>
             Crie Imagens, Vídeos e Anúncios Incríveis{" "}
             <span className="text-gradient">em Menos de 5 Minutos</span>{" "}
             Usando Inteligência Artificial
           </h1>
 
-          <p className="h-anim h-anim-2 text-sm md:text-lg max-w-[50ch] mx-auto md:mx-0 mb-4 md:mb-7 leading-relaxed"
+          <p className="h-anim h-anim-2 text-base md:text-lg max-w-[50ch] mx-auto md:mx-0 mb-4 md:mb-7 leading-snug"
             style={{ color: "#555555" }}>
             Sem designer, estúdio, modelos, equipamentos, fotógrafos, maquiadores ou experiência!
           </p>
@@ -131,7 +131,8 @@ export default function HeroSection() {
               <ArrowRight className="w-4 h-4 shrink-0" aria-hidden="true" />
             </a>
 
-            <div className="flex items-center gap-4 flex-wrap justify-center md:justify-start">
+            {/* Trust badges — desktop only */}
+            <div className="hidden md:flex items-center gap-4 flex-wrap justify-start">
               {[{ icon: "⚡", text: "Acesso imediato" }, { icon: "♾️", text: "Vitalício" }, { icon: "🔓", text: "Sem mensalidade" }].map(b => (
                 <div key={b.text} className="flex items-center gap-1.5 text-xs font-medium" style={{ color: "#888888" }}>
                   <span aria-hidden>{b.icon}</span>{b.text}
@@ -139,8 +140,8 @@ export default function HeroSection() {
               ))}
             </div>
 
-            {/* Guarantee — hidden on mobile */}
-            <div className="hidden md:flex items-center gap-3 w-full rounded-xl px-4 py-3 text-left"
+            {/* Guarantee — visible on all screens */}
+            <div className="flex items-center gap-3 w-full rounded-xl px-4 py-3 text-left"
               style={{ background: "rgba(109,40,217,.06)", border: "1px solid rgba(109,40,217,.2)" }}>
               <Shield className="w-5 h-5 text-[#6d28d9] shrink-0" aria-hidden="true" />
               <div>
