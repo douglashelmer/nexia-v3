@@ -96,7 +96,7 @@ export default function Page() {
                 <div className="inline-block text-[11px] font-bold tracking-[.16em] uppercase mb-4 px-3 py-1 rounded"
                   style={{ color: "#7c3aed", border: "1px solid rgba(124,58,237,.3)" }}>TRABALHOS DOS ALUNOS</div>
                 <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-balance" style={{ color: "#111111" }}>
-                  O que você vai criar<br /><span className="text-gradient">em dias.</span>
+                  O que você vai criar<br /><span className="text-gradient">em minutos.</span>
                 </h2>
                 <p className="mt-4 text-base max-w-xl mx-auto" style={{ color: "#555555" }}>
                   Anúncios, posts e campanhas reais — criados por alunos nexIA em menos de uma semana.
