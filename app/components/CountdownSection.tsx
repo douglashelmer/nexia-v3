@@ -225,7 +225,7 @@ export default function CountdownSection() {
 
               {/* Payment badge */}
               <div style={{ display: "flex", justifyContent: "center", marginBottom: "20px", opacity: 0.5 }}>
-                <img src="/assets/onprofit.svg" alt="OnProfit" width={180} height={14} />
+                <img src="/assets/onprofit.svg" alt="OnProfit" width={180} height={14} style={{ filter: "invert(1)" }} />
               </div>
 
               {/* Checklist mini */}
