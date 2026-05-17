@@ -5,7 +5,7 @@ import HeroSection from "./components/HeroSection"
 import Reveal from "./components/Reveal"
 import VideoGrid from "./components/VideoGrid"
 
-const CHECKOUT = "https://payfast.greenn.com.br/ebnwgbt/offer/TFlokq?cupom=MAIO200&ch_id=138823&b_id_1=qt73vwh&b_offer_1=HtJr1o&b_id_2=67eh8rf&b_offer_2=V0iuEs&b_id_3=mzn9ucy&b_offer_3=cuBT9a"
+const CHECKOUT = "https://payfast.greenn.com.br/ebnwgbt/offer/TFlokq?cupom=MAIO200&ch_id=138823&b_id_1=qt73vwh&b_offer_1=HtJr1o&b_id_2=67eh8rf&b_offer_2=V0iuEs&b_id_3=mzn9ucy&b_offer_3=9WkNK6"
 
 const courses = [
   { id: 1,  title: "Imagens e Vídeos Publicitários com IA" },
