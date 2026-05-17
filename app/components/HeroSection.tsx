@@ -38,6 +38,11 @@ function scrollToPricing(e: React.MouseEvent) {
   document.getElementById("pricing")?.scrollIntoView({ behavior: "instant" })
 }
 
+function scrollToConteudo(e: React.MouseEvent) {
+  e.preventDefault()
+  document.getElementById("conteudo")?.scrollIntoView({ behavior: "smooth" })
+}
+
 export default function HeroSection() {
   const checkoutUrl = useCheckoutUrl()
   const stickyVisible = useStickyBarVisible()
@@ -136,12 +141,12 @@ export default function HeroSection() {
           <div className="anim-rise delay-500 flex flex-col items-start gap-4 mb-12" style={{ maxWidth: "360px" }}>
 
             {/* Primary CTA */}
-            <a href="#pricing" onClick={scrollToPricing} className="btn-cta cta-checkout" style={{ width: "100%" }}
-              aria-label="Garantir vaga no nexIA">
+            <a href="#conteudo" onClick={scrollToConteudo} className="btn-cta cta-checkout" style={{ width: "100%" }}
+              aria-label="Ver conteúdo do nexIA">
               <span className="btn-cta-spin" aria-hidden />
               <span className="btn-cta-body">
                 <span className="btn-cta-shimmer" aria-hidden />
-                <span className="btn-cta-label">Garantir Minha Vaga — R$197 →</span>
+                <span className="btn-cta-label">Ver o Que Você Vai Aprender →</span>
               </span>
             </a>
 
