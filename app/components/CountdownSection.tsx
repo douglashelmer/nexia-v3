@@ -165,19 +165,28 @@ export default function CountdownSection() {
 
               {/* Price */}
               <div className="text-center mb-5">
-                <div className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: "#999999" }}>
+                <div className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "#999999" }}>
                   Nesta oferta por apenas:
                 </div>
-                <div className="font-black tracking-tighter leading-none"
-                  style={{ fontSize: "clamp(3.5rem, 14vw, 5rem)", color: "#111111" }}>
-                  R$<span className="text-gradient">97</span>
+
+                {/* 12x destaque */}
+                <div className="flex items-baseline justify-center gap-2 leading-none mb-1">
+                  <span className="font-black" style={{ fontSize: "clamp(1.1rem, 4vw, 1.4rem)", color: "#888888" }}>12x</span>
+                  <span className="font-black tracking-tighter"
+                    style={{ fontSize: "clamp(3rem, 13vw, 4.5rem)", color: "#111111" }}>
+                    R$<span className="text-gradient">9,97</span>
+                  </span>
                 </div>
-                <div className="flex items-center justify-center gap-2 mt-2">
+
+                {/* à vista */}
+                <div className="flex items-center justify-center gap-2 mt-3">
+                  <span className="text-sm font-medium" style={{ color: "#888888" }}>ou</span>
+                  <span className="font-black text-lg" style={{ color: "#111111" }}>R$97</span>
                   <span className="text-xs font-black px-2.5 py-0.5 rounded-full"
-                    style={{ background: "rgba(201,212,0,.15)", color: "#7a8200", border: "1px solid rgba(201,212,0,.4)" }}>
+                    style={{ background: "rgba(201,212,0,.2)", color: "#6b6e00", border: "1px solid rgba(201,212,0,.5)" }}>
                     PIX
                   </span>
-                  <span className="text-sm" style={{ color: "#666666" }}>à vista — acesso em segundos</span>
+                  <span className="text-sm" style={{ color: "#666666" }}>à vista</span>
                 </div>
               </div>
 
