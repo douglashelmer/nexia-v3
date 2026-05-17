@@ -82,6 +82,47 @@ export default function Page() {
         </div>
       </section>
 
+      {/* TRABALHOS DOS ALUNOS — marquee */}
+      {(() => {
+        const imgs = ["01","02","03","04","05","06","07","09","11","12","13","14","15","16","17","18","19","20","21"]
+        const half = Math.ceil(imgs.length / 2)
+        const row1 = imgs.slice(0, half)
+        const row2 = imgs.slice(half)
+        const imgClass = "h-48 md:h-64 w-auto rounded-xl shrink-0 object-cover block"
+        return (
+          <section className="py-16 md:py-24 overflow-hidden" style={{ background: "#ffffff", borderTop: "1px solid rgba(0,0,0,.06)" }}>
+            <div className="max-w-6xl mx-auto px-5 mb-10">
+              <Reveal className="text-center">
+                <div className="inline-block text-[11px] font-bold tracking-[.16em] uppercase mb-4 px-3 py-1 rounded"
+                  style={{ color: "#7c3aed", border: "1px solid rgba(124,58,237,.3)" }}>TRABALHOS DOS ALUNOS</div>
+                <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-balance" style={{ color: "#111111" }}>
+                  O que você vai criar<br /><span className="text-gradient">em dias.</span>
+                </h2>
+                <p className="mt-4 text-base max-w-xl mx-auto" style={{ color: "#555555" }}>
+                  Anúncios, posts e campanhas reais — criados por alunos nexIA em menos de uma semana.
+                </p>
+              </Reveal>
+            </div>
+            <div className="overflow-hidden mb-3" aria-hidden="true">
+              <div className="flex marquee-track" style={{ gap: "12px" }}>
+                {[...row1, ...row1].map((f, i) => (
+                  <img key={i} src={`/assets/hero/${f}.webp`} alt="" loading="lazy" decoding="async"
+                    className={imgClass} style={{ border: "1px solid rgba(0,0,0,.07)", aspectRatio: "1/1" }} />
+                ))}
+              </div>
+            </div>
+            <div className="overflow-hidden" aria-hidden="true">
+              <div className="flex marquee-track-rev" style={{ gap: "12px" }}>
+                {[...row2, ...row2].map((f, i) => (
+                  <img key={i} src={`/assets/hero/${f}.webp`} alt="" loading="lazy" decoding="async"
+                    className={imgClass} style={{ border: "1px solid rgba(0,0,0,.07)", aspectRatio: "1/1" }} />
+                ))}
+              </div>
+            </div>
+          </section>
+        )
+      })()}
+
       {/* PROBLEM */}
       <section className="py-20 md:py-32" style={{ background: "#ffffff", borderTop: "1px solid rgba(0,0,0,.06)" }}>
         <div className="max-w-5xl mx-auto px-5">
