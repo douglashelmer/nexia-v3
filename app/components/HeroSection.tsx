@@ -4,7 +4,7 @@ import Image from "next/image"
 import { useEffect, useState } from "react"
 import { ArrowRight, Shield, Sparkles } from "lucide-react"
 
-const CHECKOUT = "https://payfast.greenn.com.br/mzn9ucy/offer/EYS2Ud?ch_id=136886"
+const CHECKOUT = "https://payfast.greenn.com.br/ebnwgbt/offer/TFlokq?cupom=MAIO200&ch_id=138823&b_id_1=qt73vwh&b_offer_1=HtJr1o&b_id_2=67eh8rf&b_offer_2=V0iuEs&b_id_3=mzn9ucy&b_offer_3=cuBT9a"
 
 function useCheckoutUrl() {
   const [url, setUrl] = useState(CHECKOUT)
@@ -110,7 +110,7 @@ Aprenda a criar imagens e vídeos com IA — e cobrar por isso. Sem câmera, sem
             <a href="#pricing" onClick={scrollToPricing}
               className="pulse-cta flex items-center justify-center gap-3 w-full px-6 py-4 rounded-full font-black text-sm tracking-wide uppercase transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9D400] focus-visible:ring-offset-2 focus-visible:ring-offset-[#090909]"
               style={{ background: "#C9D400", color: "#090909" }}>
-              GARANTIR MINHA VAGA COM 80% OFF
+              GARANTIR MINHA VAGA COM R$200 OFF
               <ArrowRight className="w-4 h-4 shrink-0" aria-hidden="true" />
             </a>
 
@@ -158,7 +158,7 @@ Aprenda a criar imagens e vídeos com IA — e cobrar por isso. Sem câmera, sem
             style={{ background: "#C9D400", color: "#090909" }}>
             <div className="text-left">
               <div className="text-[10px] leading-none" style={{ color: "rgba(0,0,0,.55)" }}>Combo nexIA® · acesso vitalício</div>
-              <div className="text-sm leading-snug mt-0.5">12× R$20,25 · ou R$197 PIX</div>
+              <div className="text-sm leading-snug mt-0.5">12× R$9,97 · ou R$97 PIX</div>
             </div>
             <ArrowRight className="w-5 h-5 shrink-0" aria-hidden="true" />
           </a>

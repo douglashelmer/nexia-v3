@@ -5,7 +5,7 @@ import HeroSection from "./components/HeroSection"
 import Reveal from "./components/Reveal"
 import VideoGrid from "./components/VideoGrid"
 
-const CHECKOUT = "https://payfast.greenn.com.br/mzn9ucy/offer/EYS2Ud?ch_id=136886"
+const CHECKOUT = "https://payfast.greenn.com.br/ebnwgbt/offer/TFlokq?cupom=MAIO200&ch_id=138823&b_id_1=qt73vwh&b_offer_1=HtJr1o&b_id_2=67eh8rf&b_offer_2=V0iuEs&b_id_3=mzn9ucy&b_offer_3=cuBT9a"
 
 const courses = [
   { id: 1,  title: "Imagens e Vídeos Publicitários com IA" },
@@ -34,7 +34,7 @@ const bonuses = [
 const faqs = [
   { q: "O acesso é realmente vitalício ou tem mensalidade?", a: "Sim, o acesso é 100% vitalício. Você paga uma vez e tem acesso para sempre, incluindo todas as atualizações futuras sem custo adicional." },
   { q: "Como funciona a garantia de 30 dias?", a: "Se você assistir todo o conteúdo, colocar em prática e não conseguir criar nada com o que é ensinado, devolvemos o que investiu em dobro. Basta enviar um e-mail com o comprovante de acesso dentro de 30 dias. Devolvemos pelo mesmo meio de pagamento, em até 5 dias úteis. O risco é 100% nosso." },
-  { q: "Posso parcelar no cartão de crédito?", a: "Sim! Você parcela em até 12× de R$20,25 no cartão — sem custo adicional na plataforma. Prefere pagar à vista? No PIX o valor é R$197 (uma economia de R$46 vs parcelado)." },
+  { q: "Posso parcelar no cartão de crédito?", a: "Sim! Você parcela em até 12× de R$9,97 no cartão — sem custo adicional na plataforma. Prefere pagar à vista? No PIX o valor é R$97." },
   { q: "Preciso ter a versão paga do ChatGPT?", a: "Não é obrigatório. Os cursos ensinam a usar diversas ferramentas de IA, muitas delas gratuitas. Você pode começar sem nenhum custo adicional." },
   { q: "Funciona para o meu nicho de mercado?", a: "Sim! Os métodos ensinados se aplicam a qualquer nicho criativo — design, marketing, fotografia, vídeo, moda, esportes, produtos e muito mais." },
   { q: "Preciso de conhecimento técnico em marketing ou design?", a: "Não. Os cursos são desenhados para todos os níveis, do completo iniciante ao profissional que quer acelerar sua produção com IA." },
@@ -504,9 +504,9 @@ export default function Page() {
             </p>
             <div className="flex items-center justify-center gap-3 mb-8">
               <div>
-                <div className="text-[11px] font-bold tracking-[.14em] uppercase mb-1" style={{ color: "rgba(201,212,0,.6)" }}>De <span className="line-through">R$2.573</span> por</div>
-                <div className="font-black tracking-tighter leading-none" style={{ fontSize: "clamp(2.25rem,8vw,3.5rem)", color: "#C9D400" }}>R$197</div>
-                <div className="text-sm mt-1" style={{ color: "#a1a1aa" }}>à vista no PIX · ou 12× R$20,25</div>
+                <div className="text-[11px] font-bold tracking-[.14em] uppercase mb-1" style={{ color: "rgba(201,212,0,.6)" }}>De <span className="line-through">R$297</span> por</div>
+                <div className="font-black tracking-tighter leading-none" style={{ fontSize: "clamp(2.25rem,8vw,3.5rem)", color: "#C9D400" }}>R$97</div>
+                <div className="text-sm mt-1" style={{ color: "#a1a1aa" }}>à vista no PIX · ou 12× R$9,97</div>
               </div>
             </div>
             <a href={CHECKOUT}

@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import { ArrowRight, Clock, Shield } from "lucide-react"
 
-const CHECKOUT = "https://payfast.greenn.com.br/mzn9ucy/offer/EYS2Ud?ch_id=136886"
+const CHECKOUT = "https://payfast.greenn.com.br/ebnwgbt/offer/TFlokq?cupom=MAIO200&ch_id=138823&b_id_1=qt73vwh&b_offer_1=HtJr1o&b_id_2=67eh8rf&b_offer_2=V0iuEs&b_id_3=mzn9ucy&b_offer_3=cuBT9a"
 
 const valueStack = [
   { label: "14 Cursos Completos de IA", val: "R$1.235" },
@@ -67,11 +67,11 @@ export default function CountdownSection() {
       <div className="grid md:grid-cols-2">
         <div className="p-10 md:p-16 flex flex-col justify-center" style={{ borderBottom: "1px solid rgba(0,0,0,.12)" }}>
           <div className="text-[11px] font-bold tracking-[.18em] uppercase mb-6" style={{ color: "rgba(0,0,0,.5)" }}>OFERTA ESPECIAL — HOJE SOMENTE</div>
-          <div className="text-sm mb-0.5" style={{ color: "rgba(0,0,0,.55)" }}>DE <span className="line-through">R$2.573</span> POR</div>
+          <div className="text-sm mb-0.5" style={{ color: "rgba(0,0,0,.55)" }}>DE <span className="line-through">R$297</span> POR</div>
 
           {/* PIX price — primary option */}
           <div className="font-black tracking-tighter leading-[0.85] text-[#090909]"
-            style={{ fontSize: "clamp(4.5rem,13vw,8rem)" }}>R$197</div>
+            style={{ fontSize: "clamp(4.5rem,13vw,8rem)" }}>R$97</div>
           <div className="flex items-center gap-2 mt-1 mb-2">
             <span className="text-sm font-black px-2.5 py-0.5 rounded-full" style={{ background: "rgba(0,0,0,.12)", color: "rgba(0,0,0,.75)" }}>PIX</span>
             <span className="text-sm font-semibold" style={{ color: "rgba(0,0,0,.55)" }}>à vista — acesso em segundos</span>
@@ -88,7 +88,7 @@ export default function CountdownSection() {
           <div className="mb-8">
             <div className="text-sm font-bold" style={{ color: "rgba(0,0,0,.6)" }}>12× de</div>
             <div className="font-black tracking-tighter leading-none text-[#090909]"
-              style={{ fontSize: "clamp(2rem,6vw,3rem)" }}>R$20,25</div>
+              style={{ fontSize: "clamp(2rem,6vw,3rem)" }}>R$9,97</div>
             <div className="text-xs mt-0.5" style={{ color: "rgba(0,0,0,.45)" }}>no cartão de crédito</div>
           </div>
 
@@ -131,7 +131,7 @@ export default function CountdownSection() {
               </span>
             </div>
           </div>
-          <p className="text-xs mb-8" style={{ color: "rgba(255,255,255,.4)" }}>Depois disso, o valor sobe para R$497</p>
+          <p className="text-xs mb-8" style={{ color: "rgba(255,255,255,.4)" }}>Depois disso, o valor sobe para R$297</p>
           <div style={{ borderTop: "1px solid rgba(255,255,255,.08)" }}>
             {valueStack.map((row) => (
               <div key={row.label} className="flex justify-between items-center py-3.5 text-sm"
@@ -142,7 +142,7 @@ export default function CountdownSection() {
             ))}
             <div className="flex justify-between items-center pt-4 font-black text-base">
               <span>Hoje somente</span>
-              <span className="text-xl" style={{ color: "#C9D400" }}>R$197</span>
+              <span className="text-xl" style={{ color: "#C9D400" }}>R$97</span>
             </div>
           </div>
         </div>
