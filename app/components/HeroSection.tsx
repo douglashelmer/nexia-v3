@@ -125,7 +125,7 @@ export default function HeroSection() {
 
           <div className="h-anim h-anim-4 flex items-stretch max-w-xs mx-auto mt-10"
             style={{ borderTop: "1px solid rgba(0,0,0,.1)", borderBottom: "1px solid rgba(0,0,0,.1)" }}>
-            {[{ num: "+1.500", label: "Alunos" }, { num: "14", label: "Habilidades" }, { num: "3", label: "Bônus" }].map((s, i) => (
+            {[{ num: "+1.500", label: "Alunos" }, { num: "14", label: "Habilidades" }, { num: "6", label: "Bônus" }].map((s, i) => (
               <div key={s.label} className="flex items-center flex-1">
                 <div className="flex-1 text-center py-4">
                   <div className="text-2xl font-black tracking-tight tabular-nums" style={{ color: "#6d28d9" }}>{s.num}</div>

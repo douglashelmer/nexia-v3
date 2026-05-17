@@ -68,14 +68,16 @@ function useCheckoutUrl() {
 
 const checklistItems = [
   { label: "14 Habilidades com IA", detail: "acesso vitalício a todos os módulos", value: "R$297" },
+  { label: "Sua Primeira Venda com IA em 7 Dias", detail: "feche o primeiro cliente em 7 dias", value: "R$97" },
+  { label: "Templates Automáticos", detail: "templates prontos para acelerar sua produção", value: "R$197" },
+  { label: "Pacote de Agentes", detail: "agentes IA para automatizar tarefas criativas", value: "R$97" },
+  { label: "Masterclass de Prospecção", detail: "como fechar clientes usando IA", value: "R$297" },
   { label: "Lives Periódicas com o Professor", detail: "sessões ao vivo para tirar dúvidas", value: "R$597" },
   { label: "Comunidade de Alunos", detail: "+1.500 criativos, suporte direto", value: "R$397" },
-  { label: "Sua Primeira Venda com IA em 7 Dias", detail: "método prático para fechar o primeiro cliente", value: "R$97" },
-  { label: "Atualizações Gratuitas", detail: "novos conteúdos sem custo adicional", value: null },
-  { label: "Suporte com Professor", detail: "tire dúvidas diretamente com Douglas", value: null },
+  { label: "Atualizações Gratuitas + Suporte", detail: "novos conteúdos sem custo adicional", value: null },
 ]
 
-const TOTAL_VALUE = "R$1.388"
+const TOTAL_VALUE = "R$1.979"
 
 export default function CountdownSection() {
   const countdown   = useCountdown()

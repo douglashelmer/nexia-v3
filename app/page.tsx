@@ -25,9 +25,12 @@ const courses = [
 ]
 
 const bonuses = [
-  { id: 3, title: "Lives Periódicas", price: "R$597", desc: "Sessões ao vivo para tirar dúvidas, aprender as novidades de IA e aplicar em tempo real com o professor Douglas." },
-  { id: 4, title: "Comunidade de Alunos", price: "R$397", desc: "Suporte direto com o professor. Troque experiências com +1.500 criativos que caminham junto com você." },
-  { id: 5, title: "Sua Primeira Venda com IA em 7 Dias", price: "R$97", desc: "Método prático para sair do zero, montar seu portfólio em tempo real e fechar o primeiro cliente em menos de uma semana." },
+  { img: "/assets/bonus/bonus-05.webp",          title: "Sua Primeira Venda com IA em 7 Dias", price: "R$97",  desc: "Método prático para sair do zero, montar portfólio em tempo real e fechar o primeiro cliente em menos de uma semana." },
+  { img: "/assets/bonus/bonus-template.avif",    title: "Templates Automáticos",               price: "R$197", desc: "Coleção de templates prontos para turbinar sua produção com IA — use, adapte e entregue mais rápido." },
+  { img: "/assets/bonus/bonus-agentes.avif",     title: "Pacote de Agentes",                   price: "R$97",  desc: "Agentes de IA configurados para automatizar tarefas criativas e ganhar horas por semana." },
+  { img: "/assets/bonus/bonus-masterclass.avif", title: "Masterclass de Prospecção",           price: "R$297", desc: "Como encontrar, abordar e fechar clientes criativos usando IA — sem precisar de carteira de clientes." },
+  { img: "/assets/bonus/bonus-03.webp",          title: "Lives Periódicas com o Professor",    price: "R$597", desc: "Sessões ao vivo para tirar dúvidas, aprender as novidades de IA e aplicar em tempo real com o professor Douglas." },
+  { img: "/assets/bonus/bonus-04.webp",          title: "Comunidade de Alunos",                price: "R$397", desc: "Suporte direto com o professor. Troque experiências com +1.500 criativos que caminham junto com você." },
 ]
 
 const faqs = [
@@ -400,63 +403,72 @@ export default function Page() {
       </section>
 
       {/* BÔNUS */}
-      <section className="py-20 md:py-32" style={{ background: "#ffffff", borderTop: "1px solid rgba(0,0,0,.06)" }}>
-        <div className="max-w-3xl mx-auto px-5">
-          <Reveal className="text-center mb-12">
+      <section className="py-20 md:py-32" style={{ background: "#f7f7f7", borderTop: "1px solid rgba(0,0,0,.06)" }}>
+        <div className="max-w-5xl mx-auto px-5">
+          <Reveal className="text-center mb-14">
             <div className="inline-block text-[11px] font-bold tracking-[.16em] uppercase mb-5 px-3 py-1 rounded"
               style={{ color: "#6d28d9", border: "1px solid rgba(109,40,217,.3)" }}>BÔNUS EXCLUSIVOS</div>
             <h2 className="text-3xl md:text-5xl font-black tracking-tighter leading-tight" style={{ color: "#111111" }}>
-              3 bônus que você<br /><span className="text-gradient">leva hoje.</span>
+              6 bônus que você<br /><span className="text-gradient">leva hoje.</span>
             </h2>
-            <p className="mt-4 text-base max-w-[38ch] mx-auto" style={{ color: "#555555" }}>
+            <p className="mt-4 text-base max-w-[40ch] mx-auto" style={{ color: "#555555" }}>
               Não estão à venda separadamente. Apenas quem entrar nessa oferta recebe todos.
             </p>
           </Reveal>
 
-          <div className="rounded-2xl overflow-hidden" style={{ border: "1px solid rgba(0,0,0,.1)" }}>
+          {/* Grid de cards com imagem */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-6">
             {bonuses.map((b, i) => (
-              <Reveal key={b.id} delay={i * 0.07}>
-                <div className="flex items-start gap-5 px-6 py-7 md:px-8"
-                  style={{
-                    background: i % 2 === 0 ? "#ffffff" : "#fafafa",
-                    borderTop: i > 0 ? "1px solid rgba(0,0,0,.07)" : undefined,
-                  }}>
-                  {/* Number circle */}
-                  <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0 font-black text-sm"
-                    style={{ background: "linear-gradient(135deg, #6d28d9, #4f46e5)", color: "#fff", minWidth: "2.5rem" }}>
+              <Reveal key={b.img} delay={i * 0.06}
+                className="rounded-2xl overflow-hidden flex flex-col group"
+                style={{ background: "#ffffff", border: "1px solid rgba(0,0,0,.1)", boxShadow: "0 2px 12px rgba(0,0,0,.04)" } as React.CSSProperties}>
+
+                {/* Imagem */}
+                <div className="relative overflow-hidden" style={{ aspectRatio: "16/9" }}>
+                  <img
+                    src={b.img}
+                    alt={b.title}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                  />
+                  {/* Badge de número */}
+                  <div className="absolute top-3 left-3 w-7 h-7 rounded-full flex items-center justify-center font-black text-xs"
+                    style={{ background: "linear-gradient(135deg, #6d28d9, #4f46e5)", color: "#fff", boxShadow: "0 2px 8px rgba(109,40,217,.4)" }}>
                     {i + 1}
                   </div>
+                </div>
 
-                  {/* Text */}
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-start justify-between gap-4">
-                      <div className="flex-1">
-                        <div className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: "#999999" }}>Bônus {i + 1}</div>
-                        <h3 className="font-black text-base md:text-lg leading-snug mb-1.5" style={{ color: "#111111" }}>{b.title}</h3>
-                        <p className="text-sm leading-relaxed" style={{ color: "#555555" }}>{b.desc}</p>
-                      </div>
-                      {/* Price */}
-                      <div className="text-right shrink-0 pt-5">
-                        <div className="text-[10px] font-bold uppercase tracking-wide" style={{ color: "#bbbbbb" }}>valor</div>
-                        <div className="font-black text-base" style={{ color: "#6d28d9" }}>{b.price}</div>
-                      </div>
+                {/* Conteúdo */}
+                <div className="flex flex-col flex-1 p-5">
+                  <div className="flex items-start justify-between gap-3 mb-2">
+                    <div>
+                      <div className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: "#aaaaaa" }}>Bônus {i + 1}</div>
+                      <h3 className="font-black text-base leading-snug" style={{ color: "#111111" }}>{b.title}</h3>
+                    </div>
+                    <div className="shrink-0 text-right">
+                      <div className="text-[10px] font-bold uppercase" style={{ color: "#bbbbbb" }}>valor</div>
+                      <div className="font-black text-sm" style={{ color: "#6d28d9" }}>{b.price}</div>
                     </div>
                   </div>
+                  <p className="text-sm leading-relaxed mt-auto pt-2" style={{ color: "#666666" }}>{b.desc}</p>
                 </div>
               </Reveal>
             ))}
+          </div>
 
-            {/* Total */}
-            <div className="flex items-center justify-between px-6 py-5 md:px-8"
-              style={{ background: "rgba(109,40,217,.04)", borderTop: "1px solid rgba(109,40,217,.12)" }}>
-              <span className="font-bold text-sm" style={{ color: "#444444" }}>Valor total dos bônus:</span>
-              <div className="flex items-baseline gap-2">
-                <span className="font-black text-lg line-through" style={{ color: "#bbbbbb" }}>R$1.091</span>
-                <span className="font-black text-sm px-2 py-0.5 rounded-full"
-                  style={{ background: "rgba(109,40,217,.1)", color: "#6d28d9" }}>GRÁTIS</span>
+          {/* Total */}
+          <Reveal>
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-3 rounded-2xl px-6 py-5"
+              style={{ background: "#ffffff", border: "1px solid rgba(109,40,217,.15)", boxShadow: "0 2px 12px rgba(109,40,217,.06)" }}>
+              <span className="font-bold text-base" style={{ color: "#333333" }}>Valor total dos bônus:</span>
+              <div className="flex items-baseline gap-3">
+                <span className="font-black text-2xl line-through" style={{ color: "#bbbbbb" }}>R$1.682</span>
+                <span className="font-black text-base px-3 py-1 rounded-full"
+                  style={{ background: "rgba(109,40,217,.1)", color: "#6d28d9" }}>GRÁTIS para você</span>
               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
