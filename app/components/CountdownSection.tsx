@@ -112,7 +112,7 @@ export default function CountdownSection() {
             <ul className="space-y-4 mb-8">
               {checklistItems.map((item) => (
                 <li key={item.label} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 shrink-0 mt-0.5" style={{ color: "#C9D400" }} aria-hidden="true" />
+                  <CheckCircle2 className="w-5 h-5 shrink-0 mt-0.5" style={{ color: "#6d28d9" }} aria-hidden="true" />
                   <div className="flex-1 min-w-0">
                     <div className="flex items-baseline justify-between gap-2 flex-wrap">
                       <span className="font-black text-sm" style={{ color: "#111111" }}>{item.label}</span>
@@ -183,7 +183,7 @@ export default function CountdownSection() {
                   <span className="text-sm font-medium" style={{ color: "#888888" }}>ou</span>
                   <span className="font-black text-lg" style={{ color: "#111111" }}>R$97</span>
                   <span className="text-xs font-black px-2.5 py-0.5 rounded-full"
-                    style={{ background: "rgba(201,212,0,.2)", color: "#6b6e00", border: "1px solid rgba(201,212,0,.5)" }}>
+                    style={{ background: "rgba(109,40,217,.12)", color: "#6d28d9", border: "1px solid rgba(109,40,217,.35)" }}>
                     PIX
                   </span>
                   <span className="text-sm" style={{ color: "#666666" }}>à vista</span>
@@ -272,7 +272,7 @@ export default function CountdownSection() {
                   "Vitalício — sem mensalidade",
                 ].map((b) => (
                   <li key={b} className="flex items-center gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 shrink-0" style={{ color: "#C9D400" }} aria-hidden="true" />
+                    <CheckCircle2 className="w-4 h-4 shrink-0" style={{ color: "#6d28d9" }} aria-hidden="true" />
                     <span className="text-sm" style={{ color: "#444444" }}>{b}</span>
                   </li>
                 ))}

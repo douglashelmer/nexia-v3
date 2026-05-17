@@ -69,10 +69,8 @@ export default function HeroSection() {
 
         {/* Decorations */}
         <div aria-hidden className="absolute inset-0 grid-bg opacity-60 pointer-events-none" />
-        <div aria-hidden className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[380px] rounded-full pointer-events-none"
-          style={{ background: "rgba(109,40,217,.1)", filter: "blur(120px)" }} />
-        <div aria-hidden className="absolute top-1/3 right-0 w-[500px] h-[500px] rounded-full pointer-events-none"
-          style={{ background: "rgba(109,40,217,.05)", filter: "blur(120px)" }} />
+        <div aria-hidden className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[380px] rounded-full pointer-events-none"
+          style={{ background: "rgba(109,40,217,.08)", filter: "blur(130px)" }} />
 
         <div className="relative max-w-4xl mx-auto px-5 text-center z-10">
           <div className="h-anim h-anim-0 inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-8"

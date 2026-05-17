@@ -1,5 +1,6 @@
 import { ArrowRight, BookOpen, CheckCircle2, ChevronDown, DollarSign, Shield, XCircle, Zap } from "lucide-react"
 import Image from "next/image"
+import AnnouncementBar from "./components/AnnouncementBar"
 import CountdownSection from "./components/CountdownSection"
 import HeroSection from "./components/HeroSection"
 import Reveal from "./components/Reveal"
@@ -57,7 +58,7 @@ export default function Page() {
         <div className="flex items-center gap-8 w-max ticker-track" aria-hidden="true">
           {[...tickerItems, ...tickerItems, ...tickerItems, ...tickerItems].map((item, i) => (
             <div key={i} className="flex items-center gap-8 shrink-0">
-              <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "#C9D400" }} />
+              <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "#6d28d9" }} />
               <span className="text-[11px] font-bold tracking-[.12em] uppercase whitespace-nowrap" style={{ color: "#777777" }}>{item}</span>
             </div>
           ))}
@@ -93,6 +94,9 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      {/* ANNOUNCEMENT BAR — sticky below nav */}
+      <AnnouncementBar />
 
       {/* VÍDEOS — CLIENT: lazy loading */}
       <section className="py-20 md:py-32" style={{ background: "#f7f7f7", borderTop: "1px solid rgba(0,0,0,.06)" }}>
@@ -332,8 +336,8 @@ export default function Page() {
         <div className="grid md:grid-cols-2">
           <Reveal className="p-10 md:p-16" style={{ background: "#ffffff", borderBottom: "1px solid rgba(0,0,0,.06)" } as React.CSSProperties}>
             <div className="flex items-center gap-2.5 mb-8">
-              <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style={{ background: "#C9D400" }}>
-                <CheckCircle2 className="w-4 h-4 text-[#111111]" aria-hidden="true" />
+              <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style={{ background: "#6d28d9" }}>
+                <CheckCircle2 className="w-4 h-4 text-white" aria-hidden="true" />
               </div>
               <span className="text-lg font-black" style={{ color: "#111111" }}>É para você</span>
             </div>
@@ -481,9 +485,9 @@ export default function Page() {
           <Reveal className="grid md:grid-cols-[140px,1fr] gap-8 md:gap-12 items-center rounded-2xl p-8 md:p-12"
             style={{ background: "#f9f9f9", border: "1px solid rgba(124,58,237,.2)" } as React.CSSProperties}>
             <div className="w-[120px] h-[120px] md:w-[140px] md:h-[140px] rounded-full flex flex-col items-center justify-center text-center mx-auto md:mx-0 shrink-0"
-              style={{ background: "#C9D400", boxShadow: "0 0 48px rgba(201,212,0,.35)" }}>
-              <div className="text-4xl font-black text-[#111111] leading-none">30</div>
-              <div className="text-[10px] font-black text-[#111111] uppercase tracking-wide leading-tight mt-1">dias de<br />garantia</div>
+              style={{ background: "linear-gradient(135deg, #6d28d9, #4f46e5)", boxShadow: "0 0 48px rgba(109,40,217,.3)" }}>
+              <div className="text-4xl font-black text-white leading-none">30</div>
+              <div className="text-[10px] font-black text-white uppercase tracking-wide leading-tight mt-1">dias de<br />garantia</div>
             </div>
             <div>
               <h2 className="text-2xl md:text-4xl font-black tracking-tighter mb-4 leading-tight" style={{ color: "#111111" }}>

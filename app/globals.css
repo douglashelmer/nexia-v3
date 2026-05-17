@@ -7,8 +7,8 @@
   --color-ink:        #111111;
   --color-ink-dim:    #555555;
   --color-ink-dimmer: #999999;
-  --color-accent:     #C9D400;
-  --color-accent-dk:  #a8b000;
+  --color-accent:     #6d28d9;
+  --color-accent-dk:  #5b21b6;
   --font-sans: var(--font-outfit);
   --font-display: var(--font-outfit);
 }
@@ -35,8 +35,8 @@ body {
 }
 .terminal-glow {
   box-shadow:
-    0 0 40px -10px #C9D400,
-    0 0 80px -20px color-mix(in srgb, #C9D400 30%, transparent);
+    0 0 40px -10px #6d28d9,
+    0 0 80px -20px color-mix(in srgb, #6d28d9 30%, transparent);
 }
 .grid-bg {
   background-image:
