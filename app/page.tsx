@@ -25,8 +25,6 @@ const courses = [
 ]
 
 const bonuses = [
-  { id: 1, title: "Curso Web.IA", price: "R$197", desc: "Aprenda a criar sites e landing pages com IA — sem saber programar. Um serviço que você pode cobrar por projeto ou mensalidade desde a primeira semana." },
-  { id: 2, title: "Curso Logo Express", price: "R$147", desc: "Crie logos profissionais em minutos com IA. Método de 15 minutos — aprenda a encontrar clientes e precificar para escalar seus ganhos." },
   { id: 3, title: "Lives Periódicas", price: "R$597", desc: "Sessões ao vivo para tirar dúvidas, aprender as novidades de IA e aplicar em tempo real com o professor Douglas." },
   { id: 4, title: "Comunidade de Alunos", price: "R$397", desc: "Suporte direto com o professor. Troque experiências com +1.500 criativos que caminham junto com você." },
 ]
@@ -408,7 +406,7 @@ export default function Page() {
               <div className="inline-block text-[11px] font-bold tracking-[.16em] uppercase mb-4 px-3 py-1 rounded"
                 style={{ color: "#C9D400", border: "1px solid rgba(201,212,0,.3)" }}>BÔNUS EXCLUSIVOS</div>
               <h2 className="text-3xl md:text-5xl font-black tracking-tighter leading-tight">
-                4 bônus que você<br /><span className="text-gradient">leva hoje.</span>
+                2 bônus que você<br /><span className="text-gradient">leva hoje.</span>
               </h2>
             </div>
             <p className="text-sm max-w-[36ch] leading-relaxed" style={{ color: "#a1a1aa" }}>
@@ -425,7 +423,7 @@ export default function Page() {
                   className="w-full h-full object-cover block" style={{ minHeight: 120 }} />
                 <div className="p-6 md:p-8 flex flex-col justify-center">
                   <div className="flex items-center gap-3 mb-2">
-                    <span className="text-[10px] font-bold uppercase tracking-widest" style={{ color: "#52525b" }}>Bônus {b.id}</span>
+                    <span className="text-[10px] font-bold uppercase tracking-widest" style={{ color: "#52525b" }}>Bônus {i + 1}</span>
                     <span className="text-xs font-bold line-through" style={{ color: "rgba(255,255,255,.25)" }}>{b.price}</span>
                   </div>
                   <h3 className="font-black text-base md:text-lg mb-1.5">{b.title}</h3>

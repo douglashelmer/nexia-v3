@@ -136,7 +136,7 @@ Aprenda a criar imagens e vídeos com IA — e cobrar por isso. Sem câmera, sem
 
           <div className="h-anim h-anim-4 flex items-stretch max-w-xs mx-auto mt-10"
             style={{ borderTop: "1px solid rgba(255,255,255,.07)", borderBottom: "1px solid rgba(255,255,255,.07)" }}>
-            {[{ num: "+1.500", label: "Alunos" }, { num: "14", label: "Habilidades" }, { num: "4", label: "Bônus" }].map((s, i) => (
+            {[{ num: "+1.500", label: "Alunos" }, { num: "14", label: "Habilidades" }, { num: "2", label: "Bônus" }].map((s, i) => (
               <div key={s.label} className="flex items-center flex-1">
                 <div className="flex-1 text-center py-4">
                   <div className="text-2xl font-black tracking-tight tabular-nums" style={{ color: "#C9D400" }}>{s.num}</div>

@@ -7,10 +7,8 @@ const CHECKOUT = "https://payfast.greenn.com.br/ebnwgbt/offer/TFlokq?cupom=MAIO2
 
 const valueStack = [
   { label: "14 Cursos Completos de IA", val: "R$1.235" },
-  { label: "Bônus 1: Curso Web.IA", val: "R$197" },
-  { label: "Bônus 2: Curso Logo Express", val: "R$147" },
-  { label: "Bônus 3: Lives Periódicas", val: "R$597" },
-  { label: "Bônus 4: Comunidade de Alunos", val: "R$397" },
+  { label: "Bônus 1: Lives Periódicas", val: "R$597" },
+  { label: "Bônus 2: Comunidade de Alunos", val: "R$397" },
 ]
 
 function getTonightMidnight() {
