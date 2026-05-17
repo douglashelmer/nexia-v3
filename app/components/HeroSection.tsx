@@ -71,6 +71,9 @@ function HeroImages() {
       <img
         src={HERO_IMAGES[idx]}
         alt="Antes e depois criado com nexIA"
+        width={960}
+        height={540}
+        fetchPriority={idx === 0 ? "high" : "auto"}
         className="w-full h-full object-cover md:h-auto md:object-fill block"
         style={{ opacity: fading ? 0 : 1, transition: "opacity 0.45s ease" }}
       />

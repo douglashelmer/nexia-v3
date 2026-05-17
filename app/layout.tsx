@@ -23,13 +23,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="pt-BR" className={outfit.variable}>
       <head>
-        {/* Microsoft Clarity */}
+        {/* Preload LCP hero image — browser starts fetching before JS runs */}
+        {/* eslint-disable-next-line @next/next/no-head-element */}
+        <link rel="preload" as="image" href="/assets/antes-depois/01.webp" fetchPriority="high" />
+        {/* Clarity + GTM — both deferred to window.load to avoid blocking LCP/TBT */}
         <script dangerouslySetInnerHTML={{
-          __html: `(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "wr0bsewjai");`
-        }} />
-        {/* GTM — carregado após window.load para não bloquear LCP/TBT */}
-        <script dangerouslySetInnerHTML={{
-          __html: `window.addEventListener('load',function(){(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.src="https://api.douglashelmer.com.br/etwmdnsbp.js?"+i;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','6=GQZOKTAgWiAoLkZdKVpFUgZfQUBVSxMaTQYcGwMBFgcYBx8DAR9ZFx8PXQwW');});`
+          __html: `window.addEventListener('load',function(){
+            (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wr0bsewjai");
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.src="https://api.douglashelmer.com.br/etwmdnsbp.js?"+i;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','6=GQZOKTAgWiAoLkZdKVpFUgZfQUBVSxMaTQYcGwMBFgcYBx8DAR9ZFx8PXQwW');
+          });`
         }} />
       </head>
       <body className="antialiased">
