@@ -42,7 +42,7 @@ const faqs = [
   { q: "Em quanto tempo vejo resultados?", a: "Alunos que seguem os cursos na sequência e praticam relatam os primeiros resultados em 7 a 14 dias. Resultados financeiros mais expressivos costumam aparecer entre o 1º e 3º mês." },
 ]
 
-const tickerItems = ["Acesso Vitalício", "14 Cursos Completos", "Comunidade de Alunos", "Atualizações Grátis", "Aulas ao Vivo", "Garantia 30 Dias", "Sem Mensalidade", "Suporte Contínuo"]
+const tickerItems = ["Acesso Vitalício", "Resultados em Dias", "Comunidade de Alunos", "Atualizações Grátis", "Aulas ao Vivo", "Garantia 30 Dias", "Sem Mensalidade", "Suporte Contínuo"]
 
 export default function Page() {
   return (
@@ -205,8 +205,8 @@ export default function Page() {
               <div className="inline-block text-[11px] font-bold tracking-[.16em] uppercase mb-4 px-3 py-1 rounded"
                 style={{ color: "#C9D400", border: "1px solid rgba(201,212,0,.3)" }}>O ARSENAL COMPLETO</div>
               <h2 className="text-3xl md:text-5xl font-black tracking-tighter leading-tight">
-                14 cursos. Uma habilidade<br />
-                <span className="text-gradient">que paga por si só.</span>
+                Aprenda. Aplique.<br />
+                <span className="text-gradient">Comece a cobrar.</span>
               </h2>
             </div>
             <p className="text-sm max-w-[32ch] leading-relaxed" style={{ color: "#a1a1aa" }}>

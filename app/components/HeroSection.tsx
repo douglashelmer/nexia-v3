@@ -91,7 +91,7 @@ export default function HeroSection() {
             style={{ background: "rgba(201,212,0,.1)", border: "1px solid rgba(201,212,0,.28)" }}>
             <Sparkles className="w-3 h-3 text-[#C9D400]" aria-hidden="true" />
             <span className="text-[11px] font-bold text-[#C9D400] tracking-widest uppercase">
-              14 Cursos · Acesso Vitalício · Garantia 30 Dias
+              Acesso Vitalício · Garantia 30 Dias · Sem Mensalidade
             </span>
           </div>
 
@@ -103,7 +103,7 @@ export default function HeroSection() {
 
           <p className="h-anim h-anim-2 text-base md:text-lg max-w-[44ch] mx-auto mb-10 leading-relaxed"
             style={{ color: "#d4d4d8" }}>
-            14 cursos práticos para criar imagens e vídeos com IA — e cobrar por isso. Sem câmera, sem equipe, sem experiência prévia.
+Aprenda a criar imagens e vídeos com IA — e cobrar por isso. Sem câmera, sem equipe, sem experiência prévia.
           </p>
 
           <div className="h-anim h-anim-3 flex flex-col items-center gap-4 max-w-md mx-auto">
@@ -114,7 +114,7 @@ export default function HeroSection() {
                 <span aria-hidden>🔒</span>
                 <div>
                   <div className="text-sm font-black leading-tight">Combo nexIA® — oferta especial</div>
-                  <div className="text-xs mt-0.5" style={{ opacity: 0.6 }}>14 cursos com 80% de desconto</div>
+                  <div className="text-xs mt-0.5" style={{ opacity: 0.6 }}>acesso completo com 80% de desconto</div>
                 </div>
               </div>
               <div className="w-9 h-9 rounded-full flex items-center justify-center shrink-0" style={{ background: "#090909" }}>
@@ -144,7 +144,7 @@ export default function HeroSection() {
 
           <div className="h-anim h-anim-4 flex items-stretch max-w-xs mx-auto mt-10"
             style={{ borderTop: "1px solid rgba(255,255,255,.07)", borderBottom: "1px solid rgba(255,255,255,.07)" }}>
-            {[{ num: "+1.500", label: "Alunos" }, { num: "14", label: "Cursos" }, { num: "4", label: "Bônus" }].map((s, i) => (
+            {[{ num: "+1.500", label: "Alunos" }, { num: "14", label: "Habilidades" }, { num: "4", label: "Bônus" }].map((s, i) => (
               <div key={s.label} className="flex items-center flex-1">
                 <div className="flex-1 text-center py-4">
                   <div className="text-2xl font-black tracking-tight tabular-nums" style={{ color: "#C9D400" }}>{s.num}</div>
@@ -165,7 +165,7 @@ export default function HeroSection() {
             className="flex items-center justify-between gap-3 px-5 py-3 rounded-full font-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9D400]"
             style={{ background: "#C9D400", color: "#090909" }}>
             <div className="text-left">
-              <div className="text-[10px] leading-none" style={{ color: "rgba(0,0,0,.55)" }}>Combo nexIA® · 14 cursos</div>
+              <div className="text-[10px] leading-none" style={{ color: "rgba(0,0,0,.55)" }}>Combo nexIA® · acesso vitalício</div>
               <div className="text-sm leading-snug mt-0.5">12× R$20,25 · ou R$197 PIX</div>
             </div>
             <ArrowRight className="w-5 h-5 shrink-0" aria-hidden="true" />
