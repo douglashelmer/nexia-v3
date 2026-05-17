@@ -405,7 +405,7 @@ export default function Page() {
       {/* BÔNUS */}
       <section className="py-20 md:py-32" style={{ background: "#f7f7f7", borderTop: "1px solid rgba(0,0,0,.06)" }}>
         <div className="max-w-5xl mx-auto px-5">
-          <Reveal className="text-center mb-14">
+          <div className="text-center mb-14">
             <div className="inline-block text-[11px] font-bold tracking-[.16em] uppercase mb-5 px-3 py-1 rounded"
               style={{ color: "#6d28d9", border: "1px solid rgba(109,40,217,.3)" }}>BÔNUS EXCLUSIVOS</div>
             <h2 className="text-3xl md:text-5xl font-black tracking-tighter leading-tight" style={{ color: "#111111" }}>
@@ -414,7 +414,7 @@ export default function Page() {
             <p className="mt-4 text-base max-w-[40ch] mx-auto" style={{ color: "#555555" }}>
               Não estão à venda separadamente. Apenas quem entrar nessa oferta recebe todos.
             </p>
-          </Reveal>
+          </div>
 
           {/* Grid de cards com imagem */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-6">

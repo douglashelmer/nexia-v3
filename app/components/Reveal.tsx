@@ -25,7 +25,7 @@ export default function Reveal({
           obs.disconnect()
         }
       },
-      { rootMargin: "-60px" }
+      { rootMargin: "0px 0px -40px 0px" }
     )
     obs.observe(el)
     return () => obs.disconnect()
