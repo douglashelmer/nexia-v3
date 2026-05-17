@@ -53,6 +53,21 @@ body {
 .ticker-track { animation: ticker 30s linear infinite; }
 @media (prefers-reduced-motion: reduce) { .ticker-track { animation: none; } }
 
+/* Image marquee — two rows */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes marquee-rev {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+.marquee-track     { animation: marquee     40s linear infinite; }
+.marquee-track-rev { animation: marquee-rev 40s linear infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track, .marquee-track-rev { animation: none; }
+}
+
 /* Pulsing CTA ring — yellow button on dark bg */
 @keyframes pulse-ring {
   0%, 100% { box-shadow: 0 0 0 0 rgba(201,212,0,.55), 0 0 40px rgba(201,212,0,.25); }

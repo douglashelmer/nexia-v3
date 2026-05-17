@@ -109,6 +109,45 @@ export default function Page() {
         </div>
       </section>
 
+      {/* GALERIA — infinite image marquee */}
+      {(() => {
+        const row1 = ["g-01","g-02","g-03","g-04","g-05","g-06","g-07","g-08","g-09","g-10","g-11","g-12","g-13","g-14","f-01","f-02","f-03"]
+        const row2 = ["g-15","g-16","g-17","g-18","g-19","g-20","g-21","g-22","g-23","g-24","g-25","g-26","g-27","g-28","f-04","f-05","f-06"]
+        const imgClass = "h-44 md:h-56 w-auto rounded-xl shrink-0 object-cover block"
+        const rowStyle = { gap: "12px" }
+        return (
+          <section className="py-20 md:py-32 overflow-hidden" style={{ background: "#090909", borderTop: "1px solid rgba(255,255,255,.05)" }}>
+            <div className="max-w-6xl mx-auto px-5 mb-12">
+              <Reveal className="text-center">
+                <div className="inline-block text-[11px] font-bold tracking-[.16em] uppercase mb-5 px-3 py-1 rounded"
+                  style={{ color: "#C9D400", border: "1px solid rgba(201,212,0,.3)" }}>PORTFÓLIO</div>
+                <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-balance">
+                  O que os alunos<br /><span className="text-gradient">já estão entregando.</span>
+                </h2>
+              </Reveal>
+            </div>
+            {/* Row 1 — scroll left */}
+            <div className="overflow-hidden mb-3" aria-hidden="true">
+              <div className="flex marquee-track" style={rowStyle}>
+                {[...row1, ...row1].map((f, i) => (
+                  <img key={i} src={`/assets/galeria/${f}.webp`} alt="" loading="lazy" decoding="async"
+                    className={imgClass} style={{ border: "1px solid rgba(255,255,255,.07)" }} />
+                ))}
+              </div>
+            </div>
+            {/* Row 2 — scroll right */}
+            <div className="overflow-hidden" aria-hidden="true">
+              <div className="flex marquee-track-rev" style={rowStyle}>
+                {[...row2, ...row2].map((f, i) => (
+                  <img key={i} src={`/assets/galeria/${f}.webp`} alt="" loading="lazy" decoding="async"
+                    className={imgClass} style={{ border: "1px solid rgba(255,255,255,.07)" }} />
+                ))}
+              </div>
+            </div>
+          </section>
+        )
+      })()}
+
       {/* ANTES / DEPOIS */}
       <section className="py-20 md:py-32" style={{ background: "#0e0e0e", borderTop: "1px solid rgba(255,255,255,.05)" }}>
         <div className="max-w-6xl mx-auto px-5">
