@@ -27,7 +27,7 @@ const courses = [
 const bonuses = [
   { id: 3, title: "Lives Periódicas", price: "R$597", desc: "Sessões ao vivo para tirar dúvidas, aprender as novidades de IA e aplicar em tempo real com o professor Douglas." },
   { id: 4, title: "Comunidade de Alunos", price: "R$397", desc: "Suporte direto com o professor. Troque experiências com +1.500 criativos que caminham junto com você." },
-  { id: 5, title: "Sua Primeira Venda com IA em 7 Dias", price: "R$297", desc: "Método prático para sair do zero, montar seu portfólio em tempo real e fechar o primeiro cliente em menos de uma semana." },
+  { id: 5, title: "Sua Primeira Venda com IA em 7 Dias", price: "R$97", desc: "Método prático para sair do zero, montar seu portfólio em tempo real e fechar o primeiro cliente em menos de uma semana." },
 ]
 
 const faqs = [
@@ -451,7 +451,7 @@ export default function Page() {
               style={{ background: "rgba(109,40,217,.04)", borderTop: "1px solid rgba(109,40,217,.12)" }}>
               <span className="font-bold text-sm" style={{ color: "#444444" }}>Valor total dos bônus:</span>
               <div className="flex items-baseline gap-2">
-                <span className="font-black text-lg line-through" style={{ color: "#bbbbbb" }}>R$1.291</span>
+                <span className="font-black text-lg line-through" style={{ color: "#bbbbbb" }}>R$1.091</span>
                 <span className="font-black text-sm px-2 py-0.5 rounded-full"
                   style={{ background: "rgba(109,40,217,.1)", color: "#6d28d9" }}>GRÁTIS</span>
               </div>

@@ -70,12 +70,12 @@ const checklistItems = [
   { label: "14 Habilidades com IA", detail: "acesso vitalício a todos os módulos", value: "R$297" },
   { label: "Lives Periódicas com o Professor", detail: "sessões ao vivo para tirar dúvidas", value: "R$597" },
   { label: "Comunidade de Alunos", detail: "+1.500 criativos, suporte direto", value: "R$397" },
-  { label: "Sua Primeira Venda com IA em 7 Dias", detail: "método prático para fechar o primeiro cliente", value: "R$297" },
+  { label: "Sua Primeira Venda com IA em 7 Dias", detail: "método prático para fechar o primeiro cliente", value: "R$97" },
   { label: "Atualizações Gratuitas", detail: "novos conteúdos sem custo adicional", value: null },
   { label: "Suporte com Professor", detail: "tire dúvidas diretamente com Douglas", value: null },
 ]
 
-const TOTAL_VALUE = "R$1.588"
+const TOTAL_VALUE = "R$1.388"
 
 export default function CountdownSection() {
   const countdown   = useCountdown()
@@ -136,13 +136,9 @@ export default function CountdownSection() {
             {/* Total value */}
             <div className="rounded-xl px-5 py-4"
               style={{ background: "#f5f5f5", border: "1px solid rgba(0,0,0,.08)" }}>
-              <p className="text-sm" style={{ color: "#666666" }}>
+              <p className="text-base font-bold" style={{ color: "#333333" }}>
                 Quanto você pagaria em tudo:{" "}
-                <span className="font-black line-through" style={{ color: "#aaaaaa" }}>{TOTAL_VALUE}</span>
-              </p>
-              <p className="text-lg font-black mt-1" style={{ color: "#111111" }}>
-                Hoje por apenas{" "}
-                <span className="text-gradient">R$97 no PIX</span>
+                <span className="font-black line-through text-lg" style={{ color: "#888888" }}>{TOTAL_VALUE}</span>
               </p>
             </div>
           </div>
