@@ -6,14 +6,25 @@ import { ArrowRight, Shield, Sparkles } from "lucide-react"
 const CHECKOUT = "https://payfast.greenn.com.br/mzn9ucy/offer/pAjTDd?ch_id=136886&b_id_1=qt73vwh&b_offer_1=HtJr1o&b_id_2=67eh8rf&b_offer_2=zJN4gt"
 
 const HERO_IMAGES = [
-  "/assets/antes-depois/01.webp",
-  "/assets/antes-depois/02.webp",
-  "/assets/antes-depois/03.webp",
-  "/assets/antes-depois/04.webp",
-  "/assets/antes-depois/05.webp",
-  "/assets/antes-depois/06.webp",
-  "/assets/antes-depois/07.webp",
-  "/assets/antes-depois/08.webp",
+  "/assets/hero/01.webp",
+  "/assets/hero/02.webp",
+  "/assets/hero/03.webp",
+  "/assets/hero/04.webp",
+  "/assets/hero/05.webp",
+  "/assets/hero/06.webp",
+  "/assets/hero/07.webp",
+  "/assets/hero/09.webp",
+  "/assets/hero/11.webp",
+  "/assets/hero/12.webp",
+  "/assets/hero/13.webp",
+  "/assets/hero/14.webp",
+  "/assets/hero/15.webp",
+  "/assets/hero/16.webp",
+  "/assets/hero/17.webp",
+  "/assets/hero/18.webp",
+  "/assets/hero/19.webp",
+  "/assets/hero/20.webp",
+  "/assets/hero/21.webp",
 ]
 
 function useCheckoutUrl() {
@@ -74,24 +85,6 @@ function HeroImages() {
         className="w-full h-auto block"
         style={{ opacity: fading ? 0 : 1, transition: "opacity 0.45s ease" }}
       />
-      {/* Labels */}
-      <div className="absolute bottom-0 left-0 right-0 flex justify-between p-2.5 md:p-3">
-        <span className="text-[10px] md:text-xs font-bold px-2.5 py-1 rounded-full"
-          style={{ background: "rgba(30,30,30,.75)", color: "#fff", backdropFilter: "blur(6px)" }}>
-          Sem nexIA ❌
-        </span>
-        <span className="text-[10px] md:text-xs font-bold px-2.5 py-1 rounded-full"
-          style={{ background: "rgba(109,40,217,.85)", color: "#fff", backdropFilter: "blur(6px)" }}>
-          Com nexIA ✅
-        </span>
-      </div>
-      {/* Dots */}
-      <div className="absolute top-3 right-3 flex gap-1">
-        {HERO_IMAGES.map((_, i) => (
-          <div key={i} className="w-1.5 h-1.5 rounded-full transition-all"
-            style={{ background: i === idx ? "#fff" : "rgba(255,255,255,.4)", transform: i === idx ? "scale(1.3)" : "scale(1)" }} />
-        ))}
-      </div>
     </div>
   )
 }
