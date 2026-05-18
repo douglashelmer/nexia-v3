@@ -136,12 +136,12 @@ export default function HeroSection() {
           <div className="anim-rise delay-500 flex flex-col items-start gap-4 mb-12" style={{ maxWidth: "360px" }}>
 
             {/* Primary CTA */}
-            <a href="#conteudo" className="btn-cta" style={{ width: "100%" }}
-              aria-label="Ver conteúdo do nexIA">
+            <a href="#pricing" onClick={scrollToPricing} className="btn-cta" style={{ width: "100%" }}
+              aria-label="Garantir vaga no nexIA">
               <span className="btn-cta-spin" aria-hidden />
               <span className="btn-cta-body">
                 <span className="btn-cta-shimmer" aria-hidden />
-                <span className="btn-cta-label">Ver o Que Você Vai Aprender →</span>
+                <span className="btn-cta-label">Garantir Minha Vaga — R$197 →</span>
               </span>
             </a>
 
