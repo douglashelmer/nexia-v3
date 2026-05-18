@@ -42,6 +42,10 @@ export default function HeroSection() {
   const checkoutUrl = useCheckoutUrl()
   const stickyVisible = useStickyBarVisible()
 
+  useEffect(() => {
+    document.querySelectorAll<HTMLAnchorElement>('.cta-checkout').forEach(a => { a.href = checkoutUrl })
+  }, [checkoutUrl])
+
   return (
     <>
       {/* ── HERO ─────────────────────────────────────────────── */}
@@ -230,10 +234,6 @@ export default function HeroSection() {
         </div>
       )}
 
-      {/* Checkout URL injector */}
-      <script dangerouslySetInnerHTML={{
-        __html: `(function(){var u=${JSON.stringify(checkoutUrl)};document.querySelectorAll('.cta-checkout').forEach(function(a){a.href=u;});})();`
-      }} />
     </>
   )
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Syne, JetBrains_Mono } from "next/font/google";
+import Script from "next/script";
 import RevealInit from "./components/RevealInit";
 import "./globals.css";
 
@@ -38,26 +39,21 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR" className={`${inter.variable} ${syne.variable} ${mono.variable}`}>
-      <head>
+      <head />
+      <body className="antialiased">
+        <RevealInit />
+        {children}
         {/* UTMify — pixel */}
-        <script dangerouslySetInnerHTML={{
-          __html: `window.pixelId="69c6e9e04d7d4f8e24385f46";var a=document.createElement("script");a.setAttribute("async","");a.setAttribute("defer","");a.setAttribute("src","https://cdn.utmify.com.br/scripts/pixel/pixel.js");document.head.appendChild(a);`
-        }} />
+        <Script id="utmify-pixel" strategy="afterInteractive">{`window.pixelId="69c6e9e04d7d4f8e24385f46";var a=document.createElement("script");a.setAttribute("async","");a.setAttribute("defer","");a.setAttribute("src","https://cdn.utmify.com.br/scripts/pixel/pixel.js");document.head.appendChild(a);`}</Script>
         {/* UTMify — UTM tracking */}
-        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
-        <script
+        <Script
           src="https://cdn.utmify.com.br/scripts/utms/latest.js"
           data-utmify-prevent-xcod-sck=""
           data-utmify-prevent-subids=""
           data-utmify-ignore-iframe=""
           data-utmify-ignore-retry=""
-          async
-          defer
+          strategy="afterInteractive"
         />
-      </head>
-      <body className="antialiased">
-        <RevealInit />
-        {children}
       </body>
     </html>
   );
