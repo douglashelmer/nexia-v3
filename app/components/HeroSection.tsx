@@ -76,10 +76,6 @@ export default function HeroSection() {
             style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", zIndex: 0 }}
           >
             <source
-              src="/assets/video-fundo-desk.webm"
-              type="video/webm"
-            />
-            <source
               src="/assets/video-fundo-desk.mp4"
               type="video/mp4"
             />
