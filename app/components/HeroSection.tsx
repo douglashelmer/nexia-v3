@@ -80,7 +80,7 @@ export default function HeroSection() {
               type="video/webm"
             />
             <source
-              src="https://res.cloudinary.com/dumfhfjuh/video/upload/q_auto,w_1280,ac_none/VIDEO-PAGINA2_tzgvin.mp4"
+              src="/assets/video-fundo-desk.mp4"
               type="video/mp4"
             />
           </video>
