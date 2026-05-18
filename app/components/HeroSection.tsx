@@ -58,8 +58,26 @@ export default function HeroSection() {
               style={{ position:"absolute", inset:0, width:"100%", height:"100%", border:"none", objectFit:"cover" }} />
         ───────────────────────────────────────────────────── */}
         <div className="video-bg-wrap" aria-hidden="true">
-          {/* PLACEHOLDER — cole aqui o seu embed de vídeo */}
-          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, #060606 0%, #0e0520 55%, #050505 100%)" }} />
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            poster="https://res.cloudinary.com/dumfhfjuh/video/upload/so_0,f_auto,q_auto,w_1280/VIDEO-PAGINA2_tzgvin.jpg"
+            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", zIndex: 0 }}
+          >
+            <source
+              media="(min-width: 768px)"
+              src="https://res.cloudinary.com/dumfhfjuh/video/upload/f_auto,q_auto,w_1920,ac_none/VIDEO-PAGINA2_tzgvin.mp4"
+              type="video/mp4"
+            />
+            <source
+              media="(max-width: 767px)"
+              src="https://res.cloudinary.com/dumfhfjuh/video/upload/f_auto,q_auto,w_720,ac_none/VIDEO-PAGINA2_tzgvin.mp4"
+              type="video/mp4"
+            />
+          </video>
         </div>
 
         {/* Gradiente sobre o vídeo */}
@@ -98,18 +116,20 @@ export default function HeroSection() {
 
           {/* Headline */}
           <h1
-            className="anim-rise delay-200 font-black leading-[0.92] mb-6"
+            className="anim-rise delay-200 mb-6"
             style={{
-              fontFamily: "var(--font-syne), var(--font-inter), sans-serif",
-              fontSize: "clamp(2.4rem, 6.5vw, 5.5rem)",
+              fontFamily: "var(--font-syne), sans-serif",
+              fontSize: "clamp(1.75rem, 4vw, 3rem)",
+              fontWeight: 700,
               letterSpacing: "-0.03em",
+              lineHeight: 1.1,
               color: "#ffffff",
               maxWidth: "16ch",
               textWrap: "balance",
             }}
           >
             Crie Imagens, Vídeos e Anúncios Incríveis{" "}
-            <span className="text-gradient-wl">
+            <span className="text-gradient">
               com IA em Menos de 5 Minutos
             </span>
           </h1>
