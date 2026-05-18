@@ -512,6 +512,35 @@ export default function Page() {
         </div>
       </section>
 
+      {/* ── TOOLS MARQUEE ────────────────────────────────────── */}
+      {(() => {
+        const tools = [
+          { icon: "🍌", name: "Nano Banana 2" },
+          { icon: "✨", name: "GPT Image 2" },
+          { icon: "🎬", name: "Kling 3.0" },
+          { icon: "🎮", name: "Motion Control" },
+          { icon: "🌱", name: "Seedance 2.0" },
+          { icon: "🎭", name: "Heygen" },
+          { icon: "🖼️", name: "Midjourney" },
+          { icon: "🤖", name: "ComfyUI" },
+          { icon: "🎨", name: "Adobe Firefly" },
+          { icon: "🔊", name: "ElevenLabs" },
+        ]
+        const repeated = [...tools, ...tools, ...tools, ...tools]
+        return (
+          <div className="overflow-hidden" style={{ background: C.surf, borderTop: "1px solid var(--color-border)", borderBottom: "1px solid var(--color-border)", padding: "14px 0" }}>
+            <div className="flex items-center gap-6 w-max ticker-track" aria-label="Ferramentas ensinadas no nexIA">
+              {repeated.map((t, i) => (
+                <div key={i} className="flex items-center gap-6 shrink-0">
+                  <span className="chip" style={{ whiteSpace: "nowrap" }}>{t.icon} {t.name}</span>
+                  <span style={{ width: "4px", height: "4px", borderRadius: "50%", background: "var(--color-border)", flexShrink: 0, display: "block" }} aria-hidden />
+                </div>
+              ))}
+            </div>
+          </div>
+        )
+      })()}
+
       {/* ── PRICING + COUNTDOWN (client) ─────────────────────── */}
       <CountdownSection />
 

@@ -45,19 +45,23 @@ export default function HeroSection() {
   return (
     <>
       {/* ── HERO ─────────────────────────────────────────────── */}
+      {/*
+        Mobile:  flex-col — vídeo (60vh) em cima, conteúdo em dark bg abaixo
+        Desktop: relative + justify-end — vídeo cobre tudo, conteúdo sobreposto
+      */}
       <section
-        className="relative flex flex-col justify-end overflow-hidden"
-        style={{ minHeight: "100dvh", background: "var(--color-bg)", paddingTop: "60px" }}
+        className="flex flex-col md:relative md:justify-end overflow-hidden"
+        style={{ minHeight: "100dvh", background: "var(--color-bg)" }}
       >
-        {/* ─────────────────────────────────────────────────────
-            VIDEO BACKGROUND
-            Substitua o conteúdo deste div pelo embed do player.
-            O iframe/video deve ter: autoplay, loop, muted, sem controles.
-            Exemplo Panda Video:
-            <iframe src="SEU_URL" allow="autoplay; fullscreen" allowFullScreen
-              style={{ position:"absolute", inset:0, width:"100%", height:"100%", border:"none", objectFit:"cover" }} />
-        ───────────────────────────────────────────────────── */}
-        <div className="video-bg-wrap" aria-hidden="true">
+        {/* ── VIDEO ─────────────────────────────────────────── */}
+        {/*
+          Mobile:  position relative, height 60vh (mostra mais conteúdo do vídeo)
+          Desktop: position absolute, inset 0 (cobre a seção inteira)
+        */}
+        <div
+          className="relative overflow-hidden shrink-0 h-[60vh] md:h-auto md:absolute md:inset-0"
+          aria-hidden="true"
+        >
           <video
             autoPlay
             muted
@@ -78,24 +82,30 @@ export default function HeroSection() {
               type="video/mp4"
             />
           </video>
+
+          {/* Fade inferior no mobile para blending suave com o dark bg */}
+          <div
+            className="md:hidden absolute bottom-0 left-0 right-0 pointer-events-none"
+            style={{ height: "80px", background: "linear-gradient(to bottom, transparent, var(--color-bg))" }}
+          />
         </div>
 
-        {/* Gradiente sobre o vídeo */}
-        <div aria-hidden className="absolute inset-0 pointer-events-none" style={{ zIndex: 1,
+        {/* Gradiente sobre o vídeo — desktop only */}
+        <div aria-hidden className="hidden md:block absolute inset-0 pointer-events-none" style={{ zIndex: 1,
           background: "linear-gradient(to top, #050505 0%, rgba(5,5,5,0.80) 35%, rgba(5,5,5,0.40) 70%, rgba(5,5,5,0.20) 100%)" }} />
 
-        {/* Grid decorativo */}
-        <div aria-hidden className="grid-bg" style={{ zIndex: 1 }} />
+        {/* Grid decorativo — desktop only */}
+        <div aria-hidden className="grid-bg hidden md:block" style={{ zIndex: 1 }} />
 
-        {/* Glow orbs */}
-        <div aria-hidden style={{
+        {/* Glow orbs — desktop only */}
+        <div aria-hidden className="hidden md:block" style={{
           position: "absolute", zIndex: 2, pointerEvents: "none",
           top: "15%", left: "50%", transform: "translateX(-50%)",
           width: "900px", height: "500px",
           background: "radial-gradient(ellipse, rgba(204,255,0,0.06) 0%, transparent 70%)",
           filter: "blur(60px)",
         }} />
-        <div aria-hidden style={{
+        <div aria-hidden className="hidden md:block" style={{
           position: "absolute", zIndex: 2, pointerEvents: "none",
           top: "5%", right: "5%",
           width: "600px", height: "400px",
@@ -104,7 +114,14 @@ export default function HeroSection() {
         }} />
 
         {/* ─ CONTEÚDO ─────────────────────────────────────── */}
-        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-10 pb-0" style={{ zIndex: 10 }}>
+        {/*
+          Mobile:  flow normal abaixo do vídeo, fundo escuro, padding top
+          Desktop: overlaid no fundo da section, z-index 10
+        */}
+        <div
+          className="relative w-full max-w-6xl mx-auto px-5 md:px-10"
+          style={{ zIndex: 10, paddingTop: "clamp(24px, 4vw, 40px)", paddingBottom: 0 }}
+        >
 
           {/* Badge */}
           <div className="anim-rise delay-100 mb-5">
@@ -145,15 +162,8 @@ export default function HeroSection() {
             </strong>
           </p>
 
-          {/* Tools chips */}
-          <div className="anim-rise delay-400 flex flex-wrap gap-2 mb-7" aria-hidden="true">
-            {["🍌 Nano Banana 2", "✨ GPT Image 2", "🎬 Kling 3.0", "🎮 Motion Control", "🌱 Seedance 2.0", "🎭 Heygen"].map(c => (
-              <span key={c} className="chip">{c}</span>
-            ))}
-          </div>
-
           {/* CTA + urgency */}
-          <div className="anim-rise delay-500 flex flex-col items-start gap-4 mb-10" style={{ maxWidth: "360px" }}>
+          <div className="anim-rise delay-400 flex flex-col items-start gap-4 mb-10" style={{ maxWidth: "360px" }}>
 
             {/* Primary CTA */}
             <a href="#pricing" onClick={scrollToPricing} className="btn-cta" style={{ width: "100%" }}
@@ -161,7 +171,7 @@ export default function HeroSection() {
               <span className="btn-cta-spin" aria-hidden />
               <span className="btn-cta-body">
                 <span className="btn-cta-shimmer" aria-hidden />
-                <span className="btn-cta-label">Garantir Minha Vaga — R$197 →</span>
+                <span className="btn-cta-label">Garantir Minha Vaga →</span>
               </span>
             </a>
 
@@ -189,35 +199,6 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* ─ STATS BAR ───────────────────────────────────── */}
-          <div style={{ borderTop: "1px solid var(--color-border)", display: "flex" }}>
-            {[
-              { num: "+1.500", label: "Alunos Ativos" },
-              { num: "14",     label: "Habilidades com IA" },
-              { num: "R$197",  label: "Acesso vitalício" },
-              { num: "30 dias", label: "Garantia em dobro" },
-            ].map((s, i, arr) => (
-              <div key={s.label} style={{
-                flex: 1, padding: "20px 0", textAlign: "center",
-                borderRight: i < arr.length - 1 ? "1px solid var(--color-border)" : "none",
-              }}>
-                <div style={{
-                  fontFamily: "var(--font-syne), sans-serif",
-                  fontSize: "clamp(1rem, 2vw, 1.3rem)",
-                  fontWeight: 700, color: "var(--color-lime)", lineHeight: 1,
-                }}>
-                  {s.num}
-                </div>
-                <div style={{
-                  fontFamily: "var(--font-mono),monospace",
-                  fontSize: "7px", letterSpacing: "0.15em",
-                  textTransform: "uppercase", color: "#525252", marginTop: "6px",
-                }}>
-                  {s.label}
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
