@@ -107,7 +107,7 @@ export default function HeroSection() {
         <div className="relative w-full max-w-6xl mx-auto px-5 md:px-10 pb-0" style={{ zIndex: 10 }}>
 
           {/* Badge */}
-          <div className="anim-rise delay-100 mb-8">
+          <div className="anim-rise delay-100 mb-5">
             <div className="badge" style={{ width: "fit-content" }}>
               <span className="live-dot" aria-hidden />
               Acesso Imediato · Vitalício · Sem Mensalidade
@@ -116,28 +116,28 @@ export default function HeroSection() {
 
           {/* Headline */}
           <h1
-            className="anim-rise delay-200 mb-6"
+            className="anim-rise delay-200 mb-5"
             style={{
               fontFamily: "var(--font-syne), sans-serif",
-              fontSize: "clamp(1.75rem, 4vw, 3rem)",
-              fontWeight: 700,
+              fontSize: "clamp(2rem, 5vw, 3.5rem)",
+              fontWeight: 800,
               letterSpacing: "-0.03em",
               lineHeight: 1.1,
               color: "#ffffff",
-              maxWidth: "16ch",
+              maxWidth: "14ch",
               textWrap: "balance",
             }}
           >
             Crie Imagens, Vídeos e Anúncios Incríveis{" "}
-            <span className="text-gradient">
+            <span style={{ color: "var(--color-lime)" }}>
               com IA em Menos de 5 Minutos
             </span>
           </h1>
 
           {/* Subheadline */}
           <p
-            className="anim-rise delay-300 text-base md:text-lg leading-relaxed mb-8"
-            style={{ color: "var(--color-muted)", maxWidth: "54ch" }}
+            className="anim-rise delay-300 leading-relaxed mb-6"
+            style={{ color: "var(--color-muted)", maxWidth: "46ch", fontSize: "clamp(0.9rem, 1.5vw, 1.05rem)" }}
           >
             Sem designer, estúdio, modelos ou experiência.{" "}
             <strong style={{ color: "var(--color-subdued)", fontWeight: 500 }}>
@@ -146,14 +146,14 @@ export default function HeroSection() {
           </p>
 
           {/* Tools chips */}
-          <div className="anim-rise delay-400 flex flex-wrap gap-2 mb-10" aria-hidden="true">
+          <div className="anim-rise delay-400 flex flex-wrap gap-2 mb-7" aria-hidden="true">
             {["🍌 Nano Banana 2", "✨ GPT Image 2", "🎬 Kling 3.0", "🎮 Motion Control", "🌱 Seedance 2.0", "🎭 Heygen"].map(c => (
               <span key={c} className="chip">{c}</span>
             ))}
           </div>
 
           {/* CTA + urgency */}
-          <div className="anim-rise delay-500 flex flex-col items-start gap-4 mb-12" style={{ maxWidth: "360px" }}>
+          <div className="anim-rise delay-500 flex flex-col items-start gap-4 mb-10" style={{ maxWidth: "360px" }}>
 
             {/* Primary CTA */}
             <a href="#pricing" onClick={scrollToPricing} className="btn-cta" style={{ width: "100%" }}
