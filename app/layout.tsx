@@ -41,6 +41,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="pt-BR" className={`${inter.variable} ${syne.variable} ${mono.variable}`}>
       <head />
       <body className="antialiased">
+        {/* Auto-reload on ChunkLoadError — fixes Instagram/Facebook IAB first-load failure */}
+        <Script id="chunk-error-reload" strategy="beforeInteractive">{`(function(){window.addEventListener('error',function(e){if(e&&e.error&&(e.error.name==='ChunkLoadError'||String(e.error.message).indexOf('Loading chunk')!==-1)){var k='_nexia_chunk_reload';if(!sessionStorage.getItem(k)){sessionStorage.setItem(k,'1');window.location.reload();}}});})();`}</Script>
         <RevealInit />
         {children}
         {/* UTMify — pixel */}
