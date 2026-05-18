@@ -119,12 +119,12 @@ export default function HeroSection() {
             className="anim-rise delay-200 mb-5"
             style={{
               fontFamily: "var(--font-syne), sans-serif",
-              fontSize: "clamp(2rem, 5vw, 3.5rem)",
-              fontWeight: 800,
+              fontSize: "clamp(1.55rem, 4vw, 3rem)",
+              fontWeight: 700,
               letterSpacing: "-0.03em",
-              lineHeight: 1.1,
+              lineHeight: 1.15,
               color: "#ffffff",
-              maxWidth: "14ch",
+              maxWidth: "18ch",
               textWrap: "balance",
             }}
           >
