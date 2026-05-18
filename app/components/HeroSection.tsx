@@ -51,7 +51,7 @@ export default function HeroSection() {
       */}
       <section
         className="flex flex-col md:relative md:justify-end overflow-hidden"
-        style={{ minHeight: "100dvh", background: "var(--color-bg)" }}
+        style={{ height: "100dvh", background: "var(--color-bg)" }}
       >
         {/* ── VIDEO ─────────────────────────────────────────── */}
         {/*
@@ -59,7 +59,7 @@ export default function HeroSection() {
           Desktop: position absolute, inset 0 (cobre a seção inteira)
         */}
         <div
-          className="relative overflow-hidden shrink-0 h-[60vh] md:h-auto md:absolute md:inset-0"
+          className="relative overflow-hidden shrink-0 h-[40vh] md:h-auto md:absolute md:inset-0"
           aria-hidden="true"
         >
           <video
@@ -119,8 +119,8 @@ export default function HeroSection() {
           Desktop: overlaid no fundo da section, z-index 10
         */}
         <div
-          className="relative w-full max-w-6xl mx-auto px-5 md:px-10"
-          style={{ zIndex: 10, paddingTop: "clamp(24px, 4vw, 40px)", paddingBottom: 0 }}
+          className="relative flex-1 md:flex-none w-full max-w-6xl mx-auto px-5 md:px-10 flex flex-col md:block justify-center"
+          style={{ zIndex: 10, paddingTop: "clamp(16px, 3vw, 40px)", paddingBottom: "clamp(16px, 3vw, 0px)" }}
         >
 
           {/* Badge */}
