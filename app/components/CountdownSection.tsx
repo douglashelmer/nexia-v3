@@ -142,19 +142,19 @@ export default function CountdownSection() {
 
               {/* Price */}
               <div style={{ textAlign: "center", marginBottom: "20px" }}>
-                <div style={{ fontFamily: "var(--font-mono),monospace", fontSize: "9px", letterSpacing: "0.20em", textTransform: "uppercase", color: C.muted, marginBottom: "12px" }}>
+                <div style={{ fontFamily: "var(--font-mono),monospace", fontSize: "9px", letterSpacing: "0.20em", textTransform: "uppercase", color: "#fff", marginBottom: "12px" }}>
                   Nesta oferta por apenas:
                 </div>
                 <div style={{ display: "flex", alignItems: "baseline", justifyContent: "center", gap: "8px", lineHeight: 1, marginBottom: "6px" }}>
-                  <span style={{ fontFamily: "var(--font-inter),sans-serif", fontWeight: 700, fontSize: "clamp(1rem,3vw,1.3rem)", color: C.muted }}>12×</span>
+                  <span style={{ fontFamily: "var(--font-inter),sans-serif", fontWeight: 700, fontSize: "clamp(1rem,3vw,1.3rem)", color: "#fff" }}>12×</span>
                   <span style={{ fontFamily: "var(--font-inter),sans-serif", fontWeight: 800, fontSize: "clamp(2.5rem,11vw,4rem)", color: "#fff", letterSpacing: "-0.02em" }}>
                     R$<span className="text-lime">19,71</span>
                   </span>
                 </div>
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "10px", marginTop: "12px" }}>
-                  <span style={{ color: C.muted, fontSize: "0.875rem" }}>ou</span>
+                  <span style={{ color: "#fff", fontSize: "0.875rem" }}>ou</span>
                   <span style={{ fontFamily: "var(--font-inter),sans-serif", fontWeight: 800, fontSize: "1.4rem", color: "#fff" }}>R$197</span>
-                  <span style={{ color: C.muted, fontSize: "0.875rem" }}>à vista</span>
+                  <span style={{ color: "#fff", fontSize: "0.875rem" }}>à vista</span>
                 </div>
               </div>
 
@@ -162,7 +162,7 @@ export default function CountdownSection() {
 
               {/* Countdown label */}
               <div style={{ textAlign: "center", marginBottom: "16px" }}>
-                <p style={{ color: C.muted, fontSize: "0.875rem" }}>
+                <p style={{ color: "#fff", fontSize: "0.875rem" }}>
                   ⏳ Oferta expira hoje,
                 </p>
                 <p style={{ fontWeight: 700, marginTop: "2px", fontSize: "0.875rem" }} suppressHydrationWarning>
@@ -202,8 +202,8 @@ export default function CountdownSection() {
                 ))}
               </div>
 
-              <p style={{ fontFamily: "var(--font-mono),monospace", fontSize: "9px", letterSpacing: "0.10em", textTransform: "uppercase", textAlign: "center", color: "#444", marginBottom: "20px" }}>
-                Depois disso, preço volta a R$297
+              <p style={{ fontFamily: "var(--font-mono),monospace", fontSize: "9px", letterSpacing: "0.10em", textTransform: "uppercase", textAlign: "center", color: "#fff", marginBottom: "20px" }}>
+                Depois disso, preço volta a R$497
               </p>
 
               {/* CTA */}
