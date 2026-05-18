@@ -76,13 +76,11 @@ export default function HeroSection() {
             style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", zIndex: 0 }}
           >
             <source
-              media="(min-width: 768px)"
-              src="https://res.cloudinary.com/dumfhfjuh/video/upload/f_auto,q_auto,w_1920,ac_none/VIDEO-PAGINA2_tzgvin.mp4"
-              type="video/mp4"
+              src="https://res.cloudinary.com/dumfhfjuh/video/upload/q_auto,w_1280,ac_none/VIDEO-PAGINA2_tzgvin.webm"
+              type="video/webm"
             />
             <source
-              media="(max-width: 767px)"
-              src="https://res.cloudinary.com/dumfhfjuh/video/upload/f_auto,q_auto,w_720,ac_none/VIDEO-PAGINA2_tzgvin.mp4"
+              src="https://res.cloudinary.com/dumfhfjuh/video/upload/q_auto,w_1280,ac_none/VIDEO-PAGINA2_tzgvin.mp4"
               type="video/mp4"
             />
           </video>
