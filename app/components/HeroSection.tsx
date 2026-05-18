@@ -41,8 +41,10 @@ function scrollToPricing(e: React.MouseEvent) {
 export default function HeroSection() {
   const checkoutUrl = useCheckoutUrl()
   const stickyVisible = useStickyBarVisible()
+  const [videoMounted, setVideoMounted] = useState(false)
 
   useEffect(() => {
+    setVideoMounted(true)
     document.querySelectorAll<HTMLAnchorElement>('.cta-checkout').forEach(a => { a.href = checkoutUrl })
   }, [checkoutUrl])
 
@@ -66,20 +68,29 @@ export default function HeroSection() {
           className="relative overflow-hidden shrink-0 h-[40vh] md:h-auto md:absolute md:inset-0"
           aria-hidden="true"
         >
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            poster="https://res.cloudinary.com/dumfhfjuh/video/upload/so_0,f_auto,q_auto,w_1280/VIDEO-PAGINA2_tzgvin.jpg"
-            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", zIndex: 0 }}
-          >
-            <source
-              src="/assets/video-fundo-desk.mp4"
-              type="video/mp4"
-            />
-          </video>
+          {/* Poster estático — visível no SSR e enquanto o vídeo não monta (Instagram IAB safe) */}
+          <img
+            src="https://res.cloudinary.com/dumfhfjuh/video/upload/so_0,f_auto,q_auto,w_1280/VIDEO-PAGINA2_tzgvin.jpg"
+            alt=""
+            aria-hidden
+            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", zIndex: 0, display: videoMounted ? "none" : "block" }}
+          />
+          {/* Vídeo só é adicionado ao DOM após hidratação — evita crash no WebView do Instagram */}
+          {videoMounted && (
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="none"
+              style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", zIndex: 0 }}
+            >
+              <source
+                src="/assets/video-fundo-desk.mp4"
+                type="video/mp4"
+              />
+            </video>
+          )}
 
           {/* Fade inferior no mobile para blending suave com o dark bg */}
           <div
