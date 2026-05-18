@@ -222,7 +222,7 @@ export default function HeroSection() {
                   Combo nexIA® · acesso vitalício
                 </div>
                 <div style={{ fontFamily: "var(--font-mono),monospace", fontSize: "11px", letterSpacing: "0.08em", fontWeight: 900, color: "#000", marginTop: "2px" }}>
-                  R$197 no PIX · acesso imediato →
+                  Garantir minha vaga — acesso imediato →
                 </div>
               </div>
             </span>

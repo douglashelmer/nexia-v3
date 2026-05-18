@@ -146,17 +146,14 @@ export default function CountdownSection() {
                   Nesta oferta por apenas:
                 </div>
                 <div style={{ display: "flex", alignItems: "baseline", justifyContent: "center", gap: "8px", lineHeight: 1, marginBottom: "6px" }}>
-                  <span style={{ fontFamily: "var(--font-syne),sans-serif", fontWeight: 700, fontSize: "clamp(1rem,3vw,1.3rem)", color: C.muted }}>12×</span>
-                  <span style={{ fontFamily: "var(--font-syne),sans-serif", fontWeight: 800, fontSize: "clamp(2.5rem,11vw,4rem)", color: "#fff", letterSpacing: "-0.03em" }}>
+                  <span style={{ fontFamily: "var(--font-inter),sans-serif", fontWeight: 700, fontSize: "clamp(1rem,3vw,1.3rem)", color: C.muted }}>12×</span>
+                  <span style={{ fontFamily: "var(--font-inter),sans-serif", fontWeight: 800, fontSize: "clamp(2.5rem,11vw,4rem)", color: "#fff", letterSpacing: "-0.02em" }}>
                     R$<span className="text-lime">19,71</span>
                   </span>
                 </div>
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "10px", marginTop: "12px" }}>
                   <span style={{ color: C.muted, fontSize: "0.875rem" }}>ou</span>
-                  <span style={{ fontFamily: "var(--font-syne),sans-serif", fontWeight: 800, fontSize: "1.4rem", color: "#fff" }}>R$197</span>
-                  <span style={{ fontFamily: "var(--font-mono),monospace", fontSize: "9px", letterSpacing: "0.14em", textTransform: "uppercase", padding: "3px 10px", borderRadius: "9999px", background: "var(--color-lime-ghost)", color: "var(--color-lime)", border: "1px solid var(--color-border-lime)", fontWeight: 700 }}>
-                    PIX
-                  </span>
+                  <span style={{ fontFamily: "var(--font-inter),sans-serif", fontWeight: 800, fontSize: "1.4rem", color: "#fff" }}>R$197</span>
                   <span style={{ color: C.muted, fontSize: "0.875rem" }}>à vista</span>
                 </div>
               </div>
