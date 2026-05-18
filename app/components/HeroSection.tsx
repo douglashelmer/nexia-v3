@@ -68,13 +68,6 @@ export default function HeroSection() {
           className="relative overflow-hidden shrink-0 h-[40vh] md:h-auto md:absolute md:inset-0"
           aria-hidden="true"
         >
-          {/* Poster estático — visível no SSR e enquanto o vídeo não monta (Instagram IAB safe) */}
-          <img
-            src="https://res.cloudinary.com/dumfhfjuh/video/upload/so_0,f_auto,q_auto,w_1280/VIDEO-PAGINA2_tzgvin.jpg"
-            alt=""
-            aria-hidden
-            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", zIndex: 0, display: videoMounted ? "none" : "block" }}
-          />
           {/* Vídeo só é adicionado ao DOM após hidratação — evita crash no WebView do Instagram */}
           {videoMounted && (
             <video
