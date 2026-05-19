@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
+import GuaranteeSeal from "./GuaranteeSeal"
 
 const CHECKOUT = "https://pay.onprofit.com.br/H8cdL2ni?off=EHyreQ"
 
@@ -117,12 +118,17 @@ export default function CountdownSection() {
               </li>
             </ul>
 
-            {/* Total value */}
-            <div style={{ borderRadius: "10px", padding: "16px 20px", background: "var(--color-bg)", border: "1px solid var(--color-border)" }}>
-              <p style={{ fontFamily: "var(--font-mono),monospace", fontSize: "11px", letterSpacing: "0.12em", textTransform: "uppercase", color: C.muted }}>
-                Valor total se comprado separado:{" "}
-                <span style={{ fontWeight: 900, fontSize: "1.1rem", textDecoration: "line-through", color: "#555" }}>R$2.323</span>
-              </p>
+            {/* Total value + Selo */}
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "16px" }}>
+              <div style={{ flex: 1, borderRadius: "10px", padding: "16px 20px", background: "var(--color-bg)", border: "1px solid var(--color-border)" }}>
+                <p style={{ fontFamily: "var(--font-mono),monospace", fontSize: "11px", letterSpacing: "0.12em", textTransform: "uppercase", color: C.muted }}>
+                  Valor total se comprado separado:{" "}
+                  <span style={{ fontWeight: 900, fontSize: "1.1rem", textDecoration: "line-through", color: "#555" }}>R$2.323</span>
+                </p>
+              </div>
+              <div style={{ flexShrink: 0 }}>
+                <GuaranteeSeal size={110} />
+              </div>
             </div>
           </div>
 
